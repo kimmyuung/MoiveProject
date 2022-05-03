@@ -8,6 +8,7 @@ private String mname;
 private String mphone;
 private String maddress;
 private String memail;
+
 public Member() {}
 public Member(int mnum, String mid, String mpw, String mname, String mphone, String maddress, String memail) {
 	super();
