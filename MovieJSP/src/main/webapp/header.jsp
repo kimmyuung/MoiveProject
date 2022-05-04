@@ -26,17 +26,17 @@
 				<!-- 헤더 메뉴 오른쪽 배치 -->
 				<!-- 헤더 -->
 				<ul class="nav">
-					<li class="tophead"><a href="/MovieJSP/main.jsp">HOME</a></li>
-					<li class="tophead"><a href="/MovieJSP/member/login.jsp">LOGIN</a></li>
-					<li class="tophead"><a href="/MovieJSP/member/signup.jsp">회원 가입</a></li>
-					<li class="tophead"><a href="#">MY MOVIE</a></li>
-					<li class="tophead"><a href="#">고객센터</a></li>
+					<li class="tophead"><a href="/MovieJSP/main.jsp">HOME</a> &nbsp &nbsp</li>
+					<li class="tophead"><a href="/MovieJSP/member/login.jsp">LOGIN </a> &nbsp &nbsp</li>
+					<li class="tophead"><a href="/MovieJSP/member/signup.jsp">회원 가입 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="#">MY MOVIE </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="#">고객센터 </a>&nbsp &nbsp</li>
 				</ul>
 			</div>
 		</div>
 </div>
 <!-- 부트스트랩  -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- jquery 최신 cdn -->
 <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 </body>
