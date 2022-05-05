@@ -20,7 +20,7 @@
 			Member member = MemberDao.getMemberDao().getmember(mid);
 			
 			%>
-			회원번호 : <%=member.getMnum() %> <br>
+			회원번호 : <%=member.getMnum() %> 
 			아이디 : <%=member.getMid() %> <br>
 			이름 : <%=member.getMname() %> <br>
 			연락처 : <%=member.getMphone() %> <br>
