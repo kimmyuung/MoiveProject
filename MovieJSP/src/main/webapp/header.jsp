@@ -20,6 +20,12 @@
 </style>
 </head>
 <body>
+
+<%
+		String loginid 
+			= (String)session.getAttribute("login"); // 세션 호출 ( 기본타입 = Odject )
+	%>
+
 <div class="row">
 		<div class="col-md-10 offset-2 fixed-top pb-1 pt-5 px-5">
 			<div class="col-md-7 offset-5 d-flex justify-content-end">
@@ -27,10 +33,27 @@
 				<!-- 헤더 -->
 				<ul class="nav">
 					<li class="tophead"><a href="/MovieJSP/main.jsp">HOME</a> &nbsp &nbsp</li>
+					<li class="tophead"><a href="#">고객센터 </a>&nbsp &nbsp</li>
+					
+					<% if( loginid == null ){ %>
 					<li class="tophead"><a href="/MovieJSP/member/login.jsp">LOGIN </a> &nbsp &nbsp</li>
 					<li class="tophead"><a href="/MovieJSP/member/signup.jsp">회원 가입 </a>&nbsp &nbsp</li>
+					<%} %>
+		<!--  만약에 로그인된 상태 -->
+					<% if( loginid != null ){ %>
+						<span> <%=loginid %>님 </span>
+					<li class="tophead"><a href="/MovieJSP/member/logout">로그아웃</a></li>
 					<li class="tophead"><a href="#">MY MOVIE </a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="#">고객센터 </a>&nbsp &nbsp</li>
+					<%} %>
+					<% if( loginid != null && loginid.equals("admin") ){ //관리자로 로그인시%> 
+						<span> <%=loginid %>님 </span>
+					<li class="tophead"><a href="/MovieJSP/member/logout">영화 관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="#"> 상영관 관리 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/MovieJSP/member/logout">제품관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="#">회원 관리 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/MovieJSP/member/logout">매출 관리</a></li>
+					<li class="tophead"><a href="#">로그 아웃 </a>&nbsp &nbsp</li>
+					<%} %>
 				</ul>
 			</div>
 		</div>

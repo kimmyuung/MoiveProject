@@ -8,9 +8,20 @@ private String mname;
 private String mphone;
 private String maddress;
 private String memail;
+private int mpoint;
+private String mdate;
+
+
+@Override
+public String toString() {
+	return "Member [mnum=" + mnum + ", mid=" + mid + ", mpw=" + mpw + ", mname=" + mname + ", mphone=" + mphone
+			+ ", maddress=" + maddress + ", memail=" + memail + ", mpoint=" + mpoint + ", mdate=" + mdate + "]";
+}
 
 public Member() {}
-public Member(int mnum, String mid, String mpw, String mname, String mphone, String maddress, String memail) {
+
+public Member(int mnum, String mid, String mpw, String mname, String mphone, String maddress, String memail, int mpoint,
+		String mdate) {
 	super();
 	this.mnum = mnum;
 	this.mid = mid;
@@ -19,7 +30,10 @@ public Member(int mnum, String mid, String mpw, String mname, String mphone, Str
 	this.mphone = mphone;
 	this.maddress = maddress;
 	this.memail = memail;
+	this.mpoint = mpoint;
+	this.mdate = mdate;
 }
+
 public int getMnum() {
 	return mnum;
 }
@@ -63,5 +77,20 @@ public void setMemail(String memail) {
 	this.memail = memail;
 }
 
+public int getMpoint() {
+	return mpoint;
+}
+
+public void setMpoint(int mpoint) {
+	this.mpoint = mpoint;
+}
+
+public String getMdate() {
+	return mdate;
+}
+
+public void setMdate(String mdate) {
+	this.mdate = mdate;
+}
 
 }

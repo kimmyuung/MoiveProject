@@ -5,7 +5,7 @@
 // jquery 식 : $("#id명")
 //.keyup() : 해당 id에 키보드가 눌렸을때 = [입력 되었을때]
 
-let pass = [ false , false , false , false , false , false , false ]; // 배열 = [  ]
+let pass = [ false , false , false , false , false , false]; // 배열 = [  ]
 
 	function idcheck() {
 		
@@ -65,7 +65,7 @@ let pass = [ false , false , false , false , false , false , false ]; // 배열 
 		let memailaddress = $("#memailaddress").val();
 		
 		if( memailaddress == "" ){ 
-			$("#emailcheck").html("이메일 주소 입력해주세요~");  pass[5] = false;
+			$("#emailcheck").html("이메일 주소 입력해주세요~");  
 		}else{
 			let emailj = /^[a-zA-Z0-9]{3,20}$/;
 			if( emailj.test(memail) ){
@@ -78,17 +78,17 @@ let pass = [ false , false , false , false , false , false , false ]; // 배열 
 						if( result == 1 ){
 							$("#emailcheck").html("사용중인 이메일 입니다."); pass[5] = false;
 						}else{
-							$("#emailcheck").html("사용가능한 이메일 입니다."); pass[5] = true;
+							$("#emailcheck").html("사용가능한 이메일 입니다."); pass[5] = true; pass[4] = true;
 						}
 					}
 				}); // ajax end 
 				
 			}else{
-				$("#emailcheck").html("이메일 형식이 아닙니다.");  pass[5] = false;
+				$("#emailcheck").html("이메일 형식이 아닙니다.");  pass[4] = false;
 			}
 	}
 	}
-	$( function(){
+	$( function(){ // 문서가 켜지만 실행되는 함수
 			$("#addressbox").change( function(){ // 목록상자내 값이 변경 되었을때 이벤트
 		
 		let addressbox = $("#addressbox").val();
@@ -105,12 +105,31 @@ let pass = [ false , false , false , false , false , false , false ]; // 배열 
 	
 	function signup() {
 		let check = true;
-	for( let i = 0 ; i<pass.length ; i++ ){
-		if( pass[i] == false ) check = false;
+	if(pass[0] == false) {
+		$("#signupcheck").html("아이디 중복체크를 하셔야 가입이 가능합니다.");
+		check = false; 
 	}
+	else if(pass[1] == false || pass[2] == false) {
+		$("#signupcheck").html("비밀번호 일치체크를 해야 가입이 가능합니다."); 
+		check = false; 
+	}
+	else if(pass[3] == false) {
+		$("#signupcheck").html("전화번호 형식이 잘못되었습니다.");
+		check = false; 
+	}
+	else if(pass[4] == false) {
+		$("#signupcheck").html("이메일 형식이 잘못되었습니다.");
+		check = false; 
+	}
+	else if(pass[5] == false) {
+		$("#signupcheck").html("사용중인 이메일입니다 이메일을 다시 입력해주세요.");
+		check = false; 
+	}
+	else {
 	// js에서 form 전송하는 방법**
 		if( check ) document.getElementById("signupform").submit();
 		else{ alert("필수입력 사항이 입력되지 않습니다."); }
+	}
 	}
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {

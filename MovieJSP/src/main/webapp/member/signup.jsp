@@ -14,7 +14,7 @@
 			<div class="span12">
 				<div class="span6">
 					<div class="area">
-						<form class="form-horizontal" id="signupform" action="../signup" method="post">
+						<form class="form-horizontal" id="signupform" name="signupform" action="../signup" method="post">
 							<div class="heading">
 								<h4 class="form-heading">회원 가입 페이지</h4>
 							</div>
@@ -99,6 +99,7 @@
 										나는 이젠 영화관의 <a href="../promise.jsp">이용약관</a>에 동의합니다.</label>
 									<button class="btn btn-success" type="submit">Sign Up</button>
 									<button class="btn" type="button">Help</button>
+									<span id="signupcheck"></span>
 								</div>
 							</div>
 

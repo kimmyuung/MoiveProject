@@ -26,14 +26,74 @@ public class MemberDao extends Dao{
 		return false;
 	}
 	
-	public boolean idcheck(String mid) {
-		String sql = "select * from member where mid=" + mid;
+	public boolean idcheck(String mid) { // id 체크
+		String sql = "select * from member where mid=?";
 		try{
 			ps = con.prepareStatement(sql);
+			ps.setString(1, mid);
 			rs = ps.executeQuery();
 			if(rs.next()) {return true;} // 동일 아이디 존재!
 		} catch(Exception e) {System.out.println("아이디 찾기 실패 : " + e);}
 		return false; // 동일 아이디 없음!
 	}
 	
+	public boolean login(String mid, String mpw) {
+		try {
+			String sql = "select * from member where mid =? and mpw = ?";
+			ps.setString(1, mid);
+			ps.setString(2, mpw);
+			rs = ps.executeQuery();
+			if(rs.next()) {return true;}
+		}catch(Exception e) {System.out.println("로그인 실패 : " + e);}
+		return false;
+	}
+	
+	public boolean emailcheck(String memail) { // id 체크
+		String sql = "select * from member where memail=?";
+		try{
+			ps = con.prepareStatement(sql);
+			ps.setString(1, memail);
+			rs = ps.executeQuery();
+			if(rs.next()) {return true;} // 동일 아이디 존재!
+		} catch(Exception e) {System.out.println("이메일 중복 체크 실패 : " + e);}
+		return false; // 동일 아이디 없음!
+	}
+	// 아이디 찾기
+	public boolean findid(String mname, String mphone) {
+		String sql = "select mid from member where mname = ? and mphone = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mname);
+			ps.setString(2, mphone);
+			rs = ps.executeQuery();
+			if(rs.next()) return true;
+		}catch(Exception e) {System.out.println("아이디 찾기 오류" + e);}
+		return false; 
+	}
+	// 비밀번호 찾기
+	public boolean findpw(String mid, String mname, String email) {
+		String sql = "select mpw from member where mname = ? and memail = ? and mid = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mname);
+			ps.setString(2, email);
+			ps.setString(3, mid);
+			rs = ps.executeQuery();
+			if(rs.next()) return true;
+		}catch(Exception e) {System.out.println("비밀번호 찾기 오류" + e);}
+		return false;
+	}
+	// 회원정보 수정
+	public boolean update(String mid, String mpw, String mname, String  {
+		return false;
+	}
+	// 회원정보 삭제
+	public boolean delete() {
+		return false;
+	}
+	
+	// 회원정보 목록
+	public Member mlist() {
+		return null;
+	}
 }
