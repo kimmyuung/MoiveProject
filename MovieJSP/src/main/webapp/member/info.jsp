@@ -13,7 +13,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3">
-			<%@include file="#" %>
+			<!--  -->
 			</div>
 			<div class="col-md-9">
 			<%String mid = (String)session.getAttribute("login");
