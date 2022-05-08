@@ -7,6 +7,25 @@
 
 let pass = [ false , false , false , false , false , false]; // 배열 = [  ]
 
+$("#btnOK").click(function(){  
+       
+    var url="test.aspx";  
+    var params="name="+name+"&age="+age+"&nickName=손흥민";
+   
+    $.ajax({      
+        type:"POST",  
+        url:url,      
+        data:params,      
+        success:function(args){   
+            $("#result").html(args);      
+        },   
+        beforeSend:showRequest,  
+        error:function(e){  
+            alert(e.responseText);  
+        }  
+    });  
+       
+}); 
 	function idcheck() {
 		
 		// 1. HTML 태그내 값 가져오기 
@@ -29,6 +48,7 @@ let pass = [ false , false , false , false , false , false]; // 배열 = [  ]
 			});
 		}
 		else {
+			alert("test");
 			alert("영문, 숫자 포함 5~15길이로 입력해주세요");
 			$("#idcheck").html("영문, 숫자 포함 5~15길이로 입력해주세요");
 			pass[0] = false;
@@ -107,23 +127,23 @@ let pass = [ false , false , false , false , false , false]; // 배열 = [  ]
 		let check = true;
 	if(pass[0] == false) {
 		$("#signupcheck").html("아이디 중복체크를 하셔야 가입이 가능합니다.");
-		check = false; 
+		check = false; return;
 	}
 	else if(pass[1] == false || pass[2] == false) {
 		$("#signupcheck").html("비밀번호 일치체크를 해야 가입이 가능합니다."); 
-		check = false; 
+		check = false; return;
 	}
 	else if(pass[3] == false) {
 		$("#signupcheck").html("전화번호 형식이 잘못되었습니다.");
-		check = false; 
+		check = false; return;
 	}
 	else if(pass[4] == false) {
 		$("#signupcheck").html("이메일 형식이 잘못되었습니다.");
-		check = false; 
+		check = false; return;
 	}
 	else if(pass[5] == false) {
 		$("#signupcheck").html("사용중인 이메일입니다 이메일을 다시 입력해주세요.");
-		check = false; 
+		check = false; return;
 	}
 	else {
 	// js에서 form 전송하는 방법**
