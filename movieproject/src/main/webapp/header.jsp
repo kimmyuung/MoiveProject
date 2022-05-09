@@ -32,26 +32,26 @@
 				<!-- 헤더 메뉴 오른쪽 배치 -->
 				<!-- 헤더 -->
 				<ul class="nav">
-					<li class="tophead"><a href="/MovieJSP/main.jsp">HOME</a> &nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/main.jsp">HOME</a> &nbsp &nbsp</li>
 					<li class="tophead"><a href="#">고객센터 </a>&nbsp &nbsp</li>
 					
 					<% if( loginid == null ){ %>
-					<li class="tophead"><a href="/MovieJSP/member/login.jsp">LOGIN </a> &nbsp &nbsp</li>
-					<li class="tophead"><a href="/MovieJSP/member/signup.jsp">회원 가입 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/member/login.jsp">LOGIN </a> &nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/member/signup.jsp">회원 가입 </a>&nbsp &nbsp</li>
 					<%} %>
 		<!--  만약에 로그인된 상태 -->
 					<% if( loginid != null ){ %>
 						<span> <%=loginid %>님 </span>
-					<li class="tophead"><a href="/MovieJSP/member/logout">로그아웃</a></li>
+					<li class="tophead"><a href="/movieproject/member/logout">로그아웃</a></li>
 					<li class="tophead"><a href="#">MY MOVIE </a>&nbsp &nbsp</li>
 					<%} %>
 					<% if( loginid != null && loginid.equals("admin") ){ //관리자로 로그인시%> 
 						<span> <%=loginid %>님 </span>
-					<li class="tophead"><a href="/MovieJSP/member/logout">영화 관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/member/logout">영화 관리</a>&nbsp &nbsp</li>
 					<li class="tophead"><a href="#"> 상영관 관리 </a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="/MovieJSP/member/logout">제품관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/member/logout">제품관리</a>&nbsp &nbsp</li>
 					<li class="tophead"><a href="#">회원 관리 </a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="/MovieJSP/member/logout">매출 관리</a></li>
+					<li class="tophead"><a href="/movieproject/member/logout">매출 관리</a></li>
 					<li class="tophead"><a href="#">로그 아웃 </a>&nbsp &nbsp</li>
 					<%} %>
 				</ul>

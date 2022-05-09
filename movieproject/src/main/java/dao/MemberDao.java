@@ -66,8 +66,10 @@ public class MemberDao extends Dao{
 			ps.setString(1, mname);
 			ps.setString(2, mphone);
 			rs = ps.executeQuery();
-			if(rs.next()) return rs.getString(1);
-		}catch(Exception e) {System.out.println("아이디 찾기 오류" + e);}
+			if(rs.next()) {
+				String mid = rs.getString(1);
+				return mid;}
+		}catch(Exception e) {e.printStackTrace();}
 		return null; 
 	}
 	// 비밀번호 찾기
