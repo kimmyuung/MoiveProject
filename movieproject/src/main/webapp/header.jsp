@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>이젠 영화관</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" >
-<link href="/MovieJSP/css/main.css" rel="stylesheet">
+<link href="/movieproject/css/main.css" rel="stylesheet">
 <style type="text/css">
 @font-face {
     font-family: 'Donoun-Medium';
@@ -22,8 +22,7 @@
 <body>
 
 <%
-		String loginid 
-			= (String)session.getAttribute("login"); // 세션 호출 ( 기본타입 = Odject )
+		String loginid = (String)session.getAttribute("login"); // 세션 호출 ( 기본타입 = Odject )
 	%>
 
 <div class="row">
@@ -39,24 +38,29 @@
 					<li class="tophead"><a href="/movieproject/member/login.jsp">LOGIN </a> &nbsp &nbsp</li>
 					<li class="tophead"><a href="/movieproject/member/signup.jsp">회원 가입 </a>&nbsp &nbsp</li>
 					<%} %>
-		<!--  만약에 로그인된 상태 -->
-					<% if( loginid != null ){ %>
-						<span> <%=loginid %>님 </span>
-					<li class="tophead"><a href="/movieproject/member/logout">로그아웃</a></li>
+					<!--  만약에 로그인된 상태 -->
+					<% if( loginid != null && !(loginid.equals("admin") ) ){ %>
+						<h4><span> <%=loginid %>님 </span></h4>
+					<li class="tophead"><a href="/movieproject/logout">로그아웃</a></li>
 					<li class="tophead"><a href="#">MY MOVIE </a>&nbsp &nbsp</li>
 					<%} %>
 					<% if( loginid != null && loginid.equals("admin") ){ //관리자로 로그인시%> 
-						<span> <%=loginid %>님 </span>
-					<li class="tophead"><a href="/movieproject/member/logout">영화 관리</a>&nbsp &nbsp</li>
+						<h4><span> <%=loginid %>님 </span></h4>
+					
+					<li class="tophead"><a href="#">영화관리</a>&nbsp &nbsp</li>
 					<li class="tophead"><a href="#"> 상영관 관리 </a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="/movieproject/member/logout">제품관리</a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="#">회원 관리 </a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="/movieproject/member/logout">매출 관리</a></li>
-					<li class="tophead"><a href="#">로그 아웃 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="#">제품관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/member/memberlist.jsp">회원 관리 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="#">매출 관리</a></li>
+					<li class="tophead"><a href="/movieproject/logout">로그 아웃 </a>&nbsp &nbsp</li>
 					<%} %>
+					
 				</ul>
 			</div>
 		</div>
+		
+		
+		
 </div>
 <!-- 부트스트랩  -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

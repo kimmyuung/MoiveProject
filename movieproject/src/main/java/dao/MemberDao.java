@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.ArrayList;
+
 import dto.Member;
 
 public class MemberDao extends Dao{
@@ -39,7 +41,8 @@ public class MemberDao extends Dao{
 	
 	public int login(String mid, String mpw) {
 		try {
-			String sql = "select * from member where mid =? and mpw = ?";
+			String sql = "select * from member where mid =? and mpassword = ?";
+			ps = con.prepareStatement(sql);
 			ps.setString(1, mid);
 			ps.setString(2, mpw);
 			rs = ps.executeQuery();
@@ -75,13 +78,19 @@ public class MemberDao extends Dao{
 	// 비밀번호 찾기
 	public String findpw(String mid, String mname, String email) {
 		String sql = "select mpassword from member where mname = ? and memail = ? and mid = ?";
+		// 이메일을 똑같이 썻는데 안찾아집니다... ㅠㅠ 
+		String mpw = "";
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, mname);
-			ps.setString(2, email);
-			ps.setString(3, mid);
+			ps.setString(1, mid);
+			ps.setString(2, mname);
+			ps.setString(3, email);
 			rs = ps.executeQuery();
-			if(rs.next()) return rs.getString(1);
+			while(rs.next()) {
+				mpw = rs.getString(1);
+				return mpw;
+			}
+			
 		}catch(Exception e) {System.out.println("비밀번호 찾기 오류" + e);}
 		return null;
 	}
@@ -120,7 +129,19 @@ public class MemberDao extends Dao{
 		}
 	
 	// 회원정보 목록
-	public Member mlist() {
+	public ArrayList<Member> mlist() {
+		String sql = "select * from member";
+		ArrayList<Member> mlist = new ArrayList<Member>();
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Member member = new Member(rs.getInt(1), rs.getString(2), null, rs.getString(4),
+						rs.getString(5), rs.getString(6), rs.getString(7), rs.getInt(8), rs.getString(9)  ); 
+				mlist.add(member);
+			}
+			return mlist;
+		}catch(Exception e) {e.printStackTrace();}
 		return null;
 	}
 	// 회원정보 출력 [ 인수 : 세션에 저장된 회원의 id ] 

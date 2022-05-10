@@ -17,7 +17,7 @@
             <div class="col-md-12 text-center">
                 <span class="display-1 d-block">404</span>
                 <div class="mb-4 lead" style="font-size: 45px;">Error!!</div>
-                <a href="/MovieJSP/main.jsp" class="btn btn-link">홈으로 가기</a>
+                <a href="main.jsp" class="btn btn-link">홈으로 가기</a>
             </div>
         </div>
     </div>

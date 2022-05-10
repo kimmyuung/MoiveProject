@@ -40,4 +40,12 @@ function addHypen(obj) {
 	    }
 	    obj.value = phone;
 	}	 
-	 
+function pw_search() { 
+	 	var frm = document.pwfindscreen;
+
+	
+
+	 frm.method = "post";
+	 frm.action = "findpwresult.jsp"; //넘어간화면
+	 frm.submit();  
+	 }	 

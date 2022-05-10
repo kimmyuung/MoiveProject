@@ -40,7 +40,7 @@ public class signup extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		String mid = request.getParameter("mid");
-		String mpassword = request.getParameter("mpw");
+		String mpassword = request.getParameter("mpassword");
 		String mname = request.getParameter("mname");
 		String mphone = request.getParameter("mphone");
 		String memail = request.getParameter("memail");

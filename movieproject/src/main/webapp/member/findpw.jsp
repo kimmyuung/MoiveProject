@@ -15,23 +15,41 @@
 	<br>
 	<br>
 	<div class="col-md-6 offset-4 pb-3 px-5 pt-5">
-	<h3> 비밀번호 찾기 페이지</h3> <br>
-		<form action="../findpw" method="post">
-			<input class="mb-3" type="text" placeholder="아이디" name="id"><br> 
-			<input class="mb-3" type="text" placeholder="이름" name="password"> <br> 
-			<input class="mb-3" type="text" placeholder="이메일" name="password"> <br> 
-			<input class="mb-3" type="submit" value="비밀번호 찾기" style="width: 180px;"> <br>
-		</form>
-		<a href="findid.jsp">아이디 찾기</a> <br>
-		<a href="login.jsp"> 로그인</a>
-	</div>
+	<form name="pwfindscreen" method = "POST">
+			<div class = "search-title">
+				<h3>비밀번호 찾기 페이지</h3>
+			</div>
+		<section class = "form-search">
+			<div class = "find-name">
+				<label>아이디</label>
+				<input type="text" name="member_id" class = "btn-name" placeholder = "등록한 아이디">
+			<br>
+			</div>
+			<div class = "find-email">
+				<label>이메일</label>
+				<input type="text" name="member_email" class = "btn-email" placeholder = "@를 포함하여 이메일을 입력">
+			<br>
+			</div>
+			
+			<div class = "find-name">
+				<label>이름</label>
+				<input type="text" name="member_name" class = "btn-name" placeholder = "등록한 이름">
+			</div>
+			<br>
+	</section>
+	<div class ="btnSearch">
+		<input type="button" name="enter" value="비밀번호 찾기"  onClick="pw_search()">
+		<input type="button" name="cancle" value="취소" onClick="history.back()">
+ 	</div>
+ </form>
+ </div>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
-
+	<script src="../js/findinfo.js" type="text/javascript"></script>
 	<%@include file = "../footer.jsp" %>
 
 </body>

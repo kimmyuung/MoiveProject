@@ -38,8 +38,8 @@ public class login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 1. 요청 
-				String mid = request.getParameter("mid");
-				String mpassword = request.getParameter("mpassword");
+				String mid = request.getParameter("id");
+				String mpassword = request.getParameter("password");
 				// 2. 객체화 ( 데이터가 적기 때문에 생략 )
 				// 3. DB처리
 				int result =  MemberDao.getMemberDao().login( mid , mpassword );
