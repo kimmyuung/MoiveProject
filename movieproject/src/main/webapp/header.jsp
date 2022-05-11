@@ -42,7 +42,7 @@
 					<% if( loginid != null && !(loginid.equals("admin") ) ){ %>
 						<h4><span> <%=loginid %>님 </span></h4>
 					<li class="tophead"><a href="/movieproject/logout">로그아웃</a></li>
-					<li class="tophead"><a href="#">MY MOVIE </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/member/mymovie.jsp">MY MOVIE </a>&nbsp &nbsp</li>
 					<%} %>
 					<% if( loginid != null && loginid.equals("admin") ){ //관리자로 로그인시%> 
 						<h4><span> <%=loginid %>님 </span></h4>

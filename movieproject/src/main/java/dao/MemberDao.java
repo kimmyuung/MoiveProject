@@ -77,8 +77,7 @@ public class MemberDao extends Dao{
 	}
 	// 비밀번호 찾기
 	public String findpw(String mid, String mname, String email) {
-		String sql = "select mpassword from member where mname = ? and memail = ? and mid = ?";
-		// 이메일을 똑같이 썻는데 안찾아집니다... ㅠㅠ 
+		String sql = "select mpassword from member where mid = ? and mname = ? and memail = ?";
 		String mpw = "";
 		try {
 			ps = con.prepareStatement(sql);
@@ -86,11 +85,11 @@ public class MemberDao extends Dao{
 			ps.setString(2, mname);
 			ps.setString(3, email);
 			rs = ps.executeQuery();
-			while(rs.next()) {
-				mpw = rs.getString(1);
-				return mpw;
-			}
 			
+			if(rs.next()) {
+				mpw = rs.getString(1);
+			}
+			return mpw;
 		}catch(Exception e) {System.out.println("비밀번호 찾기 오류" + e);}
 		return null;
 	}
@@ -108,25 +107,7 @@ public class MemberDao extends Dao{
 			
 			return false;
 		}
-		// 회원 수정 메소드
-		public boolean update(Member member) {
-			
-					try {
-						String sql = "update member set mname = ? , memail = ?,"
-								+ "maddress = ?, mphone = ? where mno = ?";
-						ps = con.prepareStatement(sql);
-						ps.setString(1, member.getMname());
-						ps.setString(2, member.getMemail());
-						ps.setString(3, member.getMaddress());
-						ps.setString(4, member.getMphone());
-						ps.setInt(5, member.getMnum());
-						ps.executeUpdate();
-						return true;
-					}catch(Exception e) {
-						System.out.println("회원 정보 수정 오류" + e);
-					}
-			return false;
-		}
+		
 	
 	// 회원정보 목록
 	public ArrayList<Member> mlist() {
@@ -160,6 +141,73 @@ public class MemberDao extends Dao{
 				}
 				
 			} catch(Exception e) {System.out.println("회원정보 찾기 실패 : " + e);}
+			return null;
+		}
+		// 비밀번호 체크
+		public boolean passwordcheck(String mid, String mpw) {
+			String sql = "select * from member where mid = ? and mpassword = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				ps.setString(2, mpw);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return true;
+				}
+			} catch(Exception e) {
+				System.out.println("비밀번호 체크 실패" + e);
+			}
+			return false;
+		}
+		public boolean update( Member member ) {
+			try {
+			if( member.getMpw() == null ) { // 패스워드 변경이 없을때 
+				String sql ="update member set mname=? ,  mphone=? , memail=?,"
+						+ "maddress = ? where mno=?";
+					ps = con.prepareStatement(sql);
+					ps.setString( 1 , member.getMname() );
+					ps.setString( 2 , member.getMphone() );
+					ps.setString( 3 , member.getMemail() );
+					ps.setString( 4 , member.getMaddress() );
+					ps.setInt( 5, member.getMnum() );
+			}else {	// 패스워드가 변경이 있을때 
+				String sql ="update member set mname=? , mpw = ? ,  mphone=? , memail=?,"
+						+ "maddress = ? where mno=?";
+					ps = con.prepareStatement(sql);
+					ps.setString( 1 , member.getMname() );
+					ps.setString( 2 , member.getMpw() );
+					ps.setString( 3 , member.getMphone() );
+					ps.setString( 4 , member.getMemail() );
+					ps.setString( 5 , member.getMaddress() );
+					ps.setInt( 6 , member.getMnum() );
+			}
+				ps.executeUpdate(); return true;
+			}catch (Exception e) {} return false;
+		}
+		// 회원번호 출력 
+		public int getmno(String mid) {
+			String sql = "select mno from member where mid =?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getInt(1);
+				}
+			}catch(Exception e) {System.out.println("회원번호 출력 오류" + e);}
+			return 0;
+		}
+		// 회원ID 출력
+		public String getmid(int mno) {
+			String sql = "select mid from member where mno = ?";
+			try {
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, mno);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getString(1);
+				}
+			}catch(Exception e) {System.out.println("회원아이디 출력 오류" + e);}
 			return null;
 		}
 }

@@ -41,11 +41,9 @@ function addHypen(obj) {
 	    obj.value = phone;
 	}	 
 function pw_search() { 
-	 	var frm = document.pwfindscreen;
-
-	
-
+	 var frm = document.pwfindscreen;
+	 alert("통신");
 	 frm.method = "post";
-	 frm.action = "findpwresult.jsp"; //넘어간화면
+	 frm.action = "../findpw"; //넘어간화면
 	 frm.submit();  
 	 }	 

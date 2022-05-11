@@ -1,7 +1,7 @@
 function passwordcheck(  mid  ){
-	
+	alert("통신");
 	// * 제이쿼리식 
-	let mpassword =  $("#mpassword").val();
+	let mpw =  $("#mpw").val();
 	// * 자바스크립트식
 	// let mpassword document.getElementById("mpassword").value;
 	
@@ -9,18 +9,18 @@ function passwordcheck(  mid  ){
 		// [js(view) ---> java(controller) ]
 	//  $.ajax({ 속성명 = 속성값 , 속성명2 = 속성값2 });
 	$.ajax({
-		url : "../passswordcheck",	// 어디로
-		data : { "mid": mid , "mpassword" : mpassword }, // 보낼 데이터 
+		url : "../passwordcheck",	// 어디로
+		data : { "mid": mid , "mpw" : mpw }, // 보낼 데이터 
 		type : "POST" , // HTTP요청방식 정의 [ GET=기본값 , POST ]
 		success : function( result ){ // 받을 데이터 
 			if( result == 1 ){
 				$("#checkmsg").html("정말 탈퇴하시겠습니까?");
-				$("#mpassword").css("display" , "none"); // 제이쿼리 css 적용  [ .css( "속성명" , "속성값") ]
+				$("#mpw").css("display" , "none"); // 제이쿼리 css 적용  [ .css( "속성명" , "속성값") ]
 				$("#btndelete").css("display" , "block");
 				$("#btncofirm").css("display" , "none");
 			}else{
 				$("#checkmsg").html("동일한 패스워드가 아닙니다.");
-				$("#mpassword").val("");
+				$("#mpw").val("");
 			}
 		}
 	});	

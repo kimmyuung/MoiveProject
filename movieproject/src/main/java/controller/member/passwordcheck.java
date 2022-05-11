@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import dao.MemberDao;
 
 /**
- * Servlet implementation class findpw
+ * Servlet implementation class passwordcheck
  */
-@WebServlet("/findpw")
-public class findpw extends HttpServlet {
+@WebServlet("/passwordcheck")
+public class passwordcheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public findpw() {
+    public passwordcheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,31 +29,31 @@ public class findpw extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 request.setCharacterEncoding("UTF-8");
-         String mid = request.getParameter("mid");
-         String mname = request.getParameter("mname");
-         String memail = request.getParameter("memail");
-         
-         //처리
-         String member_pw = MemberDao.getMemberDao().findpw(mid, mname, memail);
-         
-         //출력
-         if(member_pw != null) {//결과가 있으면(정보가 맞다면)
-            response.sendRedirect("/movieproject/member/findpwresult.jsp?member_pw="+member_pw);
-         }
-         else {//결과가 없으면(정보가 맞지 않으면)
-        	 response.sendRedirect("/movieproject/error.jsp");
-         }
-      }
-     
-   
+
+		// 1. 통신된 페이지에게 변수의 데이터를 요청
+		String mid = request.getParameter("mid");
+		String mpw = request.getParameter("mpw");
+		// 2. 객체화(변수가 많을 경우)
+		// 3. db 처리
+		boolean result = MemberDao.getMemberDao().passwordcheck(mid, mpw);
+		System.out.println(result);
+		// 4. 결과
+		if(result == true) {
+			// 5. 통신된 페이지로 데이터 응답하기
+			response.getWriter().print("1");
+		}
+		else {
+			response.getWriter().print("2");
+		}
+		doGet(request, response);
+	}
 	}
 
 

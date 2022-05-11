@@ -44,7 +44,7 @@
 				<tr>
 					<td> <%=member.getMnum() %> </td>
 					<td> 
-							<a href="info.jsp?mnum=<%=member.getMnum()%>">
+							<a href="delete.jsp?mnum=<%=member.getMnum()%>">
 								<%=member.getMname() %>
 							</a> 
 					</td>

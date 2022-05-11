@@ -13,28 +13,24 @@
 
 <%
  request.setCharacterEncoding("UTF-8");
-    	String name = request.getParameter("member_name");
-     	String email = request.getParameter("member_email");
-     	String id = request.getParameter("member_id");
-		MemberDao dao = new MemberDao();
- 		String member_mpw = dao.findpw(id, name, email); //아이디를 디비에서 가져옴..실패시 널
- 		System.out.println(name);
- 		System.out.println(email);
- 		System.out.println(id);
- 		System.out.println(member_mpw);
+    	String name = request.getParameter("mname");
+     	String email = request.getParameter("memail");
+     	String id = request.getParameter("mid");
+     	String member_pw = request.getParameter("member_pw");
+     			
 %>
 
 <br><br><br><br><br>
   <form name="pwsearch" method="post">
       <%
        
-      if (member_mpw != null) {
+      if (member_pw != null) {
       %>
       
       <div class = "container">
       	<div class = "found-success">
 	      <h4>  회원님의 비밀번호는 </h4>  
-	      <div class ="found-pw"><%=member_mpw%></div>
+	      <div class ="found-pw"><%=member_pw%></div>
 	      <h4>  입니다 </h4>
 	     </div>
 	     <div class = "found-login">

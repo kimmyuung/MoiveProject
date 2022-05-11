@@ -6,21 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.MemberDao;
 import dto.Member;
 
 /**
- * Servlet implementation class signup
+ * Servlet implementation class update
  */
-@WebServlet("/signup")
-public class signup extends HttpServlet {
+@WebServlet("/update")
+public class update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public signup() {
+    public update() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,26 +38,51 @@ public class signup extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8");
-		String mid = request.getParameter("mid");
-		String mpassword = request.getParameter("mpassword");
+request.setCharacterEncoding("UTF-8");
+		
+		String oldpassword = request.getParameter("oldpassword");
+		String newpassword = request.getParameter("newpassword");
+		
+		int mno = Integer.parseInt(request.getParameter("mno")); // 수정
 		String mname = request.getParameter("mname");
 		String mphone = request.getParameter("mphone");
 		String memail = request.getParameter("memail");
 		String memailaddress = request.getParameter("memailaddress");
-			String email = memail+"@"+memailaddress;
+		String email = memail + "@" + memailaddress;
 		String address1 = request.getParameter("address1");
 		String address2 = request.getParameter("address2");
 		String address3 = request.getParameter("address3");
 		String address4 = request.getParameter("address4");
-			String address = address1+"_"+address2+"_"+address3+"_"+address4;
-			
-		Member member = new Member(0, mid, mpassword, mname, mphone, address , email , 0, null);
-			//System.out.println( member.toString() ); // 객체 정보 -> 주소값  // .toString() : Object클래스[최상위클래스] 의 객체 주소 반환 메소드 
-		boolean result = MemberDao.getMemberDao().signup( member );
-		if( result ) { response.sendRedirect("/movieproject/member/signupsuccess.jsp"); }
-		else { response.sendRedirect("/movieproject/error.jsp"); } 
+		String address = address1 + "_" + address2 + "_" + address3 + "_" + address4;
+	
+		Member member = null;
+		
+		if(oldpassword.equals("") || newpassword.equals("")) {
+			// 패스워드 변경이 없을때
+			member = new Member(mno, null, null, mname, mphone, email , address, 0 , null);
+		}
+		else {
+			// 패스워드 변경시
+			// 기존 패스워드 체크
+			HttpSession session = request.getSession();
+			String mid = (String)session.getAttribute("login");
+			boolean result = MemberDao.getMemberDao().passwordcheck(mid, oldpassword);
+			if(result) {
+				member = new Member(mno, null, newpassword, mname, mphone, email, address, 0, null);
+			}
+			else {
+				response.sendRedirect("/JSPWEB/member/update.jsp?result=3"); return;
+			}
+		}
+		
+		boolean result = MemberDao.getMemberDao().update(member);
+		if(result) {
+			response.sendRedirect("/JSPWEB/member/update.jsp?result=1");
+		}
+		else {
+			response.sendRedirect("/JSPWEB/member/update.jsp?result=2");
+		}
+	}
 	}
 
-}
+
