@@ -13,19 +13,19 @@
 <%@include file="../header.jsp"%>
 <br><br><br><br>
 	<div class="container">
-		<h3> 회원 리스트 </h3>
+		<h3> 회원 리스트 (클릭시 탈퇴 가능) </h3>
 		
 		<%
 			String mid = (String)session.getAttribute("login");
-			if( mid != null ){
+			
 		%>
-			<a href="boardwrite.jsp">  </a>
-		<%} %>
+			
 		
+		<div class="col-md-12">
 		<table class="table"> <!-- 테이블 -->
 			<tr>
-				<th> 회원번호 </th> <th> 회원이름 </th> <th> 회원주소 </th> 
-				<th> 회원가입 날짜  </th> <th> 핸드폰번호 </th> <th> 이메일</th>
+				<th width="150px;"> 회원아이디 </th> <th width="280px;"> 회원비밀번호 </th> <th width="900px;"> 회원주소 </th> 
+				<th width="300px;"> 회원가입 날짜  </th> <th width="250px;"> 핸드폰번호 </th> <th width="350px;"> 이메일</th>
 			</tr>
 			<!-- for 문 -->
 			<%
@@ -42,12 +42,8 @@
 						// 3. java : response.sendRedirect("파일명(경로).jsp?변수명=값");
 				-->
 				<tr>
-					<td> <%=member.getMnum() %> </td>
-					<td> 
-							<a href="delete.jsp?mnum=<%=member.getMnum()%>">
-								<%=member.getMname() %>
-							</a> 
-					</td>
+					<td> <a href="delete.jsp?mnum=<%=member.getMno()%>"><%=member.getMid() %> </a> </td>
+					<td> <%=member.getMpassword() %></td>
 					<td> <%=member.getMaddress()%> </td>
 					<td> <%=member.getMdate() %> </td>
 					<td> <%=member.getMphone() %> </td>
@@ -57,7 +53,7 @@
 				}
 			%>
 			
-			
+			</div>
 		</table>
 	</div>
 <br><br><br><br>

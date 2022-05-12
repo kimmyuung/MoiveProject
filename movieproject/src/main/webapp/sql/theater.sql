@@ -5,5 +5,6 @@ create database movieproject;
 create table movieproject.theater(
 	tnum int primary key,
 	tname varchar(30),
-	tseat varchar(200)
+	tseat varchar(200),
+	tlocation varchar(200)
 );

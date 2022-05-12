@@ -1,96 +1,118 @@
 package dto;
 
+
+// dto 데이터 교환 객체
 public class Member {
-private int mnum;
-private String mid;
-private String mpw;
-private String mname;
-private String mphone;
-private String maddress;
-private String memail;
-private int mpoint;
-private String mdate;
+	
+	@Override
+	public String toString() {
+		return "Member [mno=" + mno + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
+				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mpoint=" + mpoint + ", mdate=" + mdate
+				+ "]";
+	}
 
+	private int mno; 		
+	private String mid ;		
+	private String mpassword;	
+	private String mname	;	
+	private String mphone	;	
+	private String memail	;	
+	private String maddress	;
+	private int mpoint	;
+	private String mdate	;
+	
+	public Member() {}
 
-@Override
-public String toString() {
-	return "Member [mnum=" + mnum + ", mid=" + mid + ", mpw=" + mpw + ", mname=" + mname + ", mphone=" + mphone
-			+ ", maddress=" + maddress + ", memail=" + memail + ", mpoint=" + mpoint + ", mdate=" + mdate + "]";
-}
+	public Member(int mno, String mid, String mpassword, String mname, String mphone, String memail, String maddress,
+			int mpoint, String mdate) {
+		super();
+		this.mno = mno;
+		this.mid = mid;
+		this.mpassword = mpassword;
+		this.mname = mname;
+		this.mphone = mphone;
+		this.memail = memail;
+		this.maddress = maddress;
+		this.mpoint = mpoint;
+		this.mdate = mdate;
+	}
 
-public Member() {}
+	public int getMno() {
+		return mno;
+	}
 
-public Member(int mnum, String mid, String mpw, String mname, String mphone, String maddress, String memail, int mpoint,
-		String mdate) {
-	super();
-	this.mnum = mnum;
-	this.mid = mid;
-	this.mpw = mpw;
-	this.mname = mname;
-	this.mphone = mphone;
-	this.maddress = maddress;
-	this.memail = memail;
-	this.mpoint = mpoint;
-	this.mdate = mdate;
-}
+	public void setMno(int mno) {
+		this.mno = mno;
+	}
 
-public int getMnum() {
-	return mnum;
-}
-public void setMnum(int mnum) {
-	this.mnum = mnum;
-}
-public String getMid() {
-	return mid;
-}
-public void setMid(String mid) {
-	this.mid = mid;
-}
-public String getMpw() {
-	return mpw;
-}
-public void setMpw(String mpw) {
-	this.mpw = mpw;
-}
-public String getMname() {
-	return mname;
-}
-public void setMname(String mname) {
-	this.mname = mname;
-}
-public String getMphone() {
-	return mphone;
-}
-public void setMphone(String mphone) {
-	this.mphone = mphone;
-}
-public String getMaddress() {
-	return maddress;
-}
-public void setMaddress(String maddress) {
-	this.maddress = maddress;
-}
-public String getMemail() {
-	return memail;
-}
-public void setMemail(String memail) {
-	this.memail = memail;
-}
+	public String getMid() {
+		return mid;
+	}
 
-public int getMpoint() {
-	return mpoint;
-}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
 
-public void setMpoint(int mpoint) {
-	this.mpoint = mpoint;
-}
+	public String getMpassword() {
+		return mpassword;
+	}
 
-public String getMdate() {
-	return mdate;
-}
+	public void setMpassword(String mpassword) {
+		this.mpassword = mpassword;
+	}
 
-public void setMdate(String mdate) {
-	this.mdate = mdate;
-}
+	public String getMname() {
+		return mname;
+	}
+
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+
+	public String getMphone() {
+		return mphone;
+	}
+
+	public void setMphone(String mphone) {
+		this.mphone = mphone;
+	}
+
+	public String getMemail() {
+		return memail;
+	}
+
+	public void setMemail(String memail) {
+		this.memail = memail;
+	}
+
+	public String getMaddress() {
+		return maddress;
+	}
+
+	public void setMaddress(String maddress) {
+		this.maddress = maddress;
+	}
+
+	public int getMpoint() {
+		return mpoint;
+	}
+
+	public void setMpoint(int mpoint) {
+		this.mpoint = mpoint;
+	}
+
+	public String getMdate() {
+		return mdate;
+	}
+
+	public void setMdate(String mdate) {
+		this.mdate = mdate;
+	}
+	
+	
+	
+	
+	
+	
 
 }

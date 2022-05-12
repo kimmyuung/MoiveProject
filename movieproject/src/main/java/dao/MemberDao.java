@@ -17,7 +17,7 @@ public class MemberDao extends Dao{
 		String sql = "insert into member(mid, mpassword, mname, mphone, memail, maddress) values(?,?,?,?,?,?);";
 		ps = con.prepareStatement(sql);
 		ps.setString(1, member.getMid());
-		ps.setString(2, member.getMpw());
+		ps.setString(2, member.getMpassword());
 		ps.setString(3, member.getMname());
 		ps.setString(4, member.getMphone());
 		ps.setString(5, member.getMemail());
@@ -155,13 +155,13 @@ public class MemberDao extends Dao{
 					return true;
 				}
 			} catch(Exception e) {
-				System.out.println("비밀번호 체크 실패" + e);
+				e.printStackTrace();
 			}
 			return false;
 		}
 		public boolean update( Member member ) {
 			try {
-			if( member.getMpw() == null ) { // 패스워드 변경이 없을때 
+			if( member.getMpassword() == null ) { // 패스워드 변경이 없을때 
 				String sql ="update member set mname=? ,  mphone=? , memail=?,"
 						+ "maddress = ? where mno=?";
 					ps = con.prepareStatement(sql);
@@ -169,17 +169,17 @@ public class MemberDao extends Dao{
 					ps.setString( 2 , member.getMphone() );
 					ps.setString( 3 , member.getMemail() );
 					ps.setString( 4 , member.getMaddress() );
-					ps.setInt( 5, member.getMnum() );
+					ps.setInt( 5, member.getMno() );
 			}else {	// 패스워드가 변경이 있을때 
-				String sql ="update member set mname=? , mpw = ? ,  mphone=? , memail=?,"
+				String sql ="update member set mname=? , mpassword = ? ,  mphone=? , memail=?,"
 						+ "maddress = ? where mno=?";
 					ps = con.prepareStatement(sql);
 					ps.setString( 1 , member.getMname() );
-					ps.setString( 2 , member.getMpw() );
+					ps.setString( 2 , member.getMpassword() );
 					ps.setString( 3 , member.getMphone() );
 					ps.setString( 4 , member.getMemail() );
 					ps.setString( 5 , member.getMaddress() );
-					ps.setInt( 6 , member.getMnum() );
+					ps.setInt( 6 , member.getMno() );
 			}
 				ps.executeUpdate(); return true;
 			}catch (Exception e) {} return false;

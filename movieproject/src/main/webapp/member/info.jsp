@@ -26,12 +26,12 @@
 					= MemberDao.getMemberDao().getmember(mid);
 				// 3. HTML에 객체 표현식
 				%>
-				회원번호 : <%=member.getMnum() %> <br>
+				회원번호 : <%=member.getMno() %> <br>
 				아이디 : <%=member.getMid() %> <br>
 				이름 : <%=member.getMname() %> <br>
 				연락처 : <%=member.getMphone() %> <br>
-				이메일 : <%=member.getMemail() %> <br>
-				배송주소 : <%=member.getMaddress() %> <br>
+				이메일 : <%=member.getMemail()  %> <br>
+				배송주소 : <%=member.getMaddress()%> <br>
 				포인트 : <%=member.getMpoint() %> <br>
 				가입날짜 : <%=member.getMdate() %> <br>
 			</div>

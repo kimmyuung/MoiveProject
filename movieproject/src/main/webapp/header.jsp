@@ -47,9 +47,9 @@
 					<% if( loginid != null && loginid.equals("admin") ){ //관리자로 로그인시%> 
 						<h4><span> <%=loginid %>님 </span></h4>
 					
-					<li class="tophead"><a href="#">영화관리</a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="#"> 상영관 관리 </a>&nbsp &nbsp</li>
-					<li class="tophead"><a href="#">제품관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/movie/movielist.jsp">영화관리</a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/theater/theaterlist.jsp"> 상영관 관리 </a>&nbsp &nbsp</li>
+					<li class="tophead"><a href="/movieproject/product/productlist.jsp">제품관리</a>&nbsp &nbsp</li>
 					<li class="tophead"><a href="/movieproject/member/memberlist.jsp">회원 관리 </a>&nbsp &nbsp</li>
 					<li class="tophead"><a href="#">매출 관리</a></li>
 					<li class="tophead"><a href="/movieproject/logout">로그 아웃 </a>&nbsp &nbsp</li>
