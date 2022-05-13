@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+영화목록
 </body>
 </html>
