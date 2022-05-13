@@ -11,3 +11,8 @@ Admin_Controller
 Customer_Controller
 
 ![Customer_Controller](https://user-images.githubusercontent.com/100548259/166137213-726c8209-7fb7-4f74-8083-4171fef81be5.jpg)
+
+
+
+
+주말에 할거 프론트 + 상영관 좌표 추출
