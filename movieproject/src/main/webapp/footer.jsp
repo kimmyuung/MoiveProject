@@ -10,6 +10,7 @@
 </head>
 <body>
 	<div class="container">
+	<div class="col-md-12">
 			<div class="row text-center text-xs-center text-sm-left text-md-left">
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
@@ -61,6 +62,7 @@
 				</div>
 				<hr>
 			</div>	
+			</div>
 		</div>
 </body>
 </html>

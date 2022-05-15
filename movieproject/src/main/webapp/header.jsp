@@ -5,23 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>이젠 영화관</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="/movieproject/css/header.css" rel="stylesheet">
 <link href="/movieproject/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="/movieproject/css/font-awesome.min.css"
 	type="text/css">
 <link rel="stylesheet" href="/movieproject/css/elegant-icons.css"
 	type="text/css">
-<link rel="stylesheet" href="/movieproject/css/plyr.css" type="text/css">
 <link rel="stylesheet" href="/movieproject/css/nice-select.css"
-	type="text/css">
-<link rel="stylesheet" href="/movieproject/css/owl.carousel.min.css"
 	type="text/css">
 <link rel="stylesheet" href="/movieproject/css/slicknav.min.css"
 	type="text/css">
-
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
 <body>
 
@@ -33,7 +28,7 @@
 		<div class="row">
 			<div class="col-lg-2 d-flex fixed-top">
 				<div class="header__logo">
-					<a href="/movieproject/main.jsp"> <img src="img/logo.jpg"
+					<a href="/movieproject/main.jsp"> <img src="/movieproject/img/logo.jpg"
 						class="img-fluid" alt="" style="width: 150px;">
 					</a>
 				</div>
@@ -51,8 +46,8 @@
 							aria-expanded="false">Movie</button>
 						&nbsp;&nbsp;
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-							<li><a class="dropdown-item" href="#">영화 순위 확인</a></li>
-							<li><a class="dropdown-item" href="#">영화 자세히 보기</a></li>
+							<li><a class="dropdown-item" href="/movieproject/movie/movielist.jsp">영화 순위 확인</a></li>
+							<li><a class="dropdown-item" href="#">상영 시간표 보기</a></li>
 							<%
 							if (loginid != null && !(loginid.equals("admin"))) {
 							%>
@@ -151,6 +146,7 @@
   </div>
 </div>
 	<!-- 부트스트랩  -->
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- jquery 최신 cdn -->

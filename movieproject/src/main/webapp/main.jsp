@@ -10,56 +10,57 @@
 <body>
 <%@include file="header.jsp" %>
 
+<br><br><br><br><br>
+
 <div class="container">
- <section class="hero">
-        <div class="container">
-            <div class="hero__slider owl-carousel">
-                <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                                <p>After 30 days of travel across the world...</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                                <p>After 30 days of travel across the world...</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero__text">
-                                <div class="label">Adventure</div>
-                                <h2>Fate / Stay Night: Unlimited Blade Works</h2>
-                                <p>After 30 days of travel across the world...</p>
-                                <a href="#"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="row" style="text-align: center;">
+<div id="movie" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#movie" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#movie" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#movie" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="/movieproject/img/movie/영화사진.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="..." >
+      <div class="carousel-caption d-none d-md-block">
+        
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/movieproject/img/movie/영화2.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="/movieproject/img/movie/영화3.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#movie" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#movie" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+
+<br><br><br><br><br>
+<div>
+ <%@include file="mainmoviecard.jsp" %>
 </div>
 <br><br><br><br><br><br><br><br>
-<div>
- 영화 리스트(카드)
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br>
 
 <%@include file="footer.jsp" %>
+</div>
 </body>
 </html>
