@@ -22,21 +22,21 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="/movieproject/img/movie/영화사진.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="..." >
+      <img src="/movieproject/img/movie/movie1.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="..." >
       <div class="carousel-caption d-none d-md-block">
         
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="/movieproject/img/movie/영화2.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="...">
+      <img src="/movieproject/img/movie/movie2.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="...">
       <div class="carousel-caption d-none d-md-block">
         
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="/movieproject/img/movie/영화3.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="...">
+      <img src="/movieproject/img/movie/movie1.jpg" class="img-fluid rounded mx-auto d-block w-10" alt="...">
       <div class="carousel-caption d-none d-md-block">
         
         <p>Some representative placeholder content for the third slide.</p>
@@ -59,6 +59,9 @@
  <%@include file="mainmoviecard.jsp" %>
 </div>
 <br><br><br><br><br><br><br><br>
+
+
+
 
 <%@include file="footer.jsp" %>
 </div>

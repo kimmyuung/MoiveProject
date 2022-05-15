@@ -68,7 +68,7 @@
 					</div>
 					&nbsp;&nbsp;
 					
-					<a href="/movieproject/board/bordlist.jsp"><button
+					<a href="/movieproject/board/boardlist.jsp"><button
 							class="btn btn-secondary" type="button">고객센터</button> </a>
 					&nbsp;&nbsp;
 
