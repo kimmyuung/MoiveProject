@@ -1,22 +1,16 @@
-var myModal = new bootstrap.Modal(document.getElementById('myModal'), options)
-var exampleModal = document.getElementById('exampleModal')
-exampleModal.addEventListener('show.bs.modal', function (event) {
-  // Button that triggered the modal
-  var button = event.relatedTarget
-  // Extract info from data-bs-* attributes
-  var recipient = button.getAttribute('data-bs-whatever')
-  // If necessary, you could initiate an AJAX request here
-  // and then do the updating in a callback.
-  //
-  // Update the modal's content.
-  var modalTitle = exampleModal.querySelector('.modal-title')
-  var modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-  modalTitle.textContent = 'New message to ' + recipient
-  modalBodyInput.value = recipient
-  
-  alert(recipient);
-  myModal.dispose();
-});
+function search() {
+	let id = "C42rs9pTGjajoo5tbUX7";
+	let sid = "iOI4fqgIwj";
+	$.ajax({
+		method: "GET",
+		url: "https://openapi.naver.com/v1/search/movie.json",
+		data: { query : "닥터 스트레인지" },
+		headers: { "X-Naver-Client-Id": id, 
+		"X-Naver-Client-Secret":sid}
+			})
+  		.done(function(msg) {
+			alert("Data Saved: " + msg);
+		});
+}
 
 

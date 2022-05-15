@@ -139,7 +139,7 @@
         </form>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">검색</button>
+      <button type="button" class="btn btn-primary" onclick="search()">검색</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">검색창 닫기</button>
       </div>
     </div>
@@ -152,6 +152,6 @@
 	<!-- jquery 최신 cdn -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"
 		type="text/javascript"></script>
-	<script type="/movieproject/js/search.js"></script>
+	<script src="/movieproject/js/search.js" type="text/javascript"></script>
 </body>
 </html>

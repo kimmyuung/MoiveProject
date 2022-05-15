@@ -29,10 +29,10 @@
     let clicked = "";
     let div = "";
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 10; i++) {
         div = document.createElement("div");
         seatWrapper.append(div);
-        for (let j = 0; j < 7; j++) {
+        for (let j = 0; j < 10; j++) {
             const input = document.createElement('input');
             input.type = "button";
             input.name = "seats"
@@ -81,6 +81,15 @@
             input.value = "F" + j;
         } else if (i === 6) {
             input.value = "G" + j;
+        }
+        else if (i === 7) {
+            input.value = "H" + j;
+        }
+        else if (i === 8) {
+            input.value = "I" + j;
+        }
+        else if (i === 9) {
+            input.value = "J" + j;
         }
     }
 </script>

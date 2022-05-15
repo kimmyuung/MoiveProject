@@ -15,17 +15,17 @@
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="/MovieJSP/main.jsp"><i class="fa fa-angle-double-right"></i>Home</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Videos</a></li>
+						<li><a href="/movieproject/main.jsp"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="/movieproject/main.jsp"><i class="fa fa-angle-double-right"></i>Movie List</a></li>
+						<li><a href="/movieproject/main.jsp"><i class="fa fa-angle-double-right"></i>고객 센터</a></li>
+						<li><a href="/movieproject/main.jsp"><i class="fa fa-angle-double-right"></i>영화관 예약</a></li>
+						<li><a href="/movieproject/main.jsp"><i class="fa fa-angle-double-right"></i>이젠 영화관</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-4">
 					<h5>Quick links</h5>
 					<ul class="list-unstyled quick-links">
-						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Home</a></li>
+						<li><a href="/movieproject/main.jsp"><i class="fa fa-angle-double-right"></i>Home</a></li>
 						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>About</a></li>
 						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>FAQ</a></li>
 						<li><a href="https://www.fiverr.com/share/qb8D02"><i class="fa fa-angle-double-right"></i>Get Started</a></li>
