@@ -202,7 +202,7 @@ a:hover {
   }
 }
 </style></head><body>
-<p class="intro">Based from <b><a href="https://dribbble.com/shots/2241918-Movie-Ticket-Card-Sketch-freebie" target="_blank">Soumya's Movie Ticket Card</a></b><p>
+
 	
 <div class="container">
 
