@@ -15,9 +15,9 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="D:/라이브러리/kobis-opcl-rest-v1.0.jar"/>
 	<classpathentry kind="lib" path="D:/라이브러리/kobis-opcl-soap-v1.0.jar"/>
-	<classpathentry kind="lib" path="D:/라이브러리/mysql-connector-java-8.0.29/mysql-connector-java-8.0.29.jar"/>
 	<classpathentry kind="lib" path="D:/라이브러리/cos.jar"/>
 	<classpathentry kind="lib" path="D:/라이브러리/json.jar"/>
 	<classpathentry kind="lib" path="D:/라이브러리/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/라이브러리/mysql-connector-java-8.0.29.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
