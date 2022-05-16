@@ -3,13 +3,12 @@ function search() {
 	let sid = "iOI4fqgIwj";
 	$.ajax({
 		method: "GET",
-		url: "https://openapi.naver.com/v1/search/movie.json",
+		url: "moviesearch",
 		data: { query : "닥터 스트레인지" },
-		headers: { "X-Naver-Client-Id": id, 
-		"X-Naver-Client-Secret":sid}
-			})
-  		.done(function(msg) {
-			alert("Data Saved: " + msg);
+		success : function( result ){	
+  		
+			alert("x");
+		}
 		});
 }
 

@@ -53,31 +53,18 @@
 				</div>
 				<div class="carousel-inner">
 					<div class="carousel-item active" data-bs-interval="10000">
-						<img src="/movieproject/img/movie/movie1.jpg"
-							class="ratio ratio-4x3" alt="..." style="height: 500px;">
-						<div class="carousel-caption d-none d-md-block">
-
-							<p>Some representative placeholder content for the first
-								slide.</p>
-						</div>
+						<a href="/movieproject/movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie1.jpg"
+							class="img-fluid" alt="..." style="height: 600px; width: 800px;"></a>
+						
 					</div>
 					<div class="carousel-item" data-bs-interval="2000">
-						<img src="/movieproject/img/movie/movie2.jpg"
-							class="ratio ratio-4x3" alt="..." style="height: 500px;">
-						<div class="carousel-caption d-none d-md-block">
-
-							<p>Some representative placeholder content for the second
-								slide.</p>
-						</div>
+						<a href="/movieproject/movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie2.jpg"
+							class="img-fluid" alt="..." style="height: 600px;  width: 800px;"></a>
+						
 					</div>
 					<div class="carousel-item">
-						<img src="/movieproject/img/movie/movie3.jpg"
-							class="ratio ratio-4x3" alt="..." style="height: 500px;">
-						<div class="carousel-caption d-none d-md-block">
-
-							<p>Some representative placeholder content for the third
-								slide.</p>
-						</div>
+						<a href="/movieproject/movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie3.jpg"
+							class="img-fluid" alt="..." style="height: 600px;  width: 800px;"></a>
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"
@@ -99,12 +86,12 @@
 		<br>
 		<br>
 		<div class="card" style="width: 18rem;">
-			<a href="#"><img src="/movieproject/img/movie/movie3.jpg" class="card-img-top"
+			<a href="#"><img src="/movieproject/img/movie/movie3.jpg" class="card-img-top img-fluid"
 				alt="..."></a>
 			<div class="card-body">
 				<h5 class="card-title">영화 리스트 카드들이 들어갈 공간</h5>
 				<p class="card-text"></p>
-				<a href="#" class="btn btn-primary">Go somewhere</a>
+				<a href="movie/dayselect.jsp" class="btn btn-primary">영화 보러 가기</a>
 				<div class="imax-logo"></div>
 			</div>
 		</div>
