@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,65 +7,87 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <div class="container">
-        <div class="row">
-            <a class="col-md-2"><button class="btn btn-secondary"> 시간등록 </button></a>
-            <div class="col-md-2 offset-8 d-flex justify-content-end"><a ><button >뒤로가기</button></a></div>
-        </div>
-        <table class="table p-5" id="spreadsheet3">
-            <tr>
-                <td>스케줄번호</td><td>날짜</td><td>시간</td><td>관</td><td>영화아이디</td><td>좌석수</td>
-            </tr>
-            <tr >
-                <td ></td><td ></td><td ></td>
-                <td ></td><td ></td><td ></td>
-                <td><a href="#" class="button" >X</a></td>
-            </tr>
-        </table>
+	<%@include file="../header.jsp"%>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3 class="admin_title">영화 등록</h3>
 
-        <ul class="pagination justify-content-center">
-          
-            <!--첫페이지 -->
-            <li class="page-item">
-                
-            </li>
 
-            <li class="page-item" >
-               
-            </li>
+	<!-- 폼에서 첨부파일 전송시에는 enctype="multipart/form-data" -->
+	<div>
+		<div class="row">
+			<form id="addform" class="col-md-10">
+				<div class="row ">
+					<div class="col-md-3 ">
+						<span> 영화명 </span>
+					</div>
+					<div class="col-md-4">
+						<input class="form-control" type="text" id="mtitle" name="mtitle"
+							placeholder="영화 이름">
+					</div>
+					<div id="titlecheck" class="col-md-3"></div>
+				</div>
 
-            <li class="page-item" >
-              
-            </li>
+				<div class="row">
+					<div class="col-md-3 ">
+						<span> 가격 </span>
+					</div>
+					<div class="col-md-4">
+						<input class="form-control" type="text" id="mprice" name="mprice"
+							placeholder="가격">
+					</div>
+				</div>
+				<div id="mpricecheck" class="col-md-3"></div>
 
-            <li class="page-item">
-               
-            </li>
+				<div class="row">
+					<div class="col-md-2 ">
+						<span> 카테고리 </span>
+					</div>
+					<div class="col-md-2">
+						<button class="form-control" onclick="categorybtn()" type="button">추가</button>
+					</div>
+					<div class="col-md-5" id="categoryinput"></div>
+				</div>
+				<div class="row">
+					<!-- 버튼 클릭시 카테고리 입력창 표시되는 구역  -->
+					<div id="categorybox"></div>
+					<!-- DB내 카테고리 개수만큼 radio 버튼이 표시되는 구역 -->
+					<div id="categorycheck"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 ">
+						<span> 영화 포스터 </span>
+					</div>
+					<div class="col-md-5">
+						<input class="form-control" type="file" id="pimg" name="pimg">
+					</div>
+				</div>
 
-            <li class="page-item">
-               
-            </li>
+				<div class="row">
+					<div class="col-md-5">
+						<button class="form-control" type="button" onclick="movieadd()">영화
+							등록</button>
+						<!-- js에서 form 비동기 통신  -->
+					</div>
+					<div class="col-md-5">
+						<input class="form-control" type="reset" value="초기화">
+					</div>
+				</div>
 
-        </ul>
-
-    </div>
-
-    <form action="/admin/datelist" method="get" class="col-md-5 offset-4 input-group my-3 g-0" >
-        <div class="col-md-1">
-            <select name="keyword" class="form-select">
-                <option value="ddate">날짜</option>
-                <option value="dno">스케줄번호</option>
-            </select>
-        </div>
-        <div class="col-md-2">
-            <input type="search" name="search" class="form-control">
-        </div>
-        <div class="col-md-1">
-            <input type="submit" value="검색" class="form-control">
-        </div>
-    </form>
-
-    </div>
+			</form>
+			<div class="col-md-4">
+				<h5>대표이미지 미리보기</h5>
+				<img id="preview" width="100%">
+			</div>
+		</div>
+	</div>
+	<script src="/movieproject/js/movieadd.js" type="text/javascript"></script>
 
 </body>
 </html>
