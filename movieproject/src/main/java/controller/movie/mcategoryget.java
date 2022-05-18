@@ -52,8 +52,8 @@ public class mcategoryget extends HttpServlet {
 			int i = 1;
 			for( Category temp  : arrayList  ) {
 				html += 
-				"<input type=\"radio\" name=\"cno\" value=\""+
-				temp.getCno()+"\">"+temp.getCname();
+				"<input type=\"radio\" id=\"cno\" name=\"cno\" value=\""+
+				temp.getCno()+"\">"+ temp.getCname();
 				if( i % 6 == 0 ) html += "<br>"; // 만약에 카테고리가 개수 6배수마다 줄바꿈처리 
 				
 				i++;

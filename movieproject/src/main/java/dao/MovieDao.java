@@ -18,13 +18,14 @@ public class MovieDao extends Dao{
 	
 	// 카테고리 이름 중복 체크
 	public boolean categorycheck(String cname) { // id 체크
-		String sql = "select * from category where cname="+cname;
+		String sql = "select * from category where cname=?";
 		try{
 			ps = con.prepareStatement(sql);
+			ps.setString(1, cname);
 			rs = ps.executeQuery();
-			if(rs.next()) {return true;} // 동일 아이디 존재!
+			if(rs.next()) {return true;} // 동일 카테고리 존재!
 		} catch(Exception e) {e.printStackTrace();}
-		return false; // 동일 아이디 없음!
+		return false; // 동일 카테고리 없음!
 	}
 	
 	// 카테고리 등록
@@ -86,10 +87,13 @@ public class MovieDao extends Dao{
 			
 			public boolean movieadd(Movie movie) { // 영화등록
 				try {
-				String sql = "insert into movie() values(?,?,?,?,?,?);";
+				String sql = "insert into movie(mtitle, mruntime, mimg, mprice, mcategory) values(?,?,?,?,?);";
 				ps = con.prepareStatement(sql);
-				
-				
+				ps.setString(1, movie.getMtitle());
+				ps.setString(2, movie.getMruntime());
+				ps.setString(3, movie.getMimg());
+				ps.setInt(4, movie.getMprice());
+				ps.setInt(5, movie.getMcategory());
 				ps.executeUpdate();
 				return true;
 				}catch(Exception e) {e.printStackTrace();}

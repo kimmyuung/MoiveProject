@@ -95,6 +95,13 @@
 				<div class="imax-logo"></div>
 			</div>
 		</div>
+		
+		<br>
+		<br>
+		<div>
+		공지사항 + 영화 이벤트 및 광고가 들어갈 공간 
+		
+		</div>
 		<br>
 		<br>
 		<br>
