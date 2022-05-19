@@ -55,6 +55,22 @@ public class MovieDao extends Dao{
 		return null;
 		}
 	
+	// 카테고리 삭제
+	public boolean mcategorydelete(int cno) {
+		String sql = "delete from category where cnum = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cno);
+			ps.executeUpdate();
+			return true;
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	
 	// 영화 이름 중복 체크
 		public boolean titlecheck(String mtitle) { // id 체크
 			String sql = "select * from movie where mtitle=?";
@@ -115,16 +131,22 @@ public class MovieDao extends Dao{
 				
 				return false;
 			}
-			
-			public boolean update( Movie movie ) { // 영화 수정 
+			// 영화 호출
+			public ArrayList<Movie> getmovielist(){ 
+				ArrayList<Movie> list = new ArrayList<Movie>();
+				String sql = "select * from movie";
 				try {
-					String sql ="update movie set mtitle=? ,  mphone=? , memail=?,"
-							+ "maddress = ? where mno=?";
-						ps = con.prepareStatement(sql);
-						
-					ps.executeUpdate(); return true;
-				}catch (Exception e) {e.printStackTrace();} return false;
-			}
-			
+					ps = con.prepareStatement(sql);
+					rs = ps.executeQuery();
+					while(rs.next()) {
+						Movie movie = new Movie(rs.getInt(1), rs.getString(2), 
+								rs.getString(3), rs.getString(4), 
+								rs.getInt(5), rs.getInt(6));
+						list.add(movie);
+					}
+					return list;
+				}catch(Exception e) {e.printStackTrace();}
+				return null;
+				}
 			
 }

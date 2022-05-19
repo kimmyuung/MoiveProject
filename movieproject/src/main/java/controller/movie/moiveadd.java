@@ -56,12 +56,11 @@ public class moiveadd extends HttpServlet {
 		int mprice = Integer.parseInt(multi.getParameter("mprice")); 
 		String mimg = multi.getFilesystemName("pimg"); // 첨부파일 : getFilesystemName
 		int cno = Integer.parseInt( multi.getParameter("cno") );
-		String mruntime = multi.getParameter("mruntime");	
-			
+		String mruntime = multi.getParameter("mruntime");		
 		
 		
 		// 객체화 
-		Movie movie = new Movie(0, mtitle, mprice, cno, mruntime, mimg);
+		Movie movie = new Movie(0, mtitle, mruntime, mimg, mprice, cno);
 		// DB 처리
 		boolean result = MovieDao.getmovieDao().movieadd(movie);
 		// 결과 

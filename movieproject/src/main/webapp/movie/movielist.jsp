@@ -1,3 +1,6 @@
+<%@page import="dao.MovieDao"%>
+<%@page import="dto.Movie"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,42 +11,35 @@
 </head>
 <body>
 <%@include file="../header.jsp" %>
-<br><br><br><br><br><br><br><br><br>
 
+<%
+ArrayList<Movie> mlist = MovieDao.getmovieDao().getmovielist();
+%>
 
-
-<h3 id="chart"> 영화 차트 종류 : </h3>
-<br><br>
-<h4 id="date"> 날짜 : </h4>
-<br><br><br>
-<table class="table table-hover text-center"> <!-- 테이블 -->
-			<tr>
-				<th width="10%"> 영화 순위 </th> 
-				<th width="50%"> 영화 제목 </th> 
-				<th width="15%"> 순위 변동 </th> 
-				<th width="15%"> 개봉일 </th> 
-				<th width="10%"> 예매율  </th> 
-			</tr>
-			<!-- for 문 -->
-			<% for( int i = 0; i < 10; i++ ){ %>
-				<tr>
-					<td id="rank<%=i%>" width="10%"> </td>
-					<td style="text-align: left;" id="title<%=i%>" width="50%"> 
-						
-					</td>
-					<td id="rankchange<%=i%>" width="15%">  </td>
-					<td id="open<%=i%>" width="15%">  </td>
-					<td id="rate<%=i%>" width="10%">  </td>
-				</tr>
-			<%
-				}
-			%>
-		</table>
+<br><br><br><br><br><br><br><br><br><br>
+<table class="table">
+<tr>
+<th>영화 제목</th>
+<th>영화 포스터</th>
+<th>영화 러닝타임</th>
+<th>영화 가격</th>
+<th>영화 카테고리</th>
+</tr>
+<%for(Movie m : mlist) {%>
+<tr>
+<td><a href="#"><%=m.getMtitle() %></a></td>
+<td><img alt="" src="/moiveproject/movie/<%=m.getMimg()%>"></td>
+<td><%=m.getMruntime() %></td>
+<td><%=m.getMprice() %></td>
+<td><%=m.getMcategory() %></td>
+</tr>
+<%} %>
+</table>
 
 
 <br><br><br><br><br><br><br><br><br><br>
 
 <%@include file="../footer.jsp" %>
-	<script src="/movieproject/js/KobisOpenAPIRestService.js" type="text/javascript"></script>
+<script src="../js/movielist.js" type="text/javascript"></script>
 </body>
 </html>

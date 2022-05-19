@@ -16,7 +16,7 @@ import dto.Movie;
 /**
  * Servlet implementation class mdelete
  */
-@WebServlet("/mdelete")
+@WebServlet("/movie/mdelete")
 public class mdelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -56,13 +56,13 @@ public class mdelete extends HttpServlet {
 //			out.println( "</html>");
 			// 2. JS 내보내기 
 			out.println("<script>");
-			out.println("alert('해당 게시물이 삭제 되었습니다.');");
+			out.println("alert('해당 영화가 삭제 되었습니다.');");
 			out.println("location.href='movielist.jsp';");	// js [ location.href = "경로" ]
 			out.println("</script>");
 		}
 		else {
 			out.println("<script>");
-			out.println("alert('해당 게시물이 삭제 실패[관리자에게 문의] .');");
+			out.println("alert('해당 영화 삭제 실패[관리자에게 문의] .');");
 			out.println("history.back();");	// js [ history.back() : 이전 페이지로 가기 메소드 ] 
 			out.println("</script>");
 		} 

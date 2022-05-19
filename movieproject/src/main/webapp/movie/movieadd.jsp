@@ -22,7 +22,7 @@
 	<!-- 폼에서 첨부파일 전송시에는 enctype="multipart/form-data" -->
 	<div>
 		<div class="row">
-			<form id="addform" class="col-md-10">
+			<form id="addform" class="col-md-10" enctype="multipart/form-data">
 				<div class="row ">
 					<div class="col-md-3 ">
 						<span> 영화명 </span>
@@ -71,7 +71,9 @@
 				</div>
 				<div class="row">
 					<!-- 버튼 클릭시 카테고리 입력창 표시되는 구역  -->
-					<div id="categorybox"></div>
+					<div id="categorybox">
+						
+					</div>
 					<!-- DB내 카테고리 개수만큼 radio 버튼이 표시되는 구역 -->
 					<div id="categorycheck"></div>
 					<!-- 카테고리 유효성 검사 결과가 표시되는 구역 -->

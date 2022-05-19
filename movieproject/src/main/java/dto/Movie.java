@@ -9,7 +9,7 @@ private int mcategory;
 private int mprice;
 
 public Movie() {}
-public Movie(int mno, String mtitle, int mprice, int mcategory, String mruntime, String mimg ) {
+public Movie(int mno, String mtitle, String mruntime, String mimg, int mprice, int mcategory) {
 	super();
 	this.mno = mno;
 	this.mtitle = mtitle;

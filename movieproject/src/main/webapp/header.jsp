@@ -46,7 +46,7 @@
 							aria-expanded="false">Movie</button>
 						&nbsp;&nbsp;
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-							<li><a class="dropdown-item" href="/movieproject/movie/movielist.jsp">영화 순위 확인</a></li>
+							<li><a class="dropdown-item" href="/movieproject/movie/movierank.jsp">영화 순위 확인</a></li>
 							<li><a class="dropdown-item" href="#">상영 시간표 보기</a></li>
 							<%
 							if (loginid != null && !(loginid.equals("admin"))) {
@@ -59,8 +59,7 @@
 							if (loginid != null && loginid.equals("admin")) {
 							%>
 							<li><a class="dropdown-item" href="/movieproject/movie/movieadd.jsp"> 영화 등록</a></li>
-							<li><a class="dropdown-item" href="/movieproject/movie/moviedelete.jsp"> 영화 삭제</a></li>
-							<li><a class="dropdown-item" href="/movieproject/movie/movieupdate.jsp"> 영화 수정</a></li>
+							<li><a class="dropdown-item" href="/movieproject/movie/movielist.jsp"> 영화 관리</a></li>
 							<%
 							}
 							%>
