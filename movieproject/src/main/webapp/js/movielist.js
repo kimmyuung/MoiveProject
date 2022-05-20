@@ -1,19 +1,23 @@
-function moviedelete( mtitle ){
+function moviedelete(mtitle){
 	
+	
+	if(confirm("정말 영화를 삭제하시겠습니까?")) {
 	$.ajax({
-		url : "delete",
+		url : "mdelete",
 		data : { "mtitle" : mtitle } , 
-		success : function( result ){
-			if( result == 1 ){
-				alert("영화삭제가 완료 되었습니다.");
-				// js에서 하이퍼링크 [ 페이지연결 ]
-				// html :  <a href="경로">
-				// js : location.href="경로">
-				location.href="/movieproject/movie/movielist.jsp"; // 서블릿 
-			}else{
-				location.href="/movieproject/error.jsp"; // 페이지
+		success : function( re ){
+			if(re == 1){
+			alert("영화 삭제가 완료되었습니다.");
+			   $("#movielist").load(window.location.href + " #movielist");
 			}
-		}
+			else {
+				alert("영화 삭제가 실패하였습니다.");
+				
+			}
+			}
 	});
-	
+	}
+	else {
+		return;
+	}
 }

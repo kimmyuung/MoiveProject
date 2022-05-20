@@ -57,8 +57,8 @@ public class moiveadd extends HttpServlet {
 		String mimg = multi.getFilesystemName("pimg"); // 첨부파일 : getFilesystemName
 		int cno = Integer.parseInt( multi.getParameter("cno") );
 		String mruntime = multi.getParameter("mruntime");		
-		
-		
+		System.out.println(mimg);
+		System.out.println(uploadpath);
 		// 객체화 
 		Movie movie = new Movie(0, mtitle, mruntime, mimg, mprice, cno);
 		// DB 처리

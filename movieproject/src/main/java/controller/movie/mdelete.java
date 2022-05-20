@@ -33,9 +33,9 @@ public class mdelete extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mtitle =  request.getParameter("mtitle") ;
-		
+	
 		// * DB 삭제 전에 파일명 가져오기
-		Movie movie = MovieDao.getmovieDao().getmovie(getServletInfo()); // 영화 제목 
+		Movie movie = MovieDao.getmovieDao().getmovie(mtitle); // 영화 제목 
 		String bfile = movie.getMimg();
 		
 		boolean result =  MovieDao.getmovieDao().delete(mtitle); // DB 삭제처리 
@@ -55,16 +55,20 @@ public class mdelete extends HttpServlet {
 //			out.println( "</body>");
 //			out.println( "</html>");
 			// 2. JS 내보내기 
-			out.println("<script>");
-			out.println("alert('해당 영화가 삭제 되었습니다.');");
-			out.println("location.href='movielist.jsp';");	// js [ location.href = "경로" ]
-			out.println("</script>");
+//			out.println("<script>");
+//			out.println("alert('해당 영화가 삭제 되었습니다.');");
+//			out.println("location.href='/movieproject/movie/movielist.jsp'");	// js [ location.href = "경로" ]
+//			out.println("</script>");
+			out.print(1);
+			
 		}
 		else {
-			out.println("<script>");
-			out.println("alert('해당 영화 삭제 실패[관리자에게 문의] .');");
-			out.println("history.back();");	// js [ history.back() : 이전 페이지로 가기 메소드 ] 
-			out.println("</script>");
+			out.print(2);
+//			out.println("<script>");
+//			out.println("alert('해당 영화 삭제 실패[관리자에게 문의] .');");
+//			out.println("history.back();");	// js [ history.back() : 이전 페이지로 가기 메소드 ] 
+//			out.println("</script>");
+			
 		} 
 	}
 

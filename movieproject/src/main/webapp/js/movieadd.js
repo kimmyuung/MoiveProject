@@ -59,8 +59,8 @@ function catecheck() {
 function categoryadd() {
 	let cname = $("#cname").val();
 	if (pass[0] == false) {
-		alert("사용중인 카테고리 이름입니다.");
-		categorycheck.innerHTML = "사용중인 카테고리 이름입니다."; return;
+		alert("카테고리 중복 검사를 실시한 후에 등록해주세요");
+		categorycheck.innerHTML = "카테고리 중복 검사를 실시한 후에 등록해주세요"; return;
 	}
 	else {
 		$.ajax({
@@ -92,7 +92,6 @@ function getcategory() {
 		success: function(re) {
 			$("#categorybox").html(re);
 
-
 		}
 	});
 
@@ -109,7 +108,7 @@ function categorydelete() {
 			success: function(result) {
 				if (result == 1) {
 					alert("삭제가 완료되었습니다.");
-					location.reload();
+					getcategory(); 
 				}
 				else {
 					alert("삭제를 실패하였습니다.");
@@ -133,7 +132,7 @@ $(function() {  // 문서 열리면 해당 코드가 실행
 		let mtitle = document.getElementById("mtitle").value;
 		// 2. HTML 태그id 가져오기
 		// 정규표현식 : 특정한 규칙을 가지는 문자열의 집합 언어
-		let mtitlej = /^[가-힣a-zA-Z0-9]{1,20}$/;	// 한글+영문+숫자 1~20 사이 문자열
+		let mtitlej = /^[a-zA-Z0-9가-힣\s]{1,20}$/;	// 한글+영문+숫자 1~20 사이 문자열
 		// /^ : 정규표현식 시작
 		// $/ : 정규표현식 끝 
 		// [a-z] : 소문자 찾음
@@ -216,7 +215,6 @@ let mpass = [false, false, false]; // 배열 = [  ] // 유효성 검사
 
 ////////////////////////////////////// form 전송
 function movieadd() {
-	var value = $('input[name="cno"]:checked').val();
 	
 	
 	// ajax 기본적으로 문자열 전송  기본 인코딩 URL 타입 :application/x-www-form-urlencoded(문자열만 가능)

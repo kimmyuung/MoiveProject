@@ -6,7 +6,7 @@ $("#seats").change(function() {
 	var str_html = '';
 	var seat = $("#seats").val();
 	$("target_btn").css('display', 'block');
-	var submit_html = '<input type="button" class="form-control" onclick="theateradd()" value="영화관등록">';
+	var submit_html = '<input type="button" class="form-control" onclick="theateradd('+i+')" value="영화관등록">';
 	var cancel = '<input type="reset" class"form-control" value="영화관등록 취소">';
 	// 버튼을 10개 추가한다.
 	for (var i = 0; i < seat; i++) {
@@ -32,6 +32,6 @@ $("#seats").change(function() {
 
 
 
-function theateradd() {
-	alert("xx");
+function theateradd(i) {
+	alert(i);
 }

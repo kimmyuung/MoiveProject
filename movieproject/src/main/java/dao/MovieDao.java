@@ -54,7 +54,19 @@ public class MovieDao extends Dao{
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
 		}
-	
+	public Category getcategory(int cno) {
+		String sql = "select * from category where cno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, cno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				Category cat = new Category(rs.getInt(1), rs.getString(2));
+				return cat;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
 	// 카테고리 삭제
 	public boolean mcategorydelete(int cno) {
 		String sql = "delete from category where cnum = ?";
@@ -92,8 +104,9 @@ public class MovieDao extends Dao{
 					ps.setString(1, mtitle);
 					rs = ps.executeQuery();
 					if(rs.next()) {
-						Movie movie = new Movie(); 
-								
+						Movie movie = new Movie(rs.getInt(1), rs.getString(2), 
+								rs.getString(3), rs.getString(4), 
+								rs.getInt(5), rs.getInt(6));
 						return movie;
 					}
 					
