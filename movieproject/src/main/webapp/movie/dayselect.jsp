@@ -1,5 +1,7 @@
-<html lang="en">
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<!DOCTYPE html>
+	<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +47,7 @@
         const reserveDate = document.querySelector(".reserve-date");
 
       
-            const weekOfDay = ["Sum", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            const weekOfDay = ["일", "월", "화", "수", "목", "금", "토"]
             const year = date.getFullYear();
             const month = date.getMonth();
             for (i = date.getDate(); i <= lastDay.getDate(); i++) {

@@ -21,8 +21,8 @@
                     <div class="col-lg-9">
                         <div class="anime__details__text">
                             <div class="anime__details__title">
-                                <h3>Fate Stay Night: Unlimited Blade</h3>
-                                <span>フェイト／ステイナイト, Feito／sutei naito</span>
+                                <h3>영화 제목</h3>
+                                <span>영화 제작사 및 감독</span>
                             </div>
                             <div class="anime__details__rating">
                                 <div class="rating">
@@ -42,11 +42,9 @@
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6">
                                         <ul>
-                                            <li><span>Type:</span> TV Series</li>
-                                            <li><span>Studios:</span> Lerche</li>
-                                            <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
-                                            <li><span>Status:</span> Airing</li>
-                                            <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>
+                                            <li><span>제작사 : </span> Lerche</li>
+                                            <li><span>상영 여부 :</span> Airing</li>
+                                            <li><span>카테고리 :</span> Action, Adventure, Fantasy, Magic</li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6">

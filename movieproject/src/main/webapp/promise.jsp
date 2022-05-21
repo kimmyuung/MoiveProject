@@ -144,5 +144,6 @@
 </textarea>
 <br><br>
 <a href="member/signup.jsp">회원가입으로 돌아가기</a>
+<a href="main.jsp">홈 화면으로 돌아가기</a>
 </body>
 </html>

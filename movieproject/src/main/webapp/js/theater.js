@@ -1,37 +1,80 @@
 
 
+/*$(document).ready(function(){
 
+ let test = [];
+    let selectedSeats = new Array();
+    let selectedSeatsMap = [];
+    const seatWrapper = document.querySelector(".seat-wrapper");
+    let clicked = "";
+    let div = "";
 
-$("#seats").change(function() {
-	var str_html = '';
-	var seat = $("#seats").val();
-	$("target_btn").css('display', 'block');
-	var submit_html = '<input type="button" class="form-control" onclick="theateradd('+i+')" value="영화관등록">';
-	var cancel = '<input type="reset" class"form-control" value="영화관등록 취소">';
-	// 버튼을 10개 추가한다.
-	for (var i = 0; i < seat; i++) {
-		var html_btn = '<button type="button" class="btn btn-success m-1" id="btn{}" style="width:100px">[]</button>';
-		html_btn = html_btn.replace('{}', i + 1);
-		html_btn = html_btn.replace('[]', i + 1);
-		str_html = str_html + html_btn;
-	}
+    for (let i = 0; i < 10; i++) {
+        div = document.createElement("div");
+        seatWrapper.append(div);
+        for (let j = 0; j < 10; j++) {
+            const input = document.createElement('input');
+            input.type = "button";
+            input.name = "seats"
+            input.classList = "seat";
+            //3중포문을 사용하지 않기위해 
+            mapping(input, i, j);
+            div.append(input);
+            input.addEventListener('click', function(e) {
+                console.log(e.target.value);
+                //중복방지 함수
+                selectedSeats = selectedSeats.filter((element, index) => selectedSeats.indexOf(element) != index);
 
-	$('#div_btn').html(str_html);
-	$('#div_add').html(submit_html);
-	$('#div_cancel').html(cancel);
-	// 버튼을 동적연결한다.
-	$(function() {
-		$('#btn').click(function() {
-			// 버튼 비활성화
-			$('#btn').prop('disabled', true);
-			alert()
-		});
-	});
+                //click class가 존재할때(제거해주는 toggle)
+                if (input.classList.contains("clicked")) {
+                    input.classList.remove("clicked");
+                    clicked = document.querySelectorAll(".clicked");
+                    selectedSeats.splice(selectedSeats.indexOf(e.target.value), 1);
+                    clicked.forEach((data) => {
+                        selectedSeats.push(data.value);
+                    });
+                    //click class가 존재하지 않을때 (추가해주는 toggle)
+                } else {
+                    input.classList.add("clicked");
+                    clicked = document.querySelectorAll(".clicked");
+                    clicked.forEach((data) => {
+                        selectedSeats.push(data.value);
+                    })
+                }
+                console.log(selectedSeats);
+            })
+        }
+    }
 
+    function mapping(input, i, j) {
+        if (i === 0) {
+            input.value = "A" + j;
+        } else if (i === 1) {
+            input.value = "B" + j;
+        } else if (i === 2) {
+            input.value = "C" + j;
+        } else if (i === 3) {
+            input.value = "D" + j;
+        } else if (i === 4) {
+            input.value = "E" + j;
+        } else if (i === 5) {
+            input.value = "F" + j;
+        } else if (i === 6) {
+            input.value = "G" + j;
+        }
+        else if (i === 7) {
+            input.value = "H" + j;
+        }
+        else if (i === 8) {
+            input.value = "I" + j;
+        }
+        else if (i === 9) {
+            input.value = "J" + j;
+        }
+    }
+    });*/
+    
+    $('.cinema-seats .seat').on('click', function() {
+  $(this).toggleClass('active');
 });
-
-
-
-function theateradd(i) {
-	alert(i);
-}
+    

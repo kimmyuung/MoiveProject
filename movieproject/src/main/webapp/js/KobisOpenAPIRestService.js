@@ -1,9 +1,13 @@
+
 $(function() {
-	$.ajax({
+		
+	var date = new Date();
+	date = getFormatDate(date);
+		$.ajax({
 		method: "get",
 		url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
 		data: {
-			targetDt: "20220515",
+			targetDt: date-7,
 			key: "aa00e29d76f425572e382e01cfb52950",
 			itemPerPage: "10",
 		}
@@ -19,6 +23,8 @@ $(function() {
 			$("#rate"+i).append("<strong>" + msg.boxOfficeResult.weeklyBoxOfficeList[i].salesShare + "</strong>");
 		}
 	});
+	getclock();
+  	setInterval(getclock, 1000);
 });
 function KobisOpenAPIRestService(key, host) {
 	this.key = key;
@@ -105,3 +111,21 @@ KobisOpenAPIRestService.prototype.getPeopleInfo
 		return this.requestGet(this.key, this.host, this.PEOPLE_INFO_URI, isJson, paramMap);
 
 	};
+function getclock() {
+  const date = new Date();
+  const hour = String(date.getHours()).padStart(2,"0");
+  const minutes = String(date.getMinutes()).padStart(2,"0");
+  const second = String(date.getSeconds()).padStart(2,"0");//number이기 때문에 padStart 붙일 수 없음. String 변환해주어야한다.
+  clock.innerText = `${hour}:${minutes}:${second}`;
+  currentdate.innerText = getFormatDate(date);  
+}	
+
+function getFormatDate(date){
+    var year = date.getFullYear();              //yyyy
+    var month = (1 + date.getMonth());          //M
+    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+    var day = date.getDate();                   //d
+    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+    return  year + '' + month + '' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+}
+ 

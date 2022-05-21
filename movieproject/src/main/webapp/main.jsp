@@ -85,22 +85,33 @@
 		<br>
 		<br>
 		<br>
-		<div class="card" style="width: 18rem;">
-			<a href="#"><img src="/movieproject/img/movie/movie3.jpg" class="card-img-top img-fluid"
+		<div class="row">
+		<%for(int i = 4; i < 20; i++) {%>
+		<div class="card col-md-3" style="width: 18rem;">
+			<a href="movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie<%=i %>.jpg" class="card-img-top img-fluid"
 				alt="..."></a>
 			<div class="card-body">
-				<h5 class="card-title">영화 리스트 카드들이 들어갈 공간</h5>
+				<h5 class="card-title">영화 이름 : </h5>
 				<p class="card-text"></p>
 				<a href="movie/dayselect.jsp" class="btn btn-primary">영화 보러 가기</a>
 				<div class="imax-logo"></div>
 			</div>
 		</div>
-		
+		<%} %>
+		</div>
 		<br>
 		<br>
-		<div>
-		공지사항 + 영화 이벤트 및 광고가 들어갈 공간 
-		
+		<div class="row" id="adbox">
+		<h3>영화관 이벤트 </h3>
+		<div class="col-md-4">
+		<img alt="" src="/movieproject/img/mainad1.jpg" width="100%">
+		</div>
+		<div class="col-md-4">
+		<img alt="" src="/movieproject/img/mainad2.jpg" width="100%">
+		</div>
+		<div class="col-md-4">
+		<img alt="" src="/movieproject/img/mainad3.jpg" width="100%">
+		</div>
 		</div>
 		<br>
 		<br>
@@ -108,8 +119,7 @@
 		<br>
 		<br>
 		<br>
-		<br>
-		<br>
+		
 
 
 

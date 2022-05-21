@@ -6,17 +6,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
 <%@include file="../header.jsp" %>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br>
 
 
 
 <h3 id="chart"> 영화 차트 종류 : </h3>
-<br><br>
-<h4 id="date"> 날짜 : </h4>
+
+<p style="text-align: center; font-size: 25px;">현재 날짜 및 시간</p>
+<div class="conatiner"> 
+<div class="row">
+<div class="col-md-3 offset-3" id="currentdate" style="font-size: 30px;"></div>
+<div class="col-md-3 offset-3" id="clock" style="font-size: 30px;">00:00:00</div>
+</div>
+<div>
+<p>랭킹 집계 기간</p>
+<h3 id="date"></h3>
+</div>
+</div>
+
 <br><br><br>
-<table class="table table-hover text-center"> <!-- 테이블 -->
+
+		<table class="table table-hover text-center"> <!-- 테이블 -->
 			<tr>
 				<th width="10%"> 영화 순위 </th> 
 				<th width="50%"> 영화 제목 </th> 
