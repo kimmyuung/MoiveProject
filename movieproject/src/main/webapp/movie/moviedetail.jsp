@@ -5,166 +5,84 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/movieproject/css/moviedetail.css"  rel="stylesheet">
 </head>
 <body>
 <%@include file="../header.jsp" %>
- <section class="anime-details spad">
+   <section id="new">
         <div class="container">
-            <div class="anime__details__content">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="anime__details__pic set-bg" data-setbg="/movieproject/img/movie/movie1.jpg">
-                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
-                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+            <div class="row">
+                <div class="new">
+                    <h2>새로운 영화</h2>
+                    <div class="new_left">
+                        <div class="play">
+                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 120 120" style="enable-background:new 0 0 120 120;" xml:space="preserve">
+                                <circle class="st0" cx="60" cy="60.4" r="56"/>
+                                <path class="st1" d="M81,65.4c4.8-2.8,4.8-7.2,0-10L53.5,39.6c-4.8-2.8-8.7-0.5-8.7,5v31.7c0,5.5,3.9,7.8,8.7,5L81,65.4z"/>
+                            </svg>
                         </div>
                     </div>
-                    <div class="col-lg-9">
-                        <div class="anime__details__text">
-                            <div class="anime__details__title">
-                                <h3>영화 제목</h3>
-                                <span>영화 제작사 및 감독</span>
-                            </div>
-                            <div class="anime__details__rating">
-                                <div class="rating">
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star"></i></a>
-                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
-                                </div>
-                                <span>1.029 Votes</span>
-                            </div>
-                            <p>Every human inhabiting the world of Alcia is branded by a “Count” or a number written on
-                                their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
-                                never to be seen again. But her mother’s last words send Hina on a quest to find a
-                            legendary hero from the Waste War - the fabled Ace!</p>
-                            <div class="anime__details__widget">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <ul>
-                                            <li><span>제작사 : </span> Lerche</li>
-                                            <li><span>상영 여부 :</span> Airing</li>
-                                            <li><span>카테고리 :</span> Action, Adventure, Fantasy, Magic</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6">
-                                        <ul>
-                                            <li><span>Scores:</span> 7.31 / 1,515</li>
-                                            <li><span>Rating:</span> 8.5 / 161 times</li>
-                                            <li><span>Duration:</span> 24 min/ep</li>
-                                            <li><span>Quality:</span> HD</li>
-                                            <li><span>Views:</span> 131,541</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="anime__details__btn">
-                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
-                                <a href="dayselect.jsp" class="watch-btn"><span>보러 가기</span> <i
-                                    class="fa fa-angle-right"></i></a>
-                                </div>
-                            </div>
+                    <div class="new_right">
+                        <h3 class="title">로그 원: 스타워즈 스토리</h3>
+                        <span class="release">2016년 10월 28일 개봉</span>
+                        <div class="star">
+                            <span class="icon star1"></span>
+                            <span class="icon star1"></span>
+                            <span class="icon star1"></span>
+                            <span class="icon star2"></span>
+                            <span class="icon star0"></span>
+                            <strong>7.5/10</strong>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 col-md-8">
-                        <div class="anime__details__review">
-                            <div class="section-title">
-                                <h5>Reviews</h5>
+                        <ul class="summary">
+                            <li class="genre"><span class="bar">액션</span><span>미국, 오스트레일리아</span></li>
+                            <li class="age"><span class="bar">142분</span><span>12세 이상 관람가</span></li>
+                            <li class="desc">단숨에 행성 하나를 파괴할 위력을 지닌 데스 스타가 완성되기 전에 설계도를 훔쳐내야 하는 이번 작전의 성공 확률은 고작 2.4%. 생사도 모르는 아버지에 얽힌 비밀을 밝히려는 진을 ...비롯해 유능한 정보 요원 ‘카시안’(디에고 루나), 두 눈이 멀었지만 탁월한 무술 실력을 지닌 ‘치루트’(견자단), 전투 베테랑 ‘베이즈’, 파일럿 ‘보디’, 시니컬한 드로이드 ‘K-2SO’까지 합류, 거대한 전쟁을 끝낼 ‘로그 원’이 이끄는 가장 비밀스런 작전이 시작되는데…</li>
+                        </ul>
+                        <div class="select">
+                            <div class="s1">
+                                <lable for="udate" class="ir_so">날짜</lable>
+                                <input type="text" id="udate" name="udate" value="2019년 1월 25일" class="ui_select2" >
                             </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="../img/anime/review-1.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
-                                </div>
+                            <div class="s2">
+                                <label for="utime" class="ir_so">시간</label>
+                                <select id="utime" name="utime" class="ui_select2">
+                                    <option value="오전 0:00">오전 0:00</option>
+                                    <option value="오전 1:00">오전 1:00</option>
+                                    <option value="오전 2:00">오전 2:00</option>
+                                    <option value="오전 3:00">오전 3:00</option>
+                                    <option value="오전 4:00">오전 4:00</option>
+                                    <option value="오전 5:00">오전 5:00</option>
+                                    <option value="오전 6:00">오전 6:00</option>
+                                    <option value="오전 7:00">오전 7:00</option>
+                                    <option value="오전 8:00">오전 8:00</option>
+                                    <option value="오전 9:00">오전 9:00</option>
+                                    <option value="오전 10:00">오전 10:00</option>
+                                    <option value="오전 11:00">오전 11:00</option>
+                                    <option value="오전 12:00">오전 12:00</option>
+                                    <option value="오후 1:00">오후 1:00</option>
+                                    <option value="오후 2:00">오후 2:00</option>
+                                    <option value="오후 3:00">오후 3:00</option>
+                                    <option value="오후 4:00">오후 4:00</option>
+                                    <option value="오후 5:00">오후 5:00</option>
+                                    <option value="오후 6:00">오후 6:00</option>
+                                    <option value="오후 7:00">오후 7:00</option>
+                                    <option value="오후 8:00">오후 8:00</option>
+                                    <option value="오후 9:00">오후 9:00</option>
+                                    <option value="오후 10:00">오후 10:00</option>
+                                    <option value="오후 11:00">오후 11:00</option>
+                                    <option value="오후 12:00">오후 12:00</option>
+                                </select>
                             </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="../img/anime/review-2.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="../img/anime/review-3.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="../img/anime/review-4.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
-                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
-                                    "demons" LOL</p>
-                                </div>
-                            </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="../img/anime/review-5.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
-                                    <p>Finally it came out ages ago</p>
+                                <div class="s3">
+                                    <label for="utext" class="ir_so">주소 또는 도로명을 입력해주세요.</label>
+                                    <input type="text" id="utext" name="utext" class="ui_input3" placeholder="주소 또는 도로명을 입력해주세요.">
                                 </div>
                             </div>
-                            <div class="anime__review__item">
-                                <div class="anime__review__item__pic">
-                                    <img src="../img/anime/review-6.jpg" alt="">
-                                </div>
-                                <div class="anime__review__item__text">
-                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
-                                    <p>Where is the episode 15 ? Slow update! Tch</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="anime__details__form">
-                            <div class="section-title">
-                                <h5>Your Comment</h5>
-                            </div>
-                            <form action="#">
-                                <textarea placeholder="Your Comment"></textarea>
-                                <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <div class="anime__details__sidebar">
-                            <div class="section-title">
-                                <h5>you might like...</h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="../img/sidebar/tv-1.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="../img/sidebar/tv-2.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="../img/sidebar/tv-3.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg" data-setbg="../img/sidebar/tv-4.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                            </div>
+                            <div class="btn">
+                                    <a href="#" class="white">좌석확인</a>
+                                    <a href="#" class="purple">예매하기</a>
+                            </div>   
                         </div>
                     </div>
                 </div>

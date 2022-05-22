@@ -133,12 +133,12 @@
         <form>
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">영화의 제목:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <input type="text" class="form-control" id="moviename">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary" onclick="search()">검색</button>
+      <button type="submit" class="btn btn-primary" onclick="search()">검색</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">검색창 닫기</button>
       </div>
     </div>
