@@ -26,7 +26,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-2 d-flex fixed-top">
+			<div class="col-md-2 d-flex">
 				<div class="header__logo">
 					<a href="/movieproject/main.jsp"> <img src="/movieproject/img/logo.jpg"
 						class="img-fluid" alt="" style="width: 150px;">
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 
-			<div class="col-md-10 offset-2 fixed-top pb-1 pt-5 px-5">
+			<div class="col-md-10 pb-1 pt-5 px-5">
 				<div class="col-md-7 offset-5 d-flex justify-content-end">
 					<!-- 헤더 메뉴 오른쪽 배치 -->
 					<!-- 헤더 -->
