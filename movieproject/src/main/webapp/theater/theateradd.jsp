@@ -11,7 +11,6 @@
 	width: 30px;
 	height: 30px;
 }
-
 .clicked {
 	background-color: red;
 	color: white;

@@ -9,7 +9,7 @@ function tnamecheck() {
 
 	
 	let tname = $("#tname").val();
-	alert(tname);
+	
 	$.ajax({
 		url : 'tnamecheck',
 		data : {'tname' : tname},
@@ -110,27 +110,27 @@ function readd() {
 }
 
 function theateradd() {
+	
 	let tname = $("#tname").val();
-	var value = $("#seatselect").val();
-	let tjson = {
-		tname : tname,
-		value :value,
-		location : selectedSeats
+	var tseat = $("#seatselect").val();
+	let select = "";	
+	
+	
+	for(let i = 0; i < selectedSeats.length; i++) {
+		select += selectedSeats[i] + ",";
 	}
+	select = select.replace(/,\s*$/, "");
 	if(pass == false) {
 		alert("영화관 이름 중복검사를 실행해주세요.")
 		return;
-		
 	}
 	else {
-		
-		
-		
+
 	$.ajax({
 		url : 'theateradd',
-		data : {'tjson' : JSON.stringify(tjson)},
+		data : {'tname' : tname, 'tseat' : tseat, 'select' : select},
 		success : function(re) {
-				alert("통신");
+				alert(re);
 				if(re == 1) {
 					alert("영화관 등록 성공");
 				}	

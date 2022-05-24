@@ -43,9 +43,41 @@ public class TheaterDao extends Dao{
 		return false;
 		}
 	
-	public ArrayList<Theater> theaterlist() {return null;}
+	public ArrayList<Theater> theaterlist() {
+		ArrayList<Theater> theaters = new ArrayList<Theater>();
+		String sql = "select * from theater";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Theater theater = new Theater(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4) );
+				theaters.add(theater);
+			}
+			return theaters;
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
 	
 	public boolean theaterdelete() {return false;}
+	
+	public boolean theaterupdate() {
+		
+		return false;
+	}
+	
+	public Theater gettheater(int tno) {
+		String sql = "select * from theater where tno = ? ";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, tno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				Theater theater = new Theater(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4) );
+				return theater;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
 	
 	
 }
