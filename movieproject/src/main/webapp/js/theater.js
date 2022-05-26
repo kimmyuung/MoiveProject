@@ -133,11 +133,62 @@ function theateradd() {
 				alert(re);
 				if(re == 1) {
 					alert("영화관 등록 성공");
+					location.href = '/movieproject/theater/theaterlist.jsp';
 				}	
 				else {
 					alert("영화관 등록 실패");
 				}
 		}
 	});
+	}
+}
+
+function theaterupdate(tnum) {
+	let tname = $("#tname").val();
+	var tseat = $("#seatselect").val();
+	let select = "";	
+	alert(tname);
+	alert(tseat);
+	for(let i = 0; i < selectedSeats.length; i++) {
+		select += selectedSeats[i] + ",";
+	}
+	select = select.replace(/,\s*$/, "");
+	
+	$.ajax({
+		url : 'theaterupdate',
+		data : {'tnum' : tnum, 'tseat' : tseat, 'select' : select},
+		success : function(re) {
+			if(re == 1) {
+				alert("영화관 수정 완료");
+				location.href = '/movieproject/theater/theaterlist.jsp';
+			}
+			else {
+				alert("영화관 수정 실패");
+				
+			}
+		}
+ 	});
+	
+}
+
+function theaterdelete(tnum) {
+	if(confirm("정말 삭제하시겠습니까?")){
+	$.ajax({
+		url : 'theaterdelete',
+		data : {'tnum' : tnum},
+		success : function(re) {
+			if(re == 1) {
+				alert("삭제가 완료되었습니다.");
+				location.href = '/movieproject/theater/theaterlist.jsp';
+			}
+			else {
+				alert("삭제 실패!");
+			}
+		}
+	});	
+	}
+	else {
+		alert("삭제가 취소되었습니다.");
+		return;
 	}
 }

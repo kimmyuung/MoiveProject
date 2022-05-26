@@ -21,7 +21,8 @@ ArrayList<Theater> tlist = TheaterDao.getTheaterDao().theaterlist();
 <tr>
 <th>영화관 번호</th>
 <th>영화관 이름</th>
-<th>영화관 좌석 수</th>
+<th>영화관 총 좌석 수</th>
+<th>비고</th>
 </tr>
 <%if(tlist == null) {%>
 <tr>
@@ -31,9 +32,13 @@ ArrayList<Theater> tlist = TheaterDao.getTheaterDao().theaterlist();
 <% if( tlist != null) %>
 <%for(int i = 0; i < tlist.size(); i++)  { %>
 <tr>
-<td><a href="theaterupdate.jsp?tno=<%=tlist.get(i).getTnum()%>"><%=tlist.get(i).getTnum() %></a></td>
+<td><%=tlist.get(i).getTnum() %></td>
 <td><%=tlist.get(i).getTname() %></td>
 <td><%=tlist.get(i).getTseat() %></td>
+<td>
+<a href="theaterupdate.jsp?tno=<%=tlist.get(i).getTnum()%>">영화관 수정</a>
+<button onclick="theaterdelete('<%=tlist.get(i).getTnum()%>')"> 영화관 삭제</button>
+</td>
 </tr>
 <%} %>
 
@@ -46,10 +51,15 @@ ArrayList<Theater> tlist = TheaterDao.getTheaterDao().theaterlist();
 상영관목록 (반복문)
 </div>
 <a href="theateradd.jsp">상영관등록</a>
-<a href="theaterdelete.jsp">상영관삭제</a>
+
 </div>
+
+
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br>
 
 <%@include file="../footer.jsp" %>
+<script src="../js/theater.js" type="text/javascript"></script>
 </body>
 </html>

@@ -2,7 +2,9 @@
 $(function() {
 		
 	var date = new Date();
+	var date2 = new Date();
 	date = getFormatDate(date);
+	date2 = nogetFormatDate(date2);
 		$.ajax({
 		method: "get",
 		url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
@@ -25,6 +27,7 @@ $(function() {
 		}
 	});
 	getclock();
+	currentdate.innerText = date2;
   	setInterval(getclock, 1000);
 });
 function KobisOpenAPIRestService(key, host) {
@@ -118,15 +121,24 @@ function getclock() {
   const minutes = String(date.getMinutes()).padStart(2,"0");
   const second = String(date.getSeconds()).padStart(2,"0");//number이기 때문에 padStart 붙일 수 없음. String 변환해주어야한다.
   clock.innerText = `${hour}:${minutes}:${second}`;
-  currentdate.innerText = getFormatDate(date);  
+  
 }	
 
 function getFormatDate(date){
     var year = date.getFullYear();              //yyyy
     var month = (1 + date.getMonth());          //M
     month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
-    var day = date.getDate();                   //d
+    var day = date.getDate()-7;                   //d
     day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
     return  year + '' + month + '' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
 }
- 
+
+
+function nogetFormatDate(date){
+    var year = date.getFullYear();              //yyyy
+    var month = (1 + date.getMonth());          //M
+    month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
+    var day = date.getDate();                   //d
+    day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
+    return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+}

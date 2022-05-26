@@ -58,10 +58,27 @@ public class TheaterDao extends Dao{
 		return null;
 	}
 	
-	public boolean theaterdelete() {return false;}
+	public boolean theaterdelete(int tno) {
+		String sql = "delete from theater where tno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, tno);
+			ps.executeUpdate();
+			return true;
+		}catch(Exception e) {e.printStackTrace();}
+		return false;
+		}
 	
-	public boolean theaterupdate() {
-		
+	public boolean theaterupdate(int tno, String tseat, String select) {
+		String sql = "update theater set tseat = ?, tlocation = ? where tno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, tseat);
+			ps.setString(2, select);
+			ps.setInt(3, tno);
+			ps.executeUpdate();
+			return true;
+		}catch(Exception e) {e.printStackTrace();}
 		return false;
 	}
 	

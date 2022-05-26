@@ -32,7 +32,7 @@
 			관 좌석 : <select id="seatselect">
 				<option value="0">좌석 선택</option>
 				<option value="50">소형(25)석</option>
-				<option value="80">중형(50)석</option>
+				<option value="80">중형(65)석</option>
 				<option value="100">대형(100)석</option>
 			</select> <br> <br>
 		</div>
