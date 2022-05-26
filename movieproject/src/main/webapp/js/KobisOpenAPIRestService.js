@@ -7,11 +7,12 @@ $(function() {
 		method: "get",
 		url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
 		data: {
-			targetDt: date-7,
+			targetDt: date,
 			key: "aa00e29d76f425572e382e01cfb52950",
 			itemPerPage: "10",
 		}
 	}).done(function(msg) {
+		console.log();
 		$("#chart").append("<strong>" + msg.boxOfficeResult.boxofficeType + "</strong>");
 		$("#date").append("<strong>" + msg.boxOfficeResult.showRange + "</strong>");
 		for (var i = 0; i < msg.boxOfficeResult.weeklyBoxOfficeList.length; i++) {
