@@ -7,35 +7,38 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@include file="../header.jsp" %>
 <div class="container">
         <div class="offset-4 col-md-4">
             <div>
-                날짜<input type="date" id="ddate">
+                상영 시작 날짜<input type="date" id="startdate" class="form-control">
+                상영 종료 날짜<input type="date" id="enddate" class="form-control">
             </div>
             <div>
-                시작시간<input type="time" class="form-control" id="dtime">
+                영화관 상영 시작 시간<input type="time" class="form-control" id="stime">
             </div>
             <div>
-                종료시간<input type="time" class="form-control" id="endtime">
+                영화관 상영 종료 시간<input type="time" class="form-control" id="etime">
             </div>
             <div>
-                <select class="form-control" id="dcnema">
+                <select class="form-control" id="theaterbox">
                     <option>관선택</option>
                     
                     
                 </select>
             </div>
             <div>
-                <select class="form-control" id="dmovie">
+                <select class="form-control" id="moviebox">
                     <option>영화선택</option>
                   
                    
                 </select>
             </div>
             <div class="d-flex justify-content-end">
-                <button class="btn btn-success" onclick="screenregister()">등록</button>
+                <button class="btn btn-success" onclick="runtimeadd()">등록</button>
             </div>
         </div>
     </div>
+    <script src="/movieproject/js/runmovie.js" type="text/javascript"></script>
 </body>
 </html>

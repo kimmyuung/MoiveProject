@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+.chattingbox {
+	border: 3px solid #f9f9f9;
+}
+
+.enterlist{
+	border-bottom : 3px solid #f9f9f9;
+	text-align: center;
+	padding: 10%;
+}
+.img{
+	margin-left: 5%;
+}
+.btnbox span{
+	font-size: 3px;
+}
+
+.contentbox{
+	height: 700px; background-color: #b2c7d9;
+}
+
+.send { /*보낼 때*/
+	text-align: right;
+	margin: 10px;
+}
+.send .content {
+	background-color: #ffeb33;
+}
+
+.receive { /*받을 때 */
+	text-align: left;
+	margin: 10px;
+}
+
+.receive .content {
+	background-color: white;
+}
+
+.content {
+	border-color: #ffffff;
+	border-radius: 10px;
+	padding: 10px;
+	display: inline-block;
+	font-size: 12px;
+}
+
+.date {
+	font-size: 1px; margin: 5px 2px;
+}
+
+/*알람*/
+.alarm{
+	background-color: #a9bdce;
+	text-align: center;
+	font-size: 8px;
+	padding: 2%;
+	margin: 0 auto;
+	width: 70%;
+}
+.sendbtn {
+	background-color: #a9bdce;
+}
