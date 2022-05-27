@@ -18,6 +18,8 @@
 
 .contentbox{
 	height: 700px; background-color: #b2c7d9;
+	overflow-y: scroll; 
+	/*div 내 내용이 div 세로 길이보다 커지면 스크롤 생성*/ 
 }
 
 .send { /*보낼 때*/
@@ -59,5 +61,5 @@
 	width: 70%;
 }
 .sendbtn {
-	background-color: #a9bdce;
+	background-color: yellow;
 }

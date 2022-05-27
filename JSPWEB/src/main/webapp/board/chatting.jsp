@@ -11,45 +11,30 @@
 <body>
 	<%@include file="../header.jsp"%>
 
+<%
+String mid = (String)session.getAttribute("login");
+%>
+
 	<div class="container my-5">
 		<!-- 박스권 -->
 		<div class="col-sm-6 offset-3 chattingbox">
 			<!-- 채팅 관련 구역 -->
 			<div class="row">
+			<%if( mid != null) { %>
 				<div class="col-sm-4">
 					<!--  접속자 목록 표시 -->
-					<h5 class="enterlist">접속자 목록</h5>
-					<div class="row">
-						<!-- 접속자 정보 표시 구역 -->
-						<div class="col-sm-4">
-							<!-- 프로필 이미지 표시 구역 -->
-							<img alt="" src="../img/profile2.jpg" class="rounded-circle"
-								width="100%">
-						</div>
-						<div class="col-sm-8">
-							<!-- 접속자 이름, 기능 -->
-							<div class="username">유재석</div>
-							<div class="btnbox">
-								<span>귓말</span> <span>친추</span>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<!-- 프로필 이미지 표시 구역 -->
-							<img alt="" src="../img/profile.jpg" class="rounded-circle"
-								width="100%">
-						</div>
-						<div class="col-sm-8">
-							<!-- 접속자 이름, 기능 -->
-							<div class="username">강호동</div>
-							<div class="btnbox">
-								<span>귓말</span> <span>친추</span>
-							</div>
-						</div>
+					<h5 class="member">접속자 목록</h5>
+					<div class="memberlist" id="enterlist"> <!-- 접속자 명단 -->
 					</div>
 				</div>
+				<%}  else {%>
+				<div class="col-sm-4">
+				<span> 로그인 후에 채팅방 유저 목록 확인이 가능합니다.</span>
+				</div>
+				<%} %>
 				<div class="col-sm-8">
 					<!-- 채팅창 -->
-					<div class="contentbox">
+					<div class="contentbox" id="contentbox">
 						<div class="send">
 							<!-- 보낼 때 -->
 							<span class="date">오전 00:00</span> <span class="content">내용</span>
@@ -75,14 +60,15 @@
 						</div>
 
 					</div>
+					<input type="hidden" value="<%=mid %>" id="mid">
 					<div class="row g-0">
 						<!-- 입력 상자 혹은 전송 버튼 -->
 						<div class="col-sm-10">
-							<textarea id="incontent" rows="3" cols="" class="form-control" onkeyup="enterkey()"></textarea>
+							<textarea id="incontent" rows="3" cols="" class="form-control" onkeyup="enterkey('<%=mid%>')"></textarea>
 						</div>
 						<div class="col-sm-2">
 							<!-- 전송 버튼 -->
-							<button class="sendbtn" onclick="sendbtn()">전송</button>
+							<button class="sendbtn" onclick="sendbtn('<%=mid%>')">전송</button>
 						</div>
 					</div>
 					<div>
