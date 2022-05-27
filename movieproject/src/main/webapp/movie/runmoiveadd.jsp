@@ -21,18 +21,10 @@
                 영화관 상영 종료 시간<input type="time" class="form-control" id="etime">
             </div>
             <div>
-                <select class="form-control" id="theaterbox">
-                    <option>관선택</option>
-                    
-                    
-                </select>
+                <select class="form-control" id="theaterbox"></select>
             </div>
             <div>
-                <select class="form-control" id="moviebox">
-                    <option>영화선택</option>
-                  
-                   
-                </select>
+                <select class="form-control" id="moviebox"></select>
             </div>
             <div class="d-flex justify-content-end">
                 <button class="btn btn-success" onclick="runtimeadd()">등록</button>

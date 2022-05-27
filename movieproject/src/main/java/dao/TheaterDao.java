@@ -2,6 +2,9 @@ package dao;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import dto.Theater;
 
 public class TheaterDao extends Dao{
@@ -96,5 +99,23 @@ public class TheaterDao extends Dao{
 		return null;
 	}
 	
-	
+	public JSONArray tlist() {
+		try {
+		JSONArray list = new JSONArray();
+		String sql = "select * from theater";
+		ps = con.prepareStatement(sql);
+		rs = ps.executeQuery();
+		while(rs.next()) {
+			// 결과내 하나씩 모든 레코드를 -> 하나씩 json 객체로 변환
+			JSONObject object = new JSONObject();
+			object.put("tnum", rs.getInt(1));
+			object.put("tname", rs.getString(2));
+			object.put("tseat", rs.getString(3));
+			object.put("tlocation", rs.getString(4));
+			list.put(object);
+		}
+		return list;
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
 }

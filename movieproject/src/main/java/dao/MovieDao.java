@@ -2,6 +2,9 @@ package dao;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import dto.Category;
 import dto.Movie;
 
@@ -161,5 +164,29 @@ public class MovieDao extends Dao{
 				}catch(Exception e) {e.printStackTrace();}
 				return null;
 				}
+			
+			public JSONArray mlist() {
+				try {
+				JSONArray list = new JSONArray();
+				String sql = "select * from movie";
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					// 결과내 하나씩 모든 레코드를 -> 하나씩 json 객체로 변환
+					JSONObject object = new JSONObject();
+					object.put("mno", rs.getInt(1));
+					object.put("mtitle", rs.getString(2));
+					object.put("mruntime", rs.getString(3));
+					object.put("mimg", rs.getString(4));
+					object.put("mcategory", rs.getInt(5));
+					object.put("mprice", rs.getInt(6));
+					
+					list.put(object);
+				}
+				return list;
+				}catch(Exception e) {e.printStackTrace();}
+				return null;
+			}
+			
 			
 }
