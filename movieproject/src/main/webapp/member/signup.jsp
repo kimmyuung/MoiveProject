@@ -5,7 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style type="text/css">
+.control-group input{
+margin-top: 10px;
+}
+</style>
 </head>
 <body>
 	<%@include file="../header.jsp"%>
@@ -87,7 +91,7 @@
 							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 							<input type="text" id="sample4_roadAddress" name="address2" placeholder="도로명주소">
 							<input type="text" id="sample4_jibunAddress" name="address3" placeholder="지번주소">
-							<span id="guide" style="color:#999;display:none"></span>
+							<span id="guide" style="color:#999;display:none"></span> <br>
 							<input type="text" id="sample4_detailAddress" name="address4" placeholder="상세주소">
 							<br>
 							<span id="addresscheck"></span>

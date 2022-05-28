@@ -113,7 +113,7 @@
 					<a href="/movieproject/product/productlist.jsp"><button class="btn btn-secondary" type="button">제품 관리</button> </a>
 					
 					<a href="/movieproject/member/memberlist.jsp"><button class="btn btn-secondary" type="button">회원 관리</button> </a>
-					
+					<a href="/movieproject/chart/chart.jsp"><button class="btn btn-secondary" type="button">매출 관리</button> </a>
 					<a href="/movieproject/logout"><button class="btn btn-secondary" type="button">로그 아웃</button> </a>
 					
 					<% } %>
@@ -131,6 +131,6 @@
 	<!-- jquery 최신 cdn -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"
 		type="text/javascript"></script>
-	<script src="/movieproject/js/search.js" type="text/javascript"></script>
+	
 </body>
 </html>

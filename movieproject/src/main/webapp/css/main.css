@@ -31,4 +31,54 @@ body {
 
 .carousel-caption{padding-bottom:80px;}
 
+.grade12 {
+	width: 50px;
+	height: 15px;
+	background-image:
+		url("/movieproject/img/grade_12.png")
+		no-repeat;
+	background-size: contain;
+	display: table-cell;
+	float: right;
+	position: relative;
+	margin-top: 5px;
+}
 
+.grade15 {
+	width: 50px;
+	height: 15px;
+	background-image:
+		url("/movieproject/img/grade_15.png")
+		no-repeat;
+	background-size: contain;
+	display: table-cell;
+	float: right;
+	position: relative;
+	margin-top: 5px;
+}
+
+.grade19 {
+	width: 50px;
+	height: 15px;
+	background-image:
+		url("/movieproject/img/grade_19.png")
+		no-repeat;
+	background-size: contain;
+	display: table-cell;
+	float: right;
+	position: relative;
+	margin-top: 5px;
+}
+
+.gradeall {
+	width: 50px;
+	height: 15px;
+	background:
+		url("/movieproject/img/grade_all.png")
+		no-repeat;
+	background-size: contain;
+	display: table-cell;
+	float: right;
+	position: relative;
+	margin-top: 5px;
+}

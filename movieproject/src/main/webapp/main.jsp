@@ -1,3 +1,4 @@
+<%@page import="java.util.Random"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,6 +14,7 @@
 	href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 <style class="cp-pen-styles">
 @import url("https://fonts.googleapis.com/css?family=Arimo:400,700");
+
 .imax-logo {
 	width: 50px;
 	height: 15px;
@@ -25,7 +27,6 @@
 	position: relative;
 	margin-top: 5px;
 }
-
 </style>
 <head>
 <meta charset="UTF-8">
@@ -35,7 +36,7 @@
 
 <body>
 
-<%@include file="header.jsp"%>
+	<%@include file="header.jsp"%>
 
 	<div class="container">
 		<div class="row" style="text-align: center;">
@@ -50,92 +51,109 @@
 						aria-label="Slide 3"></button>
 				</div>
 				<div class="carousel-inner">
-				
+
 					<div class="carousel-item active" data-bs-interval="100000">
-						<a href="/movieproject/movie/moviedetail.jsp">
-						<img src="/movieproject/img/movie/movie1.jpg" class="img-fluid" alt="..." style="height: 600px; width: 800px;">
+						<a href="/movieproject/movie/moviedetail.jsp"> <img
+							src="/movieproject/img/movie/movie1.jpg" class="img-fluid"
+							alt="..." style="height: 600px; width: 800px;">
 						</a>
 						<div class="carousel-cation">
-						<a href="/movieproject/movie/moviedetail.jsp"><button class="btn-primary">영화 보러 가기</button></a>
+							<a href="/movieproject/movie/moviedetail.jsp"><button
+									class="btn-primary">영화 보러 가기</button></a>
 						</div>
 					</div>
-					
+
 					<div class="carousel-item" data-bs-interval="2000">
-						<a href="/movieproject/movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie2.jpg"
-							class="img-fluid" alt="..." style="height: 600px;  width: 800px;">
-							</a>
+						<a href="/movieproject/movie/moviedetail.jsp"><img
+							src="/movieproject/img/movie/movie2.jpg" class="img-fluid"
+							alt="..." style="height: 600px; width: 800px;"> </a>
 						<div class="carousel-cation">
-						<a href="/movieproject/movie/moviedetail.jsp"><button class="btn-primary">영화 보러 가기</button></a>
+							<a href="/movieproject/movie/moviedetail.jsp"><button
+									class="btn-primary">영화 보러 가기</button></a>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<a href="/movieproject/movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie3.jpg"
-							class="img-fluid" alt="..." style="height: 600px;  width: 800px;">
-							</a>
+						<a href="/movieproject/movie/moviedetail.jsp"><img
+							src="/movieproject/img/movie/movie3.jpg" class="img-fluid"
+							alt="..." style="height: 600px; width: 800px;"> </a>
 						<div class="carousel-cation">
-						<a href="/movieproject/movie/moviedetail.jsp"><button class="btn-primary">영화 보러 가기</button></a>
+							<a href="/movieproject/movie/moviedetail.jsp"><button
+									class="btn-primary">영화 보러 가기</button></a>
 						</div>
 					</div>
 				</div>
-				<button class="carousel-control-prev" type="button" 
-					data-bs-target="#movie" data-bs-slide="prev" >
-					<img src="/movieproject/img/prev.jpg" width="20%">
-					<span class="visually-hidden">Previous</span>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#movie" data-bs-slide="prev">
+					<img src="/movieproject/img/prev.jpg" width="20%"> <span
+						class="visually-hidden">Previous</span>
 				</button>
-				<button class="carousel-control-next" type="button" 
-					data-bs-target="#movie" data-bs-slide="next" >
-					<img src="/movieproject/img/next.jpg" width="20%">
-					<span class="visually-hidden">Next</span >
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#movie" data-bs-slide="next">
+					<img src="/movieproject/img/next.jpg" width="20%"> <span
+						class="visually-hidden">Next</span>
 				</button>
 			</div>
 		</div>
 
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<br> <br>  
 		<div class="row">
-		<%for(int i = 4; i < 10; i++) {%>
-		<div class="card col-md-3" style="width: 18rem;">
-			<a href="movie/moviedetail.jsp"><img src="/movieproject/img/movie/movie<%=i %>.jpg" class="card-img-top img-fluid"
-				alt="..."></a>
-			<div class="card-body">
-				<h5 class="card-title">영화 이름 : </h5>
-				<p class="card-text"></p>
-				<a href="movie/dayselect.jsp" class="btn btn-primary">영화 보러 가기</a>
-				<div class="imax-logo"></div>
+			<%
+			for (int i = 4; i < 8; i++) {
+			%>
+			<div class="card col-md-3" style="width: 18rem;">
+				<a href="movie/moviedetail.jsp"><img
+					src="/movieproject/img/movie/movie<%=i%>.jpg"
+					class="card-img-top img-fluid" alt="..."></a>
+				<div class="card-body">
+					<h5 class="card-title">영화 이름 :</h5>
+					<p class="card-text"></p>
+					<a href="movie/dayselect.jsp" class="btn btn-primary">영화 보러 가기</a>
+					<div class="imax-logo"></div>
+					<div class="grade12"></div>
+				</div>
+			</div>
+			<%
+			}
+			%>
+		</div>
+		<br> <br>
+		<div class="row" id="adbox">
+			<h3>영화관 이벤트</h3>
+			<div class="col-md-4">
+				<img alt="" src="/movieproject/img/mainad1.jpg" width="100%">
+			</div>
+			<div class="col-md-4">
+				<img alt="" src="/movieproject/img/mainad2.jpg" width="100%">
+			</div>
+			<div class="col-md-4">
+				<img alt="" src="/movieproject/img/mainad3.jpg" width="100%">
 			</div>
 		</div>
-		<%} %>
+		<br> <br> 
+		<div class="row" id="productbox">
+			<h3>영화관 상품</h3>
+			<div class="col-md-4">
+			영화 티켓 기프티콘
+				<img alt="" src="" width="100%">
+			</div>
+			<div class="col-md-4">
+				영화 먹거리 상품
+				<img alt="" src="" width="100%">
+			</div>
+			<div class="col-md-4">
+				영화관 제휴 안내
+				<img alt="" src="" width="100%">
+			</div>
 		</div>
-		<br>
-		<br>
-		<div class="row" id="adbox">
-		<h3>영화관 이벤트 </h3>
-		<div class="col-md-4">
-		<img alt="" src="/movieproject/img/mainad1.jpg" width="100%">
-		</div>
-		<div class="col-md-4">
-		<img alt="" src="/movieproject/img/mainad2.jpg" width="100%">
-		</div>
-		<div class="col-md-4">
-		<img alt="" src="/movieproject/img/mainad3.jpg" width="100%">
-		</div>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		
+
+		<br> <br> 
+		<!-- 로고 이미지를 어떻게 넣어야하는지... -->
 
 
 
 
 		<%@include file="footer.jsp"%>
 	</div>
-		
+
 </body>
 </html>
