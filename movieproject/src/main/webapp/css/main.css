@@ -11,3 +11,24 @@
 * {
 	font-family: Donoun-Medium;
 }
+
+
+html,
+body {
+    height: 100%;
+}
+
+.carousel,
+.item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+  background: #000;
+}
+
+.carousel-caption{padding-bottom:80px;}
+
+
