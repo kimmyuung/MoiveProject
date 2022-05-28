@@ -150,11 +150,11 @@ function successModal(movieNameIn, totalPrice, successTrue) {
   const modalCenter = document.createElement("div");
   const modalHeading = document.createElement("h1");
   modalCenter.classList.add("modalCenter");
-  modalHeading.innerHTML = `Ticked Booked Successfully`;
+  modalHeading.innerHTML = `좌석 예약이 성공하였습니다.`;
   modalCenter.appendChild(modalHeading);
   const modalPara = document.createElement("p");
   modalCenter.appendChild(modalPara);
-  modalPara.innerHTML = `${movieNameIn} movie ticket have been booked successfully.`;
+  modalPara.innerHTML = `${movieNameIn} 좌석 선택이 완료되었습니다. 결제창으로 이동합니다.`;
   successModal.appendChild(modalCenter);
 
   // modal Bottom
@@ -163,7 +163,7 @@ function successModal(movieNameIn, totalPrice, successTrue) {
   modalBottom.classList.add("modalBottom");
   const successBtn = document.createElement("button");
 
-  successBtn.innerHTML = `Ok Got It!`;
+  successBtn.innerHTML = `결제하러 가기`;
   modalBottom.appendChild(successBtn);
   successModal.appendChild(modalBottom);
 
@@ -193,6 +193,6 @@ proceedBtnEl.addEventListener("click", (e) => {
     bodyEl.classList.add("modal-active");
     successModal(currentMovieName, moviePrice * takenSeats.length);
   } else {
-    alert("Oops no seat Selected");
+    alert("좌석 선택을 해주세요");
   }
 });

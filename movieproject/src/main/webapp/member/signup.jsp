@@ -15,51 +15,51 @@
 				<div class="span6">
 					<div class="area">
 						<form id="signupform" action="../signup" method="post">
-							<div class="heading">
-								<h4 class="form-heading">회원 가입 페이지</h4>
+							<div class="heading" style="text-align: center;">
+								<h4 class="form-heading">회원 가입 페이지</h4> <br>
 							</div>
 
-							<div class="control-group">
+							<div class="control-group" style="padding-left: 300px;">
 								<label class="control-label">아이디(영문, 숫자 포함 5~15길이로 입력해주세요)</label>
 
 								<div class="controls">
-									아이디 : <input type="text" id="mid" name="mid" placeholder="user id">
+									<input type="text" id="mid" name="mid" placeholder="user id">
 									<span id="idcheck"></span> 
 								</div>
 							</div>
 
-							<div class="control-group">
+							<div class="control-group" style="padding-left: 300px;">
 								<br><label class="control-label" for="mpw">비밀번호 (영문, 숫자 5~15 사이로 입력)</label>
 
 								<div class="controls">
-								비밀번호 : <input type="password" id="mpassword" name="mpassword" placeholder="user password"> 
+									<input type="password" id="mpassword" name="mpassword" placeholder="user password"> 
 								</div>
 							</div>
 
-							<div class="control-group">
+							<div class="control-group" style="padding-left: 300px;">
 								 <br> <label class="control-label" for="rempw">비밀번호 확인</label>
 
 								<div class="controls">
-									비밀번호 확인 : <input type="password" id="mpasswordcheck" placeholder="password check"> 
+									<input type="password" id="mpasswordcheck" placeholder="password check"> 
 									<span id="passwordcheck"></span>
 								</div>
 							</div>
 							
-							<div class="control-group">
+							<div class="control-group" style="padding-left: 300px;">
 								<br><label class="control-label" for="mname">이름</label>
 
 								<div class="controls">
-									이름 <input type="text" id="mname" name="mname" placeholder="user name">
+									<input type="text" id="mname" name="mname" placeholder="user name">
 									<span id="namecheck"></span>
 								</div>
 							</div>
 							
 							
-							<div class="control-group">
-								<br><label class="control-label" for="inputEmail">Email</label>
+							<div class="control-group" style="padding-left: 300px;">
+								<br><label class="control-label" for="inputEmail">이메일</label>
 
 								<div class="controls">
-									이메일 : <input type="text" id="memail" name="memail" placeholder="user email">
+									<input type="text" id="memail" name="memail" placeholder="user email">
 									@
 									<input type="text" id="memailaddress" name="memailaddress" >
 								<select id="emailselect">
@@ -72,16 +72,16 @@
 								</div>
 							</div>
 
-							<div class="control-group">
-							 <br>	<label class="control-label" for="inputUser">핸드폰</label>
+							<div class="control-group" style="padding-left: 300px;">
+							 <br>	<label class="control-label" for="inputUser">연락처</label>
 
 								<div class="controls">
-									연락처 : <input type="text" id="mphone" name="mphone" placeholder="user phone">
+									<input type="text" id="mphone" name="mphone" placeholder="user phone">
 									<span id="phonecheck"></span>
 								</div>
 							</div>
 							<br>
-							<div class="control-group">
+							<div class="control-group" style="padding-left: 300px;"> 
 							<br>
 							<input type="text" id="sample4_postcode" name="address1" placeholder="우편번호">
 							<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
@@ -93,7 +93,7 @@
 							<span id="addresscheck"></span>
 							</div>
 
-							<div class="control-group">
+							<div class="control-group" style="padding-left: 300px;">
 								<div class="controls">
 									<br><label class="checkbox"><input type="checkbox" name="accept" id="accept">
 										나는 이젠 영화관의 <a href="../promise.jsp">이용약관</a>에 동의합니다.</label>

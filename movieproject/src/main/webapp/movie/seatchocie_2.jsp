@@ -16,13 +16,13 @@
 					<div class="legendContainer">
 						<ul>
 							<li>
-								<div class="seat legend"></div> <small>Available</small>
+								<div class="seat legend"></div> <small>예약이 가능한 좌석</small>
 							</li>
 							<li>
-								<div class="seat legend selected"></div> <small>Selected</small>
+								<div class="seat legend selected"></div> <small>선택한 좌석</small>
 							</li>
 							<li>
-								<div class="seat legend occupied"></div> <small>Occupied</small>
+								<div class="seat legend occupied"></div> <small>예약이 불가능한 좌석</small>
 							</li>
 						</ul>
 					</div>
@@ -31,11 +31,12 @@
 						<div class="screen">
 							<small>SCREEN</small>
 						</div>
+						<!-- 반목문을 통해 추출할 예정 -->
 						<div class="seatCont" id="seatCont">
 							<div class="seatRowCont1 seatRowCont">
 								<div class="row">
 									<div class="seat"></div>
-									<div class="seat occupied"></div>
+									<div class="seat"></div>
 									<div class="seat"></div>
 									<div class="seat"></div>
 									<div class="seat"></div>
@@ -45,7 +46,7 @@
 								</div>
 								<div class="row">
 									<div class="seat"></div>
-									<div class="seat occupied"></div>
+									<div class="seat"></div>
 									<div class="seat"></div>
 									<div class="seat"></div>
 									<div class="seat"></div>
@@ -131,11 +132,11 @@
 						<div class="movieInfo">
 							<div class="selectMovie">
 								<label>
-									<p>Select Your Movie</p> <select id="selectMovie"></select>
+									<p>영화를 선택해주세요</p> <select id="selectMovie"></select>
 								</label>
 							</div>
 							<div class="movieName">
-								<p>MOVIE NAME</p>
+								<p>영화 제목</p>
 								<h1 id="movieName">Tom and Jerry</h1>
 							</div>
 							<div class="moviePrice">
@@ -144,7 +145,7 @@
 							</div>
 							<div class="dateCont">
 								<p>Date</p>
-								<p class="dateOn">Wed , 31th march</p>
+								<p class="dateOn">2022-05-28</p>
 
 							</div>
 						</div>

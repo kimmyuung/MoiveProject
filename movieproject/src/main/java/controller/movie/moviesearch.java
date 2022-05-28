@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class moiesearch
  */
-@WebServlet("/moviesearch")
+@WebServlet("../moviesearch")
 public class moviesearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,7 +35,9 @@ public class moviesearch extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		  
-	        System.out.println("dddd");
+		request.setCharacterEncoding("UTF-8");
+	      String mtitle = request.getParameter("search-input");
+	      System.out.println(mtitle);
 	}
 
 

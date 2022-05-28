@@ -104,7 +104,7 @@
 					if (loginid != null && loginid.equals("admin")) { //관리자로 로그인시
 					%>
 
-					<h5>
+					<h5 style="width: 100%">
 						환영합니다 관리자님
 					</h5>
 
@@ -118,35 +118,13 @@
 					
 					<% } %>
 					<div class="col-lg-1">
-						<button type="button" class="btn btn-secondary icon_search" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+						<a href="moviesearch.jsp"><button type="button" class="btn btn-secondary icon_search" data-bs-toggle="modal" data-bs-target="#exampleModal"></button></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">찾고 싶은 영화의 제목을 입력하세요</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">영화의 제목:</label>
-            <input type="text" class="form-control" id="moviename">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" onclick="search()">검색</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">검색창 닫기</button>
-      </div>
-    </div>
-  </div>
-</div>
-	<!-- 부트스트랩  -->
+
 	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
