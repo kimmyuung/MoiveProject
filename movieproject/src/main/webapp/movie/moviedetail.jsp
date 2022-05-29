@@ -154,7 +154,7 @@
 			
 		</table>
 	</div>
-	
+	<script src="/movieproject/js/moviedetail.js" type="text/javascript"></script>
 	
 	<%@include file="../footer.jsp"%>
 </body>
