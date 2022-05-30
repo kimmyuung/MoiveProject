@@ -10,6 +10,12 @@
 <%@include file="../header.jsp" %>
 <div class="container">
         <div class="offset-4 col-md-4">
+         <div>
+                <select class="form-control" id="theaterbox"></select>
+            </div>
+            <div>
+                <select class="form-control" id="moviebox"></select>
+            </div>
             <div>
                 상영 시작 날짜<input type="date" id="startdate" class="form-control">
                 상영 종료 날짜<input type="date" id="enddate" class="form-control">
@@ -20,12 +26,7 @@
             <div>
                 영화관 상영 종료 시간<input type="time" class="form-control" id="etime">
             </div>
-            <div>
-                <select class="form-control" id="theaterbox"></select>
-            </div>
-            <div>
-                <select class="form-control" id="moviebox"></select>
-            </div>
+           
             <div class="d-flex justify-content-end">
                 <button class="btn btn-success" onclick="runtimeadd()">등록</button>
             </div>

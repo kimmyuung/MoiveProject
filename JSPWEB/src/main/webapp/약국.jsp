@@ -76,7 +76,7 @@ if(keyword != null) { // 검색
 	if(index == -1) {continue;}
 	// for, while : 1. break : 반복문 종료 / 2. continue : 반복문 재실행
 }
-	// iteratior : 인덱스가 없는 (set) 리스트를 순회하는 인터페이스
+	// iteratior : 인덱스가 없는 (set) 리스트를 순회하는 인터페이스   
 	/* Iterator<JSONObject> iterator = jo.keys();
 	while(iterator.hasNext() ) { // hasNext() : 다음 객체가 있는지 확인
 		String key = iterator.next().toString();// next : 다음 객체 호출

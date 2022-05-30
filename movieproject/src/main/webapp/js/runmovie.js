@@ -1,4 +1,3 @@
-let pass = [false, false, false, false];
 
 $("#startdate").change(function() {
 
@@ -8,6 +7,7 @@ var sdate = $("#startdate").val();
 
 if(date > sdate) {
 	alert("현재 시간보다 빠르게 상영은 불가능합니다.");
+	sdate = date;
 	pass[0] = false;
 	return;
 }
@@ -28,8 +28,33 @@ if(edate < sdate) {
 }
 });
 
+let starttime; // 다른 시간과의 비교를 위한 변수
+$("#stime").change(function() {
+	var tname = $("#theaterbox option:selected").val();
+	let stime = $("#stime").val();
+$.ajax({
+	url : 'gettimelist',
+	data : {"tname" : tname},
+	success : function(json) {
+		console.log(json);
+		for(let i = 0; i < json.length; i++) {
+			starttime += json[i]['starttime'];
+		}
+		alert(starttime);
+		
+	}
+})
+});
 $("#etime").change(function() {
-
+let stime = $("#stime").val();
+let etime = $("#etime").val();
+if(stime >= etime) {
+	alert("영화 상영 시작 시간보다 종료 시간을 빨리 설정할 수 없습니다.");
+	pass[2] = false;
+}
+else {
+	pass[2] = true;
+}
 });
 
 $(document).ready(function() {
@@ -70,13 +95,42 @@ function getFormatDate(date){
     return  year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
 }
 
+let pass = [false, false, false, false]; // 상영영화 유효성 검사 변수
 function runtimeadd() {
 	let startdate = $("#startdate").val();
 	let enddate = $("#enddate").val();
 	let stime = $("#stime").val();
 	let etime = $("#etime").val();
-
-	alert(startdate + enddate);
-	alert(stime + etime);
+	let tname = $("#theaterbox option:selected").val();
+	let mname = $("#moviebox option:selected").val();
+	
+	for(let i = 0; i < 4; i++) {
+		if(pass[i] == false) {
+			alert("입력하지 않았거나 유효성 검사를 통과하지 못했습니다.");
+			return;
+		}
+	}
+	
+	let runmoviejson = {
+		startdate : startdate,
+		enddate : enddate,
+		stime : stime,
+		etime : etime,
+		tname : tname,
+		mname : mname
+	}
+	
+	alert(runmoviejson);
+	$.ajax({
+		url : 'addrunmovie',
+		data : {'runmoviejson' : JSON.stringify(runmoviejson)},
+		success : function(re) {
+			alert(re);
+			if(re == 1) {
+				alert("상영 영화 등록 성공");
+			}
+			else {alert("상영 영화 등록 실패");}
+		}
+	});
 
 }

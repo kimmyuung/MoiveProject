@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import dto.Category;
 import dto.Movie;
+import dto.Runmovie;
 
 public class MovieDao extends Dao{
 
@@ -164,7 +165,23 @@ public class MovieDao extends Dao{
 				}catch(Exception e) {e.printStackTrace();}
 				return null;
 				}
+			// 영화 이름 통한 영화번호
+			public int getmno(String mtitle) {
+				try {
+					String sql = "select * from movie where mtitle = ?";
+					ps = con.prepareStatement(sql);
+					ps.setString(1, mtitle);
+					rs = ps.executeQuery();
+					if(rs.next()) {
+						return rs.getInt(1);
+					}
+				}catch(Exception e) {e.printStackTrace();}
+				return 0;
+			}
 			
+			
+			
+			// 영화 리스트 제이슨
 			public JSONArray mlist() {
 				try {
 				JSONArray list = new JSONArray();
@@ -187,6 +204,43 @@ public class MovieDao extends Dao{
 				}catch(Exception e) {e.printStackTrace();}
 				return null;
 			}
-			
-			
+			public JSONArray timelist(int tno) {
+				try {
+				JSONArray list = new JSONArray();
+				String sql = "select * from runtimemovie where tno = ?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, tno);
+				rs = ps.executeQuery();
+				while(rs.next()) {
+					// 결과내 하나씩 모든 레코드를 -> 하나씩 json 객체로 변환
+					JSONObject object = new JSONObject();
+					object.put("mno", rs.getInt(1));
+					object.put("tno", rs.getInt(2));
+					object.put("starttime", rs.getString(3));
+					object.put("endtime", rs.getString(4));
+					object.put("startdate", rs.getString(5));
+					object.put("enddate", rs.getString(6));
+					
+					list.put(object);
+				}
+				return list;
+				}catch(Exception e) {e.printStackTrace();}
+				return null;
+			}	
+			// 상영 영화 추가
+			public boolean runmovieadd(Runmovie run) { // 영화등록
+				try {
+				String sql = "insert into runmovie(mno, tno, starttime, endtime, startdate, enddate) values(?,?,?,?,?,?);";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, run.getMno());
+				ps.setInt(2, run.getTno());
+				ps.setString(3, run.getStime());
+				ps.setString(4, run.getEtime());
+				ps.setString(5, run.getSdate());
+				ps.setString(6, run.getEdate());
+				ps.executeUpdate();
+				return true;
+				}catch(Exception e) {e.printStackTrace();}
+				return false;
+			}
 }
