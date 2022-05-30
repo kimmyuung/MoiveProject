@@ -45,14 +45,8 @@
 		</a>
 	</div>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	
 
-	<%@include file="../footer.jsp"%>
 
 	<script src="../js/findinfo.js" type="text/javascript"></script>
 

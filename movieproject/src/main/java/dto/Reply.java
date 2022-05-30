@@ -1,5 +1,7 @@
 package dto;
 
+import dao.MemberDao;
+
 public class Reply {
 	private int rno;
 	private String rcontent;
@@ -20,7 +22,7 @@ public class Reply {
 		this.bno = bno;
 		this.mno = mno;
 		// 회원번호를 이용한 회원 아이디
-		this.mid = MemberDao.getmemberDao().getmid(mno);
+		this.mid = MemberDao.getMemberDao().getmid(mno);
 	}
 	public int getRno() {
 		return rno;

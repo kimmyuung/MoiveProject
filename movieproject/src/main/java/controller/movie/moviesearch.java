@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class moiesearch
  */
-@WebServlet("../moviesearch")
+@WebServlet("/movie/moviesearch")
 public class moviesearch extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

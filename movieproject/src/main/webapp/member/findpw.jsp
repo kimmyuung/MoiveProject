@@ -10,8 +10,6 @@
 </head>
 <body>
 <%@include file="../header.jsp"%>
-	<br>
-	<br>
 	
 	<div class="login-box py-4 my-5" style="margin-top: 30px; ">
 	<form name="pwfindscreen" method = "post" action="../findpw">
@@ -54,15 +52,9 @@
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+
 	
-	<%@include file = "../footer.jsp" %>
+	
 	
 	<script src="../js/findinfo.js" type="text/javascript"></script>
 	

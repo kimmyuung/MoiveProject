@@ -14,18 +14,13 @@
 	request.setCharacterEncoding("UTF-8");
 	String result = request.getParameter("result");
 	%>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="py-5"></div>
+	
+	
 
 	<%
 	if (result == null || (!(result.equals("2")))) {
 	%>
-	<div class="container">
+	<div class="container d-flex">
 		<div class="login-box py-4" style="margin-top: 30px;">
 			<h2 class="py-2 my-3">로그인 페이지</h2>
 			<br>
@@ -42,9 +37,9 @@
 				<br> <span><input class="mb-3" type="submit" value="로그인"
 					style="width: 180px;"></span> <br>
 			</form>
-			<a href="findid.jsp" style="color: white;"> <span></span> <span></span> <span></span> <span></span>
+			<a href="findid.jsp" style="color: white;"> 
 				아이디 찾기
-			</a> <a href="findpw.jsp" style="color: white;"> <span></span> <span></span> <span></span>
+			</a> <a href="findpw.jsp" style="color: white;"> 
 				<span></span> 비밀번호 찾기
 			</a>
 			<%
@@ -66,9 +61,9 @@
 					<input class="mb-3" type="submit" value="로그인" style="width: 180px;">
 				</div>
 			</form>
-			<a href="findid.jsp" style="color: white;"> <span></span> <span></span> <span></span> <span></span>
-				아이디 찾기
-			</a> <a href="findpw.jsp" style="color: white;"> <span></span> <span></span> <span></span>
+			<a href="findid.jsp" style="color: white;"> 
+				아이디 찾기 
+			</a> <br><a href="findpw.jsp" style="color: white;"> 
 				<span></span> 비밀번호 찾기
 			</a> <span>아이디 혹은 비밀번호를 잘못입력하셨습니다.</span>
 			<%
@@ -77,18 +72,13 @@
 		</div>
 	</div>
 
-
-	<div style="padding-top: 150px;">
-		<a href="#"> <span></span> <span></span> <span></span> <span></span>
-			
-		</a>
-	</div>
-	<br>
+	<br><br><br>
+	
+	
 	
 
-
-
-	<%@include file="../footer.jsp"%>
+	
+	
 
 
 

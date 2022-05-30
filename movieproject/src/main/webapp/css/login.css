@@ -20,6 +20,7 @@ body {
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
+  height: 40%;
 }
 
 .login-box h2 {
@@ -52,7 +53,7 @@ body {
   font-size: 16px;
   color: #fff;
   pointer-events: none;
-  transition: 0.5s;
+  transition: 2.0s;
 }
 
 .login-box .user-box input:focus ~ label,
@@ -72,7 +73,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   overflow: hidden;
-  transition: 0.5s;
+  transition: 2.0s;
   margin-top: 40px;
   letter-spacing: 4px;
 }
@@ -116,7 +117,7 @@ body {
   height: 100%;
   background: linear-gradient(180deg, transparent, #03e9f4);
   animation: btn-anim2 1s linear infinite;
-  animation-delay: 0.25s;
+  animation-delay: 2.0s;
 }
 
 @keyframes btn-anim2 {
@@ -136,7 +137,7 @@ body {
   height: 2px;
   background: linear-gradient(270deg, transparent, #03e9f4);
   animation: btn-anim3 1s linear infinite;
-  animation-delay: 0.5s;
+  animation-delay: 2.0s;
 }
 
 @keyframes btn-anim3 {
@@ -156,7 +157,7 @@ body {
   height: 100%;
   background: linear-gradient(360deg, transparent, #03e9f4);
   animation: btn-anim4 1s linear infinite;
-  animation-delay: 0.75s;
+  animation-delay: 2.0s;
 }
 
 @keyframes btn-anim4 {
