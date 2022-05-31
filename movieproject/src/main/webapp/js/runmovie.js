@@ -1,13 +1,13 @@
 
-$("#startdate").change(function() {
+$("#datepicker1").change(function() {
 
 var date = new Date();
 date = getFormatDate(date);
-var sdate = $("#startdate").val();
+var sdate = $("#datepicker1").val();
 
 if(date > sdate) {
 	alert("현재 시간보다 빠르게 상영은 불가능합니다.");
-	sdate = date;
+	$('#datepicker1').datepicker('setDate', 'today');
 	pass[0] = false;
 	return;
 }
@@ -16,12 +16,13 @@ else {
 }
 });
 
-$("#enddate").change(function() {
-var sdate = $("#startdate").val();
-var edate = $("#enddate").val();
+$("#datepicker2").change(function() {
+var sdate = $("#datepicker1").val();
+var edate = $("#datepicker2").val();
 if(edate < sdate) {
 	alert("상영 시작 시간보다 빠르게 상영의 종료는 불가능합니다.");
 	pass[1] = false;
+	
 	return;
 } else {
 	pass[1] = true;
@@ -32,6 +33,7 @@ let starttime; // 다른 시간과의 비교를 위한 변수
 $("#stime").change(function() {
 	var tname = $("#theaterbox option:selected").val();
 	let stime = $("#stime").val();
+	
 $.ajax({
 	url : 'gettimelist',
 	data : {"tname" : tname},
@@ -41,10 +43,10 @@ $.ajax({
 			starttime += json[i]['starttime'];
 		}
 		alert(starttime);
-		
 	}
 })
 });
+
 $("#etime").change(function() {
 let stime = $("#stime").val();
 let etime = $("#etime").val();
@@ -58,6 +60,19 @@ else {
 });
 
 $(document).ready(function() {
+
+	$('#fromDate').datetimepicker({
+  language : 'ko', // 화면에 출력될 언어를 한국어로 설정한다.
+  pickTime : false, // 사용자로부터 시간 선택을 허용하려면 true를 설정하거나 pickTime 옵션을 생략한다.
+  defalutDate : new Date() // 기본값으로 오늘 날짜를 입력한다. 기본값을 해제하려면 defaultDate 옵션을 생략한다.
+});
+
+$('#toDate').datetimepicker({
+  language : 'ko',
+  pickTime : false,
+  defalutDate : new Date()
+});
+
 
 	$.ajax({
 		url: 'getmovielist',
