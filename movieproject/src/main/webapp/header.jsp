@@ -131,6 +131,5 @@
 	<!-- jquery 최신 cdn -->
 	<script src="http://code.jquery.com/jquery-latest.min.js"
 		type="text/javascript"></script>
-	
 </body>
 </html>
