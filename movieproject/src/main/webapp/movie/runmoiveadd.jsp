@@ -52,11 +52,11 @@
 		<div class="my-2 py-2">
 			<h4 style="text-align: center;">영화 상영 종료 날짜 및 시간</h4>
 			
-			<div class='input-group' id='datetimepicker1'
+			<div class='input-group' id='datetimepicker2'
 				data-td-target-input='nearest' data-td-target-toggle='nearest'>
-				<input id='datetimepicker1Input' type='text' class='form-control'
-					data-td-target='#datetimepicker1' /> <span
-					class='input-group-text' data-td-target='#datetimepicker1'
+				<input id='datetimepicker2Input' type='text' class='form-control'
+					data-td-target='#datetimepicker2' /> <span
+					class='input-group-text' data-td-target='#datetimepicker2'
 					data-td-toggle='datetimepicker'> <span
 					class='fa fa-solid fa-calendar'></span>
 				</span>
