@@ -14,7 +14,7 @@ $(function() {
 			itemPerPage: "10",
 		}
 	}).done(function(msg) {
-		console.log();
+		console.log(msg);
 		$("#chart").append("<strong>" + msg.boxOfficeResult.boxofficeType + "</strong>");
 		$("#date").append("<strong>" + msg.boxOfficeResult.showRange + "</strong>");
 		for (var i = 0; i < msg.boxOfficeResult.weeklyBoxOfficeList.length; i++) {
@@ -128,7 +128,7 @@ function getFormatDate(date){
     var year = date.getFullYear();              //yyyy
     var month = (1 + date.getMonth());          //M
     month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
-    var day = date.getDate()-7;                   //d
+    var day = date.getDate();                   //d
     day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
     return  year + '' + month + '' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
 }
