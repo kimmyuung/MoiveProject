@@ -104,18 +104,22 @@
 					if (loginid != null && loginid.equals("admin")) { //관리자로 로그인시
 					%>
 
-					<h5 style="width: 100%">
+					<h5 class="col-md-6">
 						환영합니다 관리자님
 					</h5>
+					<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    관리 메뉴
+  </a>
 
-					<a href="/movieproject/theater/theaterlist.jsp"><button class="btn btn-secondary" type="button">상영관 관리</button> </a>
-					
-					<a href="/movieproject/product/productlist.jsp"><button class="btn btn-secondary" type="button">제품 관리</button> </a>
-					
-					<a href="/movieproject/member/memberlist.jsp"><button class="btn btn-secondary" type="button">회원 관리</button> </a>
-					<a href="/movieproject/chart/chart.jsp"><button class="btn btn-secondary" type="button">매출 관리</button> </a>
-					<a href="/movieproject/logout"><button class="btn btn-secondary" type="button">로그 아웃</button> </a>
-					
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="/movieproject/theater/theaterlist.jsp">상영관 관리</a></li>
+    <li><a class="dropdown-item" href="/movieproject/product/productlist.jsp">제품 관리</a></li>
+    <li><a class="dropdown-item" href="/movieproject/member/memberlist.jsp">회원 관리</a></li>
+    <li><a class="dropdown-item" href="/movieproject/chart/chart.jsp">매출 관리</a></li>
+    <li><a class="dropdown-item" href="/movieproject/logout">로그 아웃 </a></li>
+  </ul>
+</div>	
 					<% } %>
 					<div class="col-lg-1">
 						<a href="moviesearch.jsp"><button type="button" class="btn btn-secondary icon_search" data-bs-toggle="modal" data-bs-target="#exampleModal"></button></a>

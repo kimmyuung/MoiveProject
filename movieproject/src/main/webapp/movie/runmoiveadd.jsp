@@ -32,7 +32,7 @@
       <th></th>
       <th></th>
       <th></th>
-      <th id="printSchedule">확정</th>
+      <th id="printSchedule" onclick="runtimeadd()">상영 시간 등록</th>
     </tr>
   </table>
   <div class="layoutdesign">
@@ -103,7 +103,7 @@
   <form>
     <select id="moviebox"> </select>
     
-    <input id="runtimebox" type="text" placeholder="상영시간 (mins)" readonly="readonly"/>
+    <div id="run">시간단위는 분입니다.</div>
     
     <input id="timetableStart" type="text" placeholder="시작시간 (HH:MM)" />
     <select id="theaterbox"> </select>
