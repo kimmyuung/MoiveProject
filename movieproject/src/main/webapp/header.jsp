@@ -69,9 +69,7 @@
 					</div>
 					&nbsp;&nbsp;
 					
-					<a href="/movieproject/board/boardlist.jsp"><button
-							class="btn btn-secondary" type="button">고객센터</button> </a>
-					&nbsp;&nbsp;
+					
 
 					<!-- 로그인이 안된 상태 -->
 					<%
@@ -117,10 +115,18 @@
     <li><a class="dropdown-item" href="/movieproject/product/productlist.jsp">제품 관리</a></li>
     <li><a class="dropdown-item" href="/movieproject/member/memberlist.jsp">회원 관리</a></li>
     <li><a class="dropdown-item" href="/movieproject/chart/chart.jsp">매출 관리</a></li>
-    <li><a class="dropdown-item" href="/movieproject/logout">로그 아웃 </a></li>
+    <li></li>
   </ul>
+ 
 </div>	
+ <a href="/movieproject/logout" class="mx-2"><button
+							class="btn btn-secondary" type="button">로그 아웃</button></a>
 					<% } %>
+					<div class="col-lg-3">
+					<a href="/movieproject/board/boardlist.jsp"><button
+							class="btn btn-secondary" type="button">고객센터</button> </a>
+					
+					</div>
 					<div class="col-lg-1">
 						<a href="moviesearch.jsp"><button type="button" class="btn btn-secondary icon_search" data-bs-toggle="modal" data-bs-target="#exampleModal"></button></a>
 					</div>

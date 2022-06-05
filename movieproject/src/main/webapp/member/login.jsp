@@ -20,14 +20,15 @@
 	<%
 	if (result == null || (!(result.equals("2")))) {
 	%>
-	<div class="container d-flex">
-		<div class="login-box py-4" style="margin-top: 30px;">
-			<h2 class="py-2 my-3">로그인 페이지</h2>
-			<br>
+	<div class="container">
+	<div class="my-5">
+		<div class="login-box" style="margin-top: 300px;">
+			<h2 class="my-3">로그인 페이지</h2>
+			
 			<form action="../login" method="post">
-				<div class="user-box">
+				<div class="user-box my-5">
 					<input class="mb-3" type="text" placeholder="아이디" name="id"
-						required=""><br> 
+						required="">
 						<label>UserId</label>
 				</div>
 				<div class="user-box">
@@ -35,7 +36,7 @@
 						required=""> <label>Password</label>
 				</div>
 				<br> <span><input class="mb-3" type="submit" value="로그인"
-					style="width: 180px;"></span> <br>
+					style="width: 100%;"></span> <br>
 			</form>
 			<a href="findid.jsp" style="color: white;"> 
 				아이디 찾기
@@ -49,11 +50,11 @@
 			<br>
 			<form action="../login" method="post">
 				<div class="user-box">
-					<input class="mb-3" type="text" placeholder="아이디" name="id"><br>
+					<input type="text" placeholder="아이디" name="id"><br>
 					<label>UserId</label>
 				</div>
 				<div class="user-box">
-					<input class="mb-3" type="text" placeholder="비밀번호" name="password">
+					<input type="text" placeholder="비밀번호" name="password">
 					<label>Password</label>
 				</div>
 				<br>
@@ -70,17 +71,8 @@
 			}
 			%>
 		</div>
+		</div>
 	</div>
-
-	<br><br><br>
-	
-	
-	
-
-	
-	
-
-
-
+<%@include file="../footer.jsp" %>
 </body>
 </html>

@@ -7,6 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
+import dao.MovieDao;
+import dao.TheaterDao;
+import dto.Runmovie;
+
 /**
  * Servlet implementation class runmovieadd
  */
@@ -26,8 +32,20 @@ public class runmovieadd extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		
+		String mtitle = request.getParameter("mname");
+		String tname = request.getParameter("tname");
+		String Str_time = request.getParameter("starttime");	
+		
+		int mno = MovieDao.getmovieDao().getmno(mtitle);
+		int tno = TheaterDao.getTheaterDao().gettno(tname);
+		Runmovie runmovie = new Runmovie(Str_time, tno, mno);
+		
+		boolean result = MovieDao.getmovieDao().runmovieadd(runmovie);	
+		if(result) {response.getWriter().print(1);}	
+		else {response.getWriter().print(2);}
+		
 	}
 
 	/**

@@ -104,11 +104,17 @@ function runtimeadd() {
    	
     var screen = parseInt($('#theaterbox').val()) * 10;
     
+ 
     $.ajax({
 	url : 'runmovieadd',
-	data : {},
-	success : function() {
-		
+	data : {'mname': name, 'starttime' : startTime, 'tname' : screen},
+	success : function(re) {
+		if(re == 1) {
+			alert("상영영화 등록 성공!");
+		}
+		else {
+			alert("상영영화 등록 실패!")
+		}
 	}	
 	});
 }
