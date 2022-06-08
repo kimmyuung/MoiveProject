@@ -1,4 +1,4 @@
-package controller.movie;
+package board;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,22 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
-
-import dao.MovieDao;
-import dto.Movie;
+import dao.BoardDao;
+import dto.Board;
 
 /**
- * Servlet implementation class getmovie
+ * Servlet implementation class write
  */
-@WebServlet("/movie/getmovie")
-public class getmovie extends HttpServlet {
+@WebServlet("/write")
+public class write extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public getmovie() {
+    public write() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,22 +29,18 @@ public class getmovie extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-		request.setCharacterEncoding("UTF-8");
-		String mtitle = request.getParameter("mtitle");
-		System.out.println(mtitle);
-		Movie movie = MovieDao.getmovieDao().getmovie(mtitle);
-		try {
-			JSONObject jo = new JSONObject();
-			jo.put("runtime", movie.getMruntime());
-			jo.put("mtitle", movie.getMtitle());
-			jo.put("mprice", movie.getMprice()); // 필요한 거 있을 시 더 추가
-			
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("applicaton/json");
-			response.getWriter().print(jo);
-		} catch(Exception e) {e.printStackTrace();} 
 		
+		
+		request.setCharacterEncoding("UTF-8");
+		String btitle = request.getParameter("btitle");
+		String bcontext = request.getParameter("bcontext");
+		String writer = request.getParameter("writer");
+		String bpassword = request.getParameter("bpassword");
+		
+		Board board = new Board(0, btitle, bcontext, bpassword, writer, null);
+		boolean result = BoardDao.getBoardDao().write(board);
+		if(result) {response.getWriter().print(1);}
+		else {response.getWriter().print(2);}
 	}
 
 	/**

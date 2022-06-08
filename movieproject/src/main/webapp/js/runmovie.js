@@ -1,5 +1,5 @@
 
-
+let list = [];
 $(document).ready(function() {
 
 	
@@ -35,6 +35,8 @@ $(document).ready(function() {
 	$.ajax({
 		url: 'getmovielist',
 		success: function(json) {
+			list = json;
+			console.log(list);
 			let html = '<option value="0"> 영화를 선택해주세요 </option>'
 			for (let i = 0; i < json.length; i++) {
 				html += '<option value="' + json[i]["mtitle"] + '"> ' + json[i]["mtitle"]+ '</option>';
@@ -46,7 +48,6 @@ $(document).ready(function() {
 	$.ajax({
 		url: '../theater/gettheaterlist',
 		success: function(json) {
-			console.log(json);
 			let html = '<option value="0"> 영화관을 선택해주세요 </option>'
 			
 			for (let i = 0; i < json.length; i++) {
@@ -62,7 +63,7 @@ $(document).ready(function() {
              let mtitle = $("#moviebox").val();
             
             
-             $.ajax({
+                $.ajax({
 				url : 'getmovie',
 				data : {'mtitle' : mtitle},
 				success : function(json) {

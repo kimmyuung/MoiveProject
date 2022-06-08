@@ -1,3 +1,6 @@
+<%@page import="dao.BoardDao"%>
+<%@page import="dto.Board"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,6 +16,8 @@
 	<br>
 	<h3>자유 게시판</h3>
 	<br>
+	
+	<%ArrayList<Board> blist = BoardDao.getBoardDao().blist(); %>
 	<table class="table">
 		<tr>
 			<th width="5%">글 번호</th>
@@ -21,27 +26,16 @@
 			<th width="10%">작성자</th>
 			<th width="15%">작성일</th>
 		</tr>
+		<%for(Board temp : blist){ %>
 		<tr>
-			<td width="5%">1</td>
-			<td width="20%"><a href="boardview.jsp?bno=1">안녕하세요1</a></td>
-			<td width="25%">안녕하세요</td>
-			<td width="10%">운영자</td>
-			<td width="15%">2022-05-18</td>
+			<td width="5%"><%=temp.getBno() %></td>
+			<td width="20%"><a href="boardview.jsp?bno=<%=temp.getBno()%>"><%=temp.getBtitle() %></a></td>
+			<td width="25%"><%=temp.getContext() %></td>
+			<td width="10%"><%=temp.getWriter() %></td>
+			<td width="15%"><%=temp.getWrite_time() %></td>
 		</tr>
-		<tr>
-			<td width="5%">2</td>
-			<td width="20%"><a href="boardview.jsp?bno=2">안녕하세요2</a></td>
-			<td width="25%">안녕하세요2</td>
-			<td width="10%">운영자</td>
-			<td width="15%">2022-05-18</td>
-		</tr>
-		<tr>
-			<td width="5%">3</td>
-			<td width="20%"><a href="boardview.jsp?bno=3">안녕하세요3</a></td>
-			<td width="25%">안녕하세요3</td>
-			<td width="10%">운영자</td>
-			<td width="15%">2022-05-18</td>
-		</tr>
+		<%} %>
+	
 	</table>
 	<br>
 	<div class="col-md-3 offset-9">

@@ -12,6 +12,7 @@ public class Dao {
 	protected ResultSet rs;
 	
 	public Dao() {
+
 		try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		con = DriverManager.getConnection("jdbc:mysql://database-1.cc0om84n0yfa.ap-northeast-2.rds.amazonaws.com:3306/movieproject?serverTimezone=UTC",

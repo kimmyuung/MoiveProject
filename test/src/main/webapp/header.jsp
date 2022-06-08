@@ -25,10 +25,11 @@
 	</div>
 
 
+<!-- jquery 최신 cdn -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<!-- 부트스트랩 js cdn -->
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- jquery 최신 cdn -->
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	
 </body>
 </html>

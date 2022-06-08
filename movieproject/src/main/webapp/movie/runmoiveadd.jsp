@@ -8,11 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
 <link href="/movieproject/css/runmovieadd.css" rel="stylesheet">
 </head>
+
 <body>
 	<%
 	ArrayList<Theater> tlist = TheaterDao.getTheaterDao().theaterlist();
@@ -98,7 +97,7 @@
     </div>
     <%} %>
     
-   <span class="film" style="top:10vh;left:calc(10vw + 225px); width:180px" data-start="02:15">Deadpool -108mins</span>
+  
   </div>
   <form>
     <select id="moviebox"> </select>

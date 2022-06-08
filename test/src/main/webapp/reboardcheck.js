@@ -31,7 +31,10 @@ $( function(){  // 문서 열리면 해당 코드가 실행
 	
 	});
 	
-function bwrite() {
+function bupdate(bno) {
+	let title = $("#boardtitle").val();
+	let context = $("#boardcontent").val();
+	let bpassword = $("#bpassword").val();
 	
 	if(pass[0] == false) {
 	alert("제목을 입력해주세요");
@@ -41,9 +44,77 @@ function bwrite() {
 	alert("내용을 입력해주세요");
 	return;	
 	}
-
+	if(bpassword == '') {
+		alert("비밀번호를 입력해주세요");
+		return;
+	}
+	
+	
+	
+	console.log(title, context, bno);
+	
 	if(pass[0] == true && pass[1] == true) {
-	alert("작성 성공");
-	return;	
+	
+	$.ajax({
+		
+		url : 'passwordcheck',
+		data : {'bno' : bno , 'bpassword' : bpassword},
+		success : function(re) {
+			alert(re);
+			if(re == 'true') {
+				$.ajax({
+						url : 'update',
+						data : {'btitle' : title, 'bcontext' : context, 'bno' : bno},
+						success : function(re) {
+						if(re == 1) {
+							alert("게시글 수정 성공");
+							location.href = "boardlist.jsp";
+							}
+						else {alert("게시글 수정 오류");}
+					}
+				});
+			}
+			else {
+				alert("비밀번호를 잘못 입력하셨습니다. 다시 시도해 주세요");
+			}
+		}
+	});
+	
 	}
 }	
+
+function bdelete(bno) {
+	
+	let bpassword = $("#bpassword").val();
+	if(bpassword == '') {
+		alert("비밀번호를 입력해주세요");
+		return;
+	}
+	
+	$.ajax({
+		url : 'passwordcheck',
+		data : {'bno' : bno, 'bpassword' : bpassword},
+		success : function(re) {
+			if(re == 'true') {
+				if(confirm("정말 삭제하시겠습니까?")) {
+					$.ajax({
+						url : 'delete',
+						data : {'bno' : bno},
+						success : function(re) {
+							if(re == 'true'){alert("삭제가 완료되었습니다."); 
+							location.href = 'boardlist.jsp';}
+							else {alert("오류 발생");}
+						}
+					});
+				}
+				else {
+					alert("다시 글 보기 페이지로 돌아갑니다.");
+					return;
+				}
+			}
+			else {
+				alert("비밀번호를 잘못 입력하셨습니다. 다시 시도해 주세요");
+			}
+		}
+	});
+}

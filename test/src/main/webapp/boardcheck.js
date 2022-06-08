@@ -1,11 +1,11 @@
-let pass = [ false , false ]; // 배열 = [  ]
+
 	
 $( function(){  // 문서 열리면 해당 코드가 실행 
 	$("#boardtitle").keyup( function(){ 	// mid 가 입력될때마다 해당 함수 실행
 		
 		let boardtitle=document.getElementById("boardtitle").value;
 		
-		let btitlej = /^[a-zA-Z가-힣0-9]{1,20}$/;	// 한글을 제외한 영문+숫자 5~15 사이 문자열
+		let btitlej = /^[a-zA-Z가-힣0-9]{1,20}$/;	// 1~20 사이 문자열
 			
 		if( btitlej.test( boardtitle ) ){ // 정규표현식과 같으면
 			titlecheck.innerHTML = "작성 가능합니다."; pass[0] = true;
@@ -15,7 +15,7 @@ $( function(){  // 문서 열리면 해당 코드가 실행
 	}); // keyup end 
 	//////////////////////////////////////제목 체크 end //////////////////////////////////////////////////////
 	
-	// 비밀번호 체크 
+	// 내용 체크 
 	$("#boardcontent").keyup( function(){  // 비밀번호 입력할때마다
 		// let mpassword = document.getElementById("mpassword").value;  // js식
 		let mpassword = $("#boardcontent").val();  // jquery 식
@@ -30,8 +30,13 @@ $( function(){  // 문서 열리면 해당 코드가 실행
 	
 	
 	});
-	
+let pass = [ false , false]; // 배열 = [  ]	
 function bwrite() {
+	
+	let title = $("#boardtitle").val();
+	let context = $("#boardcontent").val();
+	let writer = $("#writer").val();
+	let bpassword = $("#bpassword").val();
 	
 	if(pass[0] == false) {
 	alert("제목을 입력해주세요");
@@ -41,9 +46,35 @@ function bwrite() {
 	alert("내용을 입력해주세요");
 	return;	
 	}
-
+	
+	if(writer == '' ) {
+		alert("작성자를 입력해주세요");
+		return;
+	}
+	if(bpassword == '') {
+		alert("비밀번호를 입력해주세요");
+		return;
+	}
+	
+	console.log(title, context, writer, bpassword);
+	
 	if(pass[0] == true && pass[1] == true) {
-	alert("작성 성공");
-	return;	
+	
+	$.ajax({
+		url : 'write',
+		data : {'btitle' : title, 'bcontext' : context, 
+		'writer' : writer, 
+		'bpassword' : bpassword},
+		success : function(re) {
+			
+			if(re == 1) {
+				alert("게시글 등록 성공");
+				location.href = "boardlist.jsp";
+			}
+			else {alert("게시글 등록 오류");}
+		}
+	});
+	
+	
 	}
 }	

@@ -21,6 +21,16 @@
 				<td>내용 <textarea cols="20" rows="2" name="boardcontent" id="boardcontent" placeholder="내용을 입력하세요!"></textarea>
 				<span id="contextcheck"></span> </td>
 			</tr>
+			
+			<tr>
+				<td>작성자 <input type="text" name="writer" id="writer" placeholder="작성자를 입력하세요">
+				<span id="writercheck"></span> </td>
+			</tr>
+			
+			<tr>
+				<td> 비밀번호 <input type="password" name="bpassword" id="bpassword" placeholder="비밀번호를 입력하세요">
+				<span id="passwordcheck"></span> </td>
+			</tr>
 		</table>
 		<div align="center">
 		<input type="button" class="btn btn-primary" value="작성하기" onclick="bwrite()"/> <a href="/test/boardlist.jsp" class="btn btn-info" >게시글 페이지로</a>
