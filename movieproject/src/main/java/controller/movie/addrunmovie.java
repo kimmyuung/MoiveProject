@@ -54,7 +54,7 @@ public class addrunmovie extends HttpServlet {
 			
 			String enddate = jo.getString("enddate");
 			
-			Runmovie runmovie = new Runmovie(stime, etime, startdate, enddate, tno, mno);
+			Runmovie runmovie = new Runmovie(stime, tname, mname);
 			boolean result = MovieDao.getmovieDao().runmovieadd(runmovie);
 			if(result) {response.getWriter().print(1);}
 			else {response.getWriter().print(2);}
