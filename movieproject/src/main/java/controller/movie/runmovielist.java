@@ -7,23 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 import dao.MovieDao;
-import dao.TheaterDao;
-import dto.Runmovie;
 
 /**
- * Servlet implementation class runmovieadd
+ * Servlet implementation class runmovielist
  */
-@WebServlet("/movie/runmovieadd")
-public class runmovieadd extends HttpServlet {
+@WebServlet("/movie/runmovielist")
+public class runmovielist extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public runmovieadd() {
+    public runmovielist() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,19 +30,12 @@ public class runmovieadd extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		
-		String mtitle = request.getParameter("mname");
-		String tname = request.getParameter("tname");
-		String Str_time = request.getParameter("starttime");	
+		JSONArray jsonArray = MovieDao.getmovieDao().getrunmovielist();
 		
-		
-		Runmovie runmovie = new Runmovie(Str_time, tname, mtitle);
-		
-		boolean result = MovieDao.getmovieDao().runmovieadd(runmovie);	
-		if(result) {response.getWriter().print(1);}	
-		else {response.getWriter().print(2);}
-		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		response.getWriter().print(jsonArray);
 	}
 
 	/**

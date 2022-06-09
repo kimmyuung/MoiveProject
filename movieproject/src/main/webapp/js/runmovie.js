@@ -2,6 +2,23 @@
 let list = [];
 $(document).ready(function() {
 
+	$.ajax({
+		url: 'getrunmovielist',
+		success: function(json) {
+			if(json != "") {
+				
+			console.log(json);
+			let html = "";
+			for(let i = 0; i < json.length; i++) {
+				
+				}
+			}
+		}
+	});
+	
+
+
+
 	
   $('#addFilm').click(function() {
     var name = $('#moviebox').val(); // 영화 이름
@@ -61,8 +78,6 @@ $(document).ready(function() {
 
      $("#moviebox").change(function(){
              let mtitle = $("#moviebox").val();
-            
-            
                 $.ajax({
 				url : 'getmovie',
 				data : {'mtitle' : mtitle},
@@ -104,11 +119,11 @@ function runtimeadd() {
     var t = hour + parseInt(minute);
    	
     var screen = parseInt($('#theaterbox').val()) * 10;
-    
+    var screen2 = parseInt($('#theaterbox').val());
  
     $.ajax({
 	url : 'runmovieadd',
-	data : {'mname': name, 'starttime' : startTime, 'tname' : screen},
+	data : {'mname': name, 'starttime' : startTime, 'tname' : screen2},
 	success : function(re) {
 		if(re == 1) {
 			alert("상영영화 등록 성공!");
