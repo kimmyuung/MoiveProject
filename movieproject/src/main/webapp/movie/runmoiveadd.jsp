@@ -23,7 +23,7 @@
   <table class="button-options">
     <tr>
       <th></th>
-      <th id="addFilm">영화 상영</th>
+      <th id="addFilm">영화 상영 미리 보기</th>
       <th id="deleteFilm">영화 상영 중단</th>
       <th></th>
       <th></th>
@@ -32,6 +32,7 @@
       <th></th>
       <th></th>
       <th id="printSchedule" onclick="runtimeadd()">상영 시간 등록</th>
+      <th onclick="rdelete()">상영 영화 삭제</th>
     </tr>
   </table>
   <div class="layoutdesign">

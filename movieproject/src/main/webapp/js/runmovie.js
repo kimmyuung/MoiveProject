@@ -1,24 +1,6 @@
 
 let list = [];
 $(document).ready(function() {
-
-	$.ajax({
-		url: 'getrunmovielist',
-		success: function(json) {
-			if(json != "") {
-				
-			console.log(json);
-			let html = "";
-			for(let i = 0; i < json.length; i++) {
-				
-				}
-			}
-		}
-	});
-	
-
-
-
 	
   $('#addFilm').click(function() {
     var name = $('#moviebox').val(); // 영화 이름
@@ -93,7 +75,24 @@ $(document).ready(function() {
 
 });
 
-
+function getrunmovielist() {
+		$.ajax({
+		url: 'runmovielist',
+		success: function(json) {
+			if(json != "") {
+			console.log(json);
+			let html = "";
+			for(let i = 0; i < json.length; i++) {
+				html += "<span value='"+json[i]["rno"]+"' class='film' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["runtime"] + "px); width:" + json[i]["runtime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] +"</span>"
+				}
+				$('.timetable .layoutdesign').append(html);
+			}
+			else {
+				
+			}
+		}
+	});
+}
 
 function getFormatDate(date) {
 	var year = date.getFullYear();              //yyyy
@@ -127,11 +126,29 @@ function runtimeadd() {
 	success : function(re) {
 		if(re == 1) {
 			alert("상영영화 등록 성공!");
+			getrunmovielist();
 		}
 		else {
 			alert("상영영화 등록 실패!")
 		}
 	}	
+	});
+}
+
+function rdelete(rno) {
+	
+	$.ajax({
+		url : "runmoviedelete",
+		data : {"rno" : rno},
+		success : function(re){
+			if(re == 1) {
+				alert("상영영화 삭제 성공!");
+				getrunmovielist();
+			}
+			else {
+				alert("상영영화 삭제실패!");
+			}
+		}
 	});
 }
 

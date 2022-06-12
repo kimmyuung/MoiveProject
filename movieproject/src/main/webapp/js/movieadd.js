@@ -54,8 +54,6 @@ function catecheck() {
 
 }
 
-
-
 function categoryadd() {
 	let cname = $("#cname").val();
 	if (pass[0] == false) {
@@ -80,11 +78,7 @@ function categoryadd() {
 }
 
 
-
-
-
 ///////////////////////////////////////////////////////// 카테고리 호출 ///////////////////////////////
-
 
 function getcategory() {
 	$.ajax({
@@ -251,9 +245,6 @@ function movieadd() {
 			});
 
 		}
-	
-
-
 
 /********* 첨부파일이 변경되면 특정태그에 첨부파일 이미지 표시 *******/
 /* js : 객체지향 언어 */
@@ -276,6 +267,3 @@ $("#pimg").change(function(e) {
 		return;
 	}
 });
-
-
-

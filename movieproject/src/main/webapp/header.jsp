@@ -50,6 +50,7 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 							<li><a class="dropdown-item" href="/movieproject/movie/movierank.jsp">영화 순위 확인</a></li>
 							<li><a class="dropdown-item" href="#">상영 시간표 보기</a></li>
+							<li><a class="dropdown-item" href="/movieproject/movie/dayselect.jsp">영화 예매 </a></li>
 							<%
 							if (loginid != null && !(loginid.equals("admin"))) {
 							%>

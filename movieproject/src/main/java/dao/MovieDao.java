@@ -276,7 +276,8 @@ public class MovieDao extends Dao {
 	public JSONArray getrunmovielist() { // 상영영화 리스트 출력
 		JSONArray js = new JSONArray();
 		try {
-			String sql = "select * from runmovie";
+			String sql = "SELECT * FROM runmovie"
+			+ "left outer join movie on mtitle = movie.mtitle;";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -285,6 +286,12 @@ public class MovieDao extends Dao {
 				jo.put("mtitle", rs.getString(2));
 				jo.put("starttime", rs.getString(3));
 				jo.put("rno", rs.getInt(4));
+				jo.put("mno", rs.getInt(5));
+				jo.put("mtitle", rs.getString(7));
+				jo.put("mruntime", rs.getString(8));
+				jo.put("mimg", rs.getString(9));
+				jo.put("mrice", rs.getInt(10));
+				jo.put("mcategory", rs.getInt(11));
 				js.put(jo);
 			}
 				return js;
@@ -292,5 +299,44 @@ public class MovieDao extends Dao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	// 티켓에 쓰일 상영 영화 정보 출력(영화 테이블에서 조인하여 상세 정보 획득)
+	public JSONObject getrunmovie() {
+		try {
+			String sql = "SELECT * FROM runmovie"
+					+ "left outer join movie on mtitle = movie.mtitle;";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				JSONObject jo = new JSONObject();
+				jo.put("tname", rs.getString(1));
+				jo.put("mtitle", rs.getString(2));
+				jo.put("starttime", rs.getString(3));
+				jo.put("rno", rs.getInt(4));
+				jo.put("mno", rs.getInt(5));
+				jo.put("mtitle", rs.getString(7));
+				jo.put("mruntime", rs.getString(8));
+				jo.put("mimg", rs.getString(9));
+				jo.put("mrice", rs.getInt(10));
+				jo.put("mcategory", rs.getInt(11));
+				return jo;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	// 상영 영화 제거
+	public boolean runmoviedelete(int rno) {
+		try {
+			String sql = "delete from runmovie where rno = ?";
+			ps =con.prepareStatement(sql);
+			ps.setInt(1, rno);
+			ps.executeUpdate();
+			return true;
+		}catch(Exception e) {e.printStackTrace();}
+		return false;
 	}
 }
