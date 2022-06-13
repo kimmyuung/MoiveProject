@@ -1,21 +1,4 @@
-function keywordlist() {
 
-	$.ajax({
-		url: 'getketwordlist',
-		success: function(re) {
-			
-		 }
-	});
-}
-
-function ranklist() {
-	$.ajax({
-		url: 'ranklist',
-		success: function(re) {
-
-		}
-	});
-}
 $(document).ready(function() {
 
 	const date = new Date();
@@ -68,6 +51,32 @@ $(document).ready(function() {
 			button.classList.add("movie-date-wrapper-active");
 		})
 	}
-	ranklist();
-
+    getrunmovielist();
 });
+
+
+function getrunmovielist() {
+	  $.ajax({
+		url: 'runmovielist',
+		success: function(json) {
+			if(json != null) {
+			console.log(json);
+			let html = "";
+			
+			for(let i = 0; i < json.length; i++) {
+				html += '<div class="my-2"' + 
+				'onclick = "movieselect("'+json[i]["mtitle"]+'")" ' + 
+				'value="'+json[i]["mtitle"] +'">'+json[i]["mtitle"]+'</div> ';
+				
+				}
+				$('#moviebox').html(html);
+			}
+			else {
+				
+			}
+		}
+	});
+}
+function movieselect(mtitle) {
+	alert(mtitle);
+}

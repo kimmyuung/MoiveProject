@@ -2,6 +2,8 @@
 let list = [];
 $(document).ready(function() {
 	
+	
+  
   $('#addFilm').click(function() {
     var name = $('#moviebox').val(); // 영화 이름
     var duration = parseInt($('#runtimebox').val()) * (5 / 3); /*must be in mins*/
@@ -52,11 +54,13 @@ $(document).ready(function() {
 			for (let i = 0; i < json.length; i++) {
 				html += '<option value="' + json[i]["tname"] + '"> ' + json[i]["tname"] + "</option>";
 			}
-			$("#theaterbox").html(html);
+			$(".timetable .layoutdesign").append(html);
 			
 		}
 
 	});
+	
+getrunmovielist();
 
      $("#moviebox").change(function(){
              let mtitle = $("#moviebox").val();
@@ -79,11 +83,13 @@ function getrunmovielist() {
 		$.ajax({
 		url: 'runmovielist',
 		success: function(json) {
-			if(json != "") {
+			if(json != null) {
 			console.log(json);
+			
 			let html = "";
 			for(let i = 0; i < json.length; i++) {
-				html += "<span value='"+json[i]["rno"]+"' class='film' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["runtime"] + "px); width:" + json[i]["runtime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] +"</span>"
+				html += "<span class='activeFilm' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["mruntime"] + "px); width:" + json[i]["mruntime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] + " -"+json[i]["mruntime"]+"mins</span>"
+				alert(json[i]["mtitle"]);
 				}
 				$('.timetable .layoutdesign').append(html);
 			}

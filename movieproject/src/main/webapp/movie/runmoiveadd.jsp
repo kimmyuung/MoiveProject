@@ -20,6 +20,7 @@
 	
 	<br>
   <div class="timetable my-3">
+  <br>
   <table class="button-options">
     <tr>
       <th></th>
@@ -36,7 +37,7 @@
     </tr>
   </table>
   <div class="layoutdesign">
-    <div class="row">
+    <div class="row" id="runmovie">
       <div></div>
       <div>00:00</div>
       <div>01:00</div>

@@ -8,6 +8,7 @@
 <link href="/movieproject/css/seatchoice_2.css" rel="stylesheet">
 </head>
 <body>
+<%int mno = Integer.parseInt(request.getParameter("mno") ); %>
 	<section id="section">
 		<div class="container">
 			<!-- leftCont -->

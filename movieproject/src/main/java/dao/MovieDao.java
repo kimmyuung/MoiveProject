@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import dto.Category;
 import dto.Movie;
 import dto.Runmovie;
+import dto.Theater;
 
 public class MovieDao extends Dao {
 
@@ -70,15 +71,14 @@ public class MovieDao extends Dao {
 		return null;
 	}
 
-	public Category getcategory(int cno) {
-		String sql = "select * from category where cno = ?";
+	public String getcategory(int cno) {
+		String sql = "select cname from category where cnum = ?";
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, cno);
 			rs = ps.executeQuery();
 			if (rs.next()) {
-				Category cat = new Category(rs.getInt(1), rs.getString(2));
-				return cat;
+				return rs.getString(1);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -277,7 +277,7 @@ public class MovieDao extends Dao {
 		JSONArray js = new JSONArray();
 		try {
 			String sql = "SELECT * FROM runmovie"
-			+ "left outer join movie on mtitle = movie.mtitle;";
+			+ " left outer join movie on runmovie.mtitle = movie.mtitle;";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -287,11 +287,7 @@ public class MovieDao extends Dao {
 				jo.put("starttime", rs.getString(3));
 				jo.put("rno", rs.getInt(4));
 				jo.put("mno", rs.getInt(5));
-				jo.put("mtitle", rs.getString(7));
-				jo.put("mruntime", rs.getString(8));
-				jo.put("mimg", rs.getString(9));
-				jo.put("mrice", rs.getInt(10));
-				jo.put("mcategory", rs.getInt(11));
+				jo.put("mruntime", rs.getString(7));
 				js.put(jo);
 			}
 				return js;
@@ -326,8 +322,22 @@ public class MovieDao extends Dao {
 		}
 		return null;
 	}
-	
-	
+	public ArrayList<Theater> tlist() {
+		ArrayList<Theater> tlist = new ArrayList<Theater>();
+		String sql = "select * from theater";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Theater theater = new Theater(
+						rs.getInt(1), rs.getString(2), 
+						rs.getString(3), rs.getString(4));
+				tlist.add(theater);
+			}
+			return tlist;
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
 	// 상영 영화 제거
 	public boolean runmoviedelete(int rno) {
 		try {
