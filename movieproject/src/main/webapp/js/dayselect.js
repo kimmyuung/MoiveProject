@@ -1,4 +1,4 @@
-
+let datelist;
 $(document).ready(function() {
 
 	const date = new Date();
@@ -42,14 +42,19 @@ $(document).ready(function() {
 
 		dayClickEvent(button);
 	}
-	function dayClickEvent(button) {
-		button.addEventListener("click", function() {
+	function dayClickEvent(button) { // 일을 클릭했을 때
+		button.addEventListener("click", function() { // 이벤트
 			const movieDateWrapperActive = document.querySelectorAll(".movie-date-wrapper-active");
+				
 			movieDateWrapperActive.forEach((list) => {
 				list.classList.remove("movie-date-wrapper-active");
+			
 			})
+			
 			button.classList.add("movie-date-wrapper-active");
 		})
+		
+		
 	}
     getrunmovielist();
 });
@@ -61,13 +66,17 @@ function getrunmovielist() {
 		success: function(json) {
 			if(json != null) {
 			console.log(json);
-			let html = "";
+			let html = '<tr>' +
+			'<th>영화 이름</th>' +
+			'<th>러닝 타임</th>' +
+			'</tr>';
 			
 			for(let i = 0; i < json.length; i++) {
-				html += '<div class="my-2"' + 
-				'onclick = "movieselect("'+json[i]["mtitle"]+'")" ' + 
-				'value="'+json[i]["mtitle"] +'">'+json[i]["mtitle"]+'</div> ';
-				
+				html += 
+				'<tr>' +
+				'<td onclick="movieselect('+json[i]["mno"]+')">' + json[i]["mtitle"] + '</td>' +
+				'<td>' + json[i]["mruntime"] + '</td>' +
+				'</tr>';				
 				}
 				$('#moviebox').html(html);
 			}
@@ -77,6 +86,48 @@ function getrunmovielist() {
 		}
 	});
 }
-function movieselect(mtitle) {
-	alert(mtitle);
+let mnum;
+let tnum;
+let rnum;
+function movieselect(mno) {
+	mtitle = mno;
+	
+	
+	$.ajax({
+		url : 'runtheaterlist',
+		data : {"mno" : mno},
+		success : function(js){
+			console.log(js);
+			let html = "";
+			let html2 = "";
+			if(js != null) {
+			for(let i = 0; i < js.length; i++) {
+				html += '<div onclick="theaterselect('+js[i]["tno"]+')"> '+js[i]["tname"]+'</div>'
+				html += '<div onclick="timeselect('+js[i]["rno"]+')"> 시작시간 : '+js[i]["starttime"]+'</div>';
+				}
+			}
+			else {
+				html += '<div> 현재 상영 중인 관이 없습니다.</div>'
+			}
+			$("#theaterbox").html(html);
+			$("#timebox").html(html2);
+		}
+	});	
+}
+function theaterselect(tno){
+	tnum = tno;
+}
+function timeselect(rno) {
+	rnum = rno;	
+}
+function seatchoice() {
+	if(mnum = "") {
+		alert("영화를 선택해주세요");
+		return;
+	}
+	if(tnum = "") {
+		alert("영화관을 선택해주세요");
+		return;
+	}
+	location.href = "/movieproject/movie/seatchoice_2.jsp?rno="+rnum;
 }

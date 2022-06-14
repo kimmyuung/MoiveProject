@@ -146,19 +146,22 @@ body {
 }
 
 .movie-part {
-    width: 284px;
+    width: 350px;
+    font-size: 30px;
 }
 
 .theater-part {
-    width: 264px;
+    width: 320px;
+    font-size: 15px;
 }
 
 .day-part {
-    width: 91px;
+    width: 95px;
+    
 }
 
 .time-part {
-    width: 384px;
+    width: 350px;
 }
 
 .sort-wrapper {

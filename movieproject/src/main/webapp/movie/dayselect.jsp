@@ -10,16 +10,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>영화 선택</title>
-<link rel="stylesheet" href="css/reset.css">
-<link rel="stylesheet" href="css/reserve.css">
-<link rel="stylesheet" href="css/header.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <link rel='stylesheet'
 	href='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css' />
 <script
 	src='//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js'></script>
-<link rel="stylesheet"
-	href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 <link rel="stylesheet" href="/movieproject/css/dayselect.css">
 </head>
 
@@ -30,15 +28,13 @@
 			<div class="sort-wrapper">
 				<div class="sort-rate sort-selected" onclick="ranklist()">예매율순</div>
 			</div>
-			<div class="movie-list">영화 목록 가져오기</div>
-			
-			<div id="moviebox"></div>
+			<table id="moviebox"></table>
 		</div>
 		<div class="theater-part">
 			<div class="reserve-title">Theater</div>
 			<div>상영관 목록 가져오기</div>
 
-			<table id="theaterbox"></table>
+			<div id="theaterbox"></div>
 		</div>
 		<div class="day-part">
 			<div class="reserve-title">Date</div>
@@ -46,10 +42,16 @@
 		</div>
 		<div class="time-part">
 			<div class="reserve-title">Time</div>
+			<div id="timebox"></div>
 		</div>
-
+		<div style="border: none;">
+		<button class="btn btn-info" type="button" onclick="seatchoice()">좌석 선택</button>
+		</div>
 	</div>
 
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	
 	<script src="/movieproject/js/dayselect.js" type="text/javascript"></script>
 </body>
 
