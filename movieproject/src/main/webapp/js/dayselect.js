@@ -50,7 +50,7 @@ $(document).ready(function() {
 				list.classList.remove("movie-date-wrapper-active");
 			
 			})
-			
+			console.log( movieDateWrapperActive );
 			button.classList.add("movie-date-wrapper-active");
 		})
 		

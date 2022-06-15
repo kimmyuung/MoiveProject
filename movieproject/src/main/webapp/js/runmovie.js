@@ -1,38 +1,60 @@
 
 let list = [];
 $(document).ready(function() {
-	
-	
-  
-  $('#addFilm').click(function() {
-    var name = $('#moviebox').val(); // 영화 이름
-    var duration = parseInt($('#runtimebox').val()) * (5 / 3); /*must be in mins*/
-    var dur = $('#runtimebox').val(); 
-    var startTime = $('#timetableStart').val();
 
-    /*get the hour*/
-    var hour = parseInt($('#timetableStart').val()) * 100;
-    /*get the minutes*/
-    var min = $('#timetableStart').val();
-    var res = min.split(":");
-    var minute = parseInt(res[1]) / 60 * 100;
-    var t = hour + parseInt(minute);
-   	
-    var screen = parseInt($('#theaterbox').val()) * 10;
-    
-    $('.timetable .layoutdesign').append("<span class='film' style='top:" + screen + "vh;left:calc(10vw + " + t + "px); width:" + duration + "px' data-start='" + startTime + "'>" + name + " -"+dur+"mins</span>");
-  });
+	$('#addFilm').click(function() {
 
-  $('.layoutdesign').on("click", ".film", function() {
-    $(this).toggleClass("activeFilm");
-    $('#deleteFilm').show();
-  });
-  $('#deleteFilm').click(function() {
-    $('.activeFilm').remove();
-    $(this).hide();
-  });
- 
- 
+		var name = $('#moviebox').val();
+		var duration = parseInt($('#runtimebox').val()) * (5 / 3); /*must be in mins*/
+		var dur = $('#runtimebox').val();
+		var startTime = $('#timetableStart').val();
+
+		
+		/*get the hour*/
+		var hour = parseInt($('#timetableStart').val()) * 100;
+		/*get the minutes*/
+		var min = $('#timetableStart').val();
+		var res = min.split(":");
+		var minute = parseInt(res[1]) / 60 * 100;
+		var t = hour + parseInt(minute);
+		var screen = parseInt($('#theaterbox').val()) * 10;
+		console.log(screen);
+		$('#layout').append("<span class='film' style='top:" + screen + "vh;left:calc(10vw + " + t + "px); width:" + duration + "px' data-start='" + startTime + "'>" + name + " -" + dur + "mins</span>");
+
+
+
+		$('.layoutdesign').on("click", ".film", function() {
+			$(this).toggleClass("activeFilm");
+			$('#deleteFilm').show();
+		});
+		$('#deleteFilm').click(function() {
+			$('.activeFilm').remove();
+			$(this).hide();
+		});
+		
+	})
+
+	$("#moviebox").change(function() {
+		let mtitle = $("#moviebox").val();
+		$.ajax({
+			url: 'getmovie',
+			data: { 'mtitle': mtitle },
+			success: function(json) {
+				console.log(json);
+				let time = '<input id="runtimebox" type="text" readonly="readonly" value="' + json["runtime"] + '"/>';
+				$("#run").html(time);
+			}
+		})
+
+	});
+	$('#quit').click(function() {
+			location.href = '/movieproject/main.jsp';
+		});
+	getmovielist();
+	gettheaterlist();
+
+});
+function getmovielist() {
 	$.ajax({
 		url: 'getmovielist',
 		success: function(json) {
@@ -40,61 +62,42 @@ $(document).ready(function() {
 			console.log(list);
 			let html = '<option value="0"> 영화를 선택해주세요 </option>'
 			for (let i = 0; i < json.length; i++) {
-				html += '<option value="' + json[i]["mtitle"] + '"> ' + json[i]["mtitle"]+ '</option>';
+				html += '<option value="' + json[i]["mtitle"] + '"> ' + json[i]["mtitle"] + '</option>';
 			}
 			$("#moviebox").html(html);
 		}
 	});
-
+}
+function gettheaterlist() {
 	$.ajax({
 		url: '../theater/gettheaterlist',
 		success: function(json) {
 			let html = '<option value="0"> 영화관을 선택해주세요 </option>'
-			
+
 			for (let i = 0; i < json.length; i++) {
-				html += '<option value="' + json[i]["tname"] + '"> ' + json[i]["tname"] + "</option>";
+				html += '<option value="' + json[i]["tno"] + '"> ' + json[i]["tname"] + "</option>";
 			}
-			$(".timetable .layoutdesign").append(html);
-			
+			$("#theaterbox").append(html);
+
 		}
 
 	});
-	
-getrunmovielist();
-
-     $("#moviebox").change(function(){
-             let mtitle = $("#moviebox").val();
-                $.ajax({
-				url : 'getmovie',
-				data : {'mtitle' : mtitle},
-				success : function(json) {
-					console.log(json);
-					 let time = '<input id="runtimebox" type="text" readonly="readonly" value="'+json["runtime"]+'"/>';
-					$("#run").html(time);
-				}
-			}) 
-               
-            });
-
-
-});
-
+}
 function getrunmovielist() {
-		$.ajax({
+	$.ajax({
 		url: 'runmovielist',
 		success: function(json) {
-			if(json != null) {
-			console.log(json);
-			
-			let html = "";
-			for(let i = 0; i < json.length; i++) {
-				html += "<span class='activeFilm' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["mruntime"] + "px); width:" + json[i]["mruntime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] + " -"+json[i]["mruntime"]+"mins</span>"
-				alert(json[i]["mtitle"]);
+			if (json != null) {
+				console.log(json);
+
+				let html = "";
+				for (let i = 0; i < json.length; i++) {
+					html += "<span class='activeFilm' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["mruntime"] + "px); width:" + json[i]["mruntime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] + " -" + json[i]["mruntime"] + "mins</span>"
 				}
 				$('.timetable .layoutdesign').append(html);
 			}
 			else {
-				
+
 			}
 		}
 	});
@@ -109,45 +112,15 @@ function getFormatDate(date) {
 	return year + '-' + month + '-' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
 }
 
-function runtimeadd() {
-	 var name = $('#moviebox').val(); // 영화 이름
-    var duration = parseInt($('#runtimebox').val()) * (5 / 3); /*must be in mins*/
-    var dur = $('#runtimebox').val(); 
-    var startTime = $('#timetableStart').val();
 
-    /*get the hour*/
-    var hour = parseInt($('#timetableStart').val()) * 100;
-    /*get the minutes*/
-    var min = $('#timetableStart').val();
-    var res = min.split(":");
-    var minute = parseInt(res[1]) / 60 * 100;
-    var t = hour + parseInt(minute);
-   	
-    var screen = parseInt($('#theaterbox').val()) * 10;
-    var screen2 = parseInt($('#theaterbox').val());
- 
-    $.ajax({
-	url : 'runmovieadd',
-	data : {'mname': name, 'starttime' : startTime, 'tname' : screen2},
-	success : function(re) {
-		if(re == 1) {
-			alert("상영영화 등록 성공!");
-			getrunmovielist();
-		}
-		else {
-			alert("상영영화 등록 실패!")
-		}
-	}	
-	});
-}
 
 function rdelete(rno) {
-	
+
 	$.ajax({
-		url : "runmoviedelete",
-		data : {"rno" : rno},
-		success : function(re){
-			if(re == 1) {
+		url: "runmoviedelete",
+		data: { "rno": rno },
+		success: function(re) {
+			if (re == 1) {
 				alert("상영영화 삭제 성공!");
 				getrunmovielist();
 			}
@@ -158,3 +131,8 @@ function rdelete(rno) {
 	});
 }
 
+function runtimeadd() {
+	$.ajax({
+
+	});
+}

@@ -5,9 +5,10 @@ $(function() {
 	var date2 = new Date();
 	date = getFormatDate(date);
 	date2 = nogetFormatDate(date2);
+	
 		$.ajax({
 		method: "get",
-		url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList.json",
+		url: "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json",
 		data: {
 			targetDt: date,
 			key: "aa00e29d76f425572e382e01cfb52950",
@@ -17,13 +18,13 @@ $(function() {
 		console.log(msg);
 		$("#chart").append("<strong>" + msg.boxOfficeResult.boxofficeType + "</strong>");
 		$("#date").append("<strong>" + msg.boxOfficeResult.showRange + "</strong>");
-		for (var i = 0; i < msg.boxOfficeResult.weeklyBoxOfficeList.length; i++) {
+		for (var i = 0; i < msg.boxOfficeResult.dailyBoxOfficeList.length; i++) {
 			console.log(msg);
-			$("#rank"+i).append("<strong>" + msg.boxOfficeResult.weeklyBoxOfficeList[i].rank + "</strong>");
-			$("#title"+i).append("<strong>" + msg.boxOfficeResult.weeklyBoxOfficeList[i].movieNm + "</strong>");
-			$("#rankchange"+i).append("<strong>" + msg.boxOfficeResult.weeklyBoxOfficeList[i].rankInten + "</strong>");
-			$("#open"+i).append("<strong>" + msg.boxOfficeResult.weeklyBoxOfficeList[i].openDt + "</strong>");
-			$("#rate"+i).append("<strong>" + msg.boxOfficeResult.weeklyBoxOfficeList[i].salesShare + "</strong>");
+			$("#rank"+i).append("<strong>" + msg.boxOfficeResult.dailyBoxOfficeList[i].rank + "</strong>");
+			$("#title"+i).append("<strong>" + msg.boxOfficeResult.dailyBoxOfficeList[i].movieNm + "</strong>");
+			$("#rankchange"+i).append("<strong>" + msg.boxOfficeResult.dailyBoxOfficeList[i].rankInten + "</strong>");
+			$("#open"+i).append("<strong>" + msg.boxOfficeResult.dailyBoxOfficeList[i].openDt + "</strong>");
+			$("#rate"+i).append("<strong>" + msg.boxOfficeResult.dailyBoxOfficeList[i].salesShare + "</strong>");
 		}
 	});
 	getclock();
@@ -130,7 +131,7 @@ function getFormatDate(date){
     month = month >= 10 ? month : '0' + month;  //month 두자리로 저장
     var day = date.getDate();                   //d
     day = day >= 10 ? day : '0' + day;          //day 두자리로 저장
-    return  year + '' + month + '' + day;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
+    return  year + '' + month + '' + day-1;       //'-' 추가하여 yyyy-mm-dd 형태 생성 가능
 }
 
 

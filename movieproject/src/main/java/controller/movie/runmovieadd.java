@@ -35,11 +35,11 @@ public class runmovieadd extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String mtitle = request.getParameter("mname");
-		String tname = request.getParameter("tname");
+		int tno = Integer.parseInt(request.getParameter("tname")); 
 		String Str_time = request.getParameter("starttime");	
 		
 		
-		Runmovie runmovie = new Runmovie(Str_time, tname, mtitle);
+		Runmovie runmovie = new Runmovie(Str_time, tno, mtitle);
 		
 		boolean result = MovieDao.getmovieDao().runmovieadd(runmovie);	
 		if(result) {response.getWriter().print(1);}	

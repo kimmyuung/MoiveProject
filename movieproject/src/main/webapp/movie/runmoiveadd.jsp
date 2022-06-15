@@ -21,22 +21,21 @@
 	<br>
   <div class="timetable my-3">
   <br>
-  <table class="button-options">
+   <table class="button-options">
     <tr>
       <th></th>
-      <th id="addFilm">영화 상영 미리 보기</th>
-      <th id="deleteFilm">영화 상영 중단</th>
+      <th id="addFilm">상영 영화 추가</th>
+      <th id="deleteFilm">상영 영화 삭제</th>
       <th></th>
       <th></th>
       <th></th>
       <th></th>
       <th></th>
       <th></th>
-      <th id="printSchedule" onclick="runtimeadd()">상영 시간 등록</th>
-      <th onclick="rdelete()">상영 영화 삭제</th>
+      <th id="quit">나가기</th>
     </tr>
   </table>
-  <div class="layoutdesign">
+  <div class="layoutdesign" id="layout">
     <div class="row" id="runmovie">
       <div></div>
       <div>00:00</div>
@@ -98,7 +97,7 @@
       <div></div>
     </div>
     <%} %>
-    
+     <span class="film" style="top:10vh;left:calc(10vw + 225px); width:180px" data-start="02:15">Deadpool -108mins</span>
   
   </div>
   <form>

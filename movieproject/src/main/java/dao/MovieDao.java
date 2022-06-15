@@ -230,8 +230,8 @@ public class MovieDao extends Dao {
 				object.put("mtitle", rs.getString(2));
 				object.put("mruntime", rs.getString(3));
 				object.put("mimg", rs.getString(4));
-				object.put("mcategory", rs.getInt(5));
-				object.put("mprice", rs.getInt(6));
+				object.put("mprice", rs.getInt(5));
+				object.put("mcategory", rs.getInt(6));
 
 				list.put(object);
 			}
@@ -268,10 +268,10 @@ public class MovieDao extends Dao {
 	// 상영 영화 추가
 	public boolean runmovieadd(Runmovie run) { // 영화등록
 		try {
-			String sql = "insert into runmovie(starttime, tname, mtitle) values(?,?,?);";
+			String sql = "insert into runmovie(starttime, tno, mtitle) values(?,?,?);";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, run.getStime());
-			ps.setString(2, run.getTname());
+			ps.setInt(2, run.getTno());
 			ps.setString(3, run.getMtitle());
 			ps.executeUpdate();
 			return true;

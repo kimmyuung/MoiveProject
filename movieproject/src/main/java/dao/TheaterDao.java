@@ -121,7 +121,7 @@ public class TheaterDao extends Dao{
 		while(rs.next()) {
 			// 결과내 하나씩 모든 레코드를 -> 하나씩 json 객체로 변환
 			JSONObject object = new JSONObject();
-			object.put("tnum", rs.getInt(1));
+			object.put("tno", rs.getInt(1));
 			object.put("tname", rs.getString(2));
 			object.put("tseat", rs.getString(3));
 			object.put("tlocation", rs.getString(4));

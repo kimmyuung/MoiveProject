@@ -27,7 +27,7 @@
 
   <div class="form">
     <input type="text" id="movie" name="search" placeholder="Search by Title" />
-    <button type="submit" id="submit"> <i class="fa fa-search"></i>
+    <button type="button" id="submit" onclick="moviesearch()"> <i class="fa fa-search"></i>
     </button>
   </div>
   <div>

@@ -34,10 +34,18 @@ public class moviesearch extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  
+		
 		request.setCharacterEncoding("UTF-8");
-	      String mtitle = request.getParameter("search-input");
-	      System.out.println(mtitle);
+		String query = request.getParameter("query");
+		System.out.println(query);
+		String clientId = "2Q6cnxxfBY7eixT2c20k"; //애플리케이션 클라이언트 아이디값"
+        String clientSecret = "4d3kieNzyh"; //애플리케이션 클라이언트 시크릿값"
+        String url = "https://openapi.naver.com/v1/search/movie.json?query="+query;
+        
+        Map<String, String> requestHeaders = new HashMap<>();
+        requestHeaders.put("X-Naver-Client-Id", clientId);
+        requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+        
 	}
 
 

@@ -129,7 +129,7 @@
 					
 					</div>
 					<div class="col-lg-1">
-						<a href="moviesearch.jsp"><button type="button" class="btn btn-secondary icon_search" data-bs-toggle="modal" data-bs-target="#exampleModal"></button></a>
+						<a href="/movieproject/movie/moviesearch.jsp"><button type="button" class="btn btn-secondary icon_search" data-bs-toggle="modal" data-bs-target="#exampleModal"></button></a>
 					</div>
 				</div>
 			</div>

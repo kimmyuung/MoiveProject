@@ -3,15 +3,15 @@ package dto;
 public class Runmovie {
 
 	private String stime;
-	private String tname;
+	private int tno;
 	private String mtitle;
 	
 	public Runmovie() {}
 
-	public Runmovie(String stime, String tname, String mtitle) {
+	public Runmovie(String stime, int tno, String mtitle) {
 		super();
 		this.stime = stime;
-		this.tname = tname;
+		this.tno = tno;
 		this.mtitle = mtitle;
 	}
 
@@ -23,12 +23,12 @@ public class Runmovie {
 		this.stime = stime;
 	}
 
-	public String getTname() {
-		return tname;
+	public int getTno() {
+		return tno;
 	}
 
-	public void setTname(String tname) {
-		this.tname = tname;
+	public void setTno(int tno) {
+		this.tno = tno;
 	}
 
 	public String getMtitle() {
@@ -41,7 +41,7 @@ public class Runmovie {
 
 	@Override
 	public String toString() {
-		return "Runmovie [stime=" + stime + ", tname=" + tname + ", mtitle=" + mtitle + "]";
+		return "Runmovie [stime=" + stime + ", tno=" + tno + ", mtitle=" + mtitle + "]";
 	}
 
 	
