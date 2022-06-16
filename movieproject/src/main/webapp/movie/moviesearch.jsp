@@ -26,7 +26,7 @@
   <h1>Search for a Movie</h1>
 
   <div class="form">
-    <input type="text" id="movie" name="search" placeholder="Search by Title" />
+    <input type="text" id="movie" name="search" placeholder="Search by Title" onkeyup="enterkey()" />
     <button type="button" id="submit" onclick="moviesearch()"> <i class="fa fa-search"></i>
     </button>
   </div>

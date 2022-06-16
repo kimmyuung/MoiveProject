@@ -38,7 +38,7 @@
 		</div>
 		<div class="day-part">
 			<div class="reserve-title">Date</div>
-			<div class="reserve-date"></div>
+			<div class="reserve-date" id="reserve-date"></div>
 		</div>
 		<div class="time-part">
 			<div class="reserve-title">Time</div>
