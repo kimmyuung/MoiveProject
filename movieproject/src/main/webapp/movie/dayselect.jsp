@@ -1,3 +1,4 @@
+<%@page import="dao.TheaterDao"%>
 <%@page import="dto.Movie"%>
 <%@page import="dto.Theater"%>
 <%@page import="dao.MovieDao"%>
@@ -32,7 +33,7 @@
 		</div>
 		<div class="theater-part">
 			<div class="reserve-title">Theater</div>
-			<div>상영관 목록 가져오기</div>
+			<div>상영관 목록 (tno)로 설정되어 있어 tname으로 바꾸어야 함</div>
 
 			<div id="theaterbox"></div>
 		</div>
@@ -43,6 +44,7 @@
 		<div class="time-part">
 			<div class="reserve-title">Time</div>
 			<div id="timebox"></div>
+			
 		</div>
 		<div style="border: none;">
 		<button class="btn btn-info" type="button" onclick="seatchoice()">좌석 선택</button>

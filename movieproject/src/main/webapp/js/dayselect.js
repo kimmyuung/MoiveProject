@@ -64,12 +64,13 @@ function getrunmovielist() {
 		}
 	});
 }
+// 넘길 변수 설정
 let mnum;
 let tnum;
 let rnum;
+let selectdate;
 function movieselect(mno) {
 	mtitle = mno;
-	
 	
 	$.ajax({
 		url : 'runtheaterlist',
@@ -80,8 +81,8 @@ function movieselect(mno) {
 			let html2 = "";
 			if(js != null) {
 			for(let i = 0; i < js.length; i++) {
-				html += '<div onclick="theaterselect('+js[i]["tno"]+')"> '+js[i]["tname"]+'</div>'
-				html += '<div onclick="timeselect('+js[i]["rno"]+')"> 시작시간 : '+js[i]["starttime"]+'</div>';
+				html += '<div onclick="theaterselect('+js[i]["tno"]+')"> '+js[i]["tno"]+'</div>'
+				html2 += '<div onclick="timeselect('+js[i]["rno"]+')"> 시작시간 : '+js[i]["starttime"]+'</div>';
 				}
 			}
 			else {
@@ -93,24 +94,33 @@ function movieselect(mno) {
 	});	
 }
 function theaterselect(tno){
+	
 	tnum = tno;
+	alert(tnum);
 }
-function timeselect(rno) {
+function timeselect(rno) { 
 	rnum = rno;	
+	alert(rno);
 }
 function dayselect(i) {
-	alert(i);
-	 var m = (1 + date.getMonth());
-	 
+	var m = (1 + date.getMonth());
+	
+selectdate = ''.concat(m, i); // truefalse
+	console.log(selectdate);
 }
 function seatchoice() {
-	if(mnum = "") {
+	
+	if(mnum == "") {
 		alert("영화를 선택해주세요");
 		return;
 	}
-	if(tnum = "") {
+	if(tnum == "") { // = 하나 네요 ㅎㅎ // 되는것 같아요 
 		alert("영화관을 선택해주세요");
 		return;
 	}
-	location.href = "/movieproject/movie/seatchoice_2.jsp?rno="+rnum;
+	// 내려오는 와중에 null에 바뀌네요~
+	console.log(selectdate);
+	
+	location.href = "/movieproject/movie/seatchocie.jsp?rno="+rnum + 
+	"&date=" + selectdate + "&tno=" + tnum;
 }

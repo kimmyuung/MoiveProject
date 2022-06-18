@@ -286,7 +286,7 @@ public class MovieDao extends Dao {
 		JSONArray js = new JSONArray();
 		try {
 			String sql = "SELECT * FROM runmovie"
-			+ " left outer join movie on runmovie.mtitle = movie.mtitle;";
+			+ " left outer join movie on runmovie.mtitle = movie.mtitle GROUP BY runmovie.mtitle;";
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while(rs.next()) {
@@ -363,20 +363,18 @@ public class MovieDao extends Dao {
 	public JSONArray getruntheaterlist(String mtitle) {
 		JSONArray js = new JSONArray();
 		try {
-			String sql = "select * from runmovie"
-					+ "left outer join theater on runmovie.tno = theater.tno where mtitle = ?";
+			//String sql = "select tname, mtitle, starttime, rno from theater"
+			//		+ "left outer join runmovie on theater.tno = runmovie.tno where mtitle = ?;" + mtitle;
+			String sql = "select * from runmovie where mtitle = ?";
 			ps = con.prepareStatement(sql);
 			ps.setString(1, mtitle);
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				JSONObject jo = new JSONObject();
-				jo.put("tno", rs.getInt(1));
+				jo.put("tno", rs.getString(1));
 				jo.put("mtitle", rs.getString(2));
 				jo.put("starttime", rs.getString(3));
 				jo.put("rno", rs.getInt(4));
-				jo.put("tname", rs.getString(6));
-				jo.put("tseat", rs.getString(7));
-				jo.put("tlocation", rs.getString(8));
 				js.put(jo);
 			}
 			return js;

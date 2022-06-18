@@ -8,7 +8,10 @@
 <link href="/movieproject/css/seatchoice_2.css" rel="stylesheet">
 </head>
 <body>
-<%int mno = Integer.parseInt(request.getParameter("mno") ); %>
+<%int rno = Integer.parseInt(request.getParameter("rno")) ; 
+String date = request.getParameter("date");
+int tno = Integer.parseInt(request.getParameter("tno"));
+%>
 	<section id="section">
 		<div class="container">
 			<!-- leftCont -->
