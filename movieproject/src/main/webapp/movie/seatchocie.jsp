@@ -1,3 +1,9 @@
+<%@page import="dto.Theater"%>
+<%@page import="dao.TheaterDao"%>
+<%@page import="controller.movie.moiveadd"%>
+<%@page import="dto.Movie"%>
+<%@page import="dto.Runmovie"%>
+<%@page import="dao.MovieDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +17,7 @@
 <%int rno = Integer.parseInt(request.getParameter("rno")) ; 
 String date = request.getParameter("date");
 int tno = Integer.parseInt(request.getParameter("tno"));
+Movie movie = MovieDao.getmovieDao().getMovie(MovieDao.getmovieDao().getmtitle(rno));
 %>
 	<section id="section">
 		<div class="container">
@@ -132,24 +139,18 @@ int tno = Integer.parseInt(request.getParameter("tno"));
 				<div class="confirmCont">
 					<div class="rightTopCont">
 						<!-- moviename -->
-
 						<div class="movieInfo">
-							<div class="selectMovie">
-								<label>
-									<p>영화를 선택해주세요</p> <select id="selectMovie"></select>
-								</label>
-							</div>
 							<div class="movieName">
 								<p>영화 제목</p>
-								<h1 id="movieName">Tom and Jerry</h1>
+								<h1 id="movieName"><%=MovieDao.getmovieDao().getmtitle(rno) %></h1>
 							</div>
 							<div class="moviePrice">
 								<p>MOVIE PRICE</p>
-								<h1 id="moviePrice">$ 7</h1>
+								<h1 id="moviePrice"><%=movie.getMprice() %></h1>
 							</div>
 							<div class="dateCont">
 								<p>Date</p>
-								<p class="dateOn">2022-05-28</p>
+								<p class="dateOn"><%=date %></p>
 
 							</div>
 						</div>

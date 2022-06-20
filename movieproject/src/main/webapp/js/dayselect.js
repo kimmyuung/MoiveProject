@@ -120,7 +120,7 @@ function seatchoice() {
 	}
 	// 내려오는 와중에 null에 바뀌네요~
 	console.log(selectdate);
-	
+	alert(tnum);
 	location.href = "/movieproject/movie/seatchocie.jsp?rno="+rnum + 
 	"&date=" + selectdate + "&tno=" + tnum;
 }

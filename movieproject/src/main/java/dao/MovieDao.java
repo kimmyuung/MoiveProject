@@ -136,12 +136,12 @@ public class MovieDao extends Dao {
 		}
 		return null;
 	}
-	// 영화 번호를 통한 영화 제목 출력
-	public String getmtitle(int mno) {
+	// 상영 영화 번호를 통한 상영 영화 제목 출력
+	public String getmtitle(int rno) {
 		try {
-			String sql = "select mtitle from movie where mno = ?";
+			String sql = "select mtitle from runmovie where rno = ?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, mno);
+			ps.setInt(1, rno);
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				return rs.getString(1);
@@ -375,9 +375,56 @@ public class MovieDao extends Dao {
 				jo.put("mtitle", rs.getString(2));
 				jo.put("starttime", rs.getString(3));
 				jo.put("rno", rs.getInt(4));
+				jo.put("tname", false);
 				js.put(jo);
 			}
 			return js;
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	// 영화관 번호를 가지고 상영관 정보 출력
+	public Theater getTheater(int tno) {
+		try {
+			String sql = "select * from where theater where tno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, tno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				Theater theater = new Theater(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+				return theater;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	
+	// 영화 번호를 가지고 영화 정보 출력
+	public Movie getMovie(String mtitle) {
+		try {
+			String sql = "select * from movie where mtitle = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mtitle);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				Movie movie = new Movie(rs.getInt(1), rs.getString(2), 
+						rs.getString(3), null, rs.getInt(5), rs.getInt(6) );
+						return movie;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	
+	// 상영 영화 pk를 가지고 상영 영화정보 출력
+	public String getRunmovieTitle(int rno) {
+		try {
+			String sql = "select mtitle from runmovie where rno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, rno);
+			System.out.println(rno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+
+				return rs.getString(1);
+			}
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
 	}

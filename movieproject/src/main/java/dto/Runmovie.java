@@ -5,14 +5,15 @@ public class Runmovie {
 	private String stime;
 	private int tno;
 	private String mtitle;
-	
+	private int rno;
 	public Runmovie() {}
 
-	public Runmovie(String stime, int tno, String mtitle) {
+	public Runmovie(String stime, int tno, String mtitle, int rno) {
 		super();
 		this.stime = stime;
 		this.tno = tno;
 		this.mtitle = mtitle;
+		this.rno = rno;
 	}
 
 	public String getStime() {
@@ -39,10 +40,21 @@ public class Runmovie {
 		this.mtitle = mtitle;
 	}
 
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+
 	@Override
 	public String toString() {
-		return "Runmovie [stime=" + stime + ", tno=" + tno + ", mtitle=" + mtitle + "]";
+		return "Runmovie [stime=" + stime + ", tno=" + tno + ", mtitle=" + mtitle + ", rno=" + rno + "]";
 	}
+
+	
+	
 
 	
 	
