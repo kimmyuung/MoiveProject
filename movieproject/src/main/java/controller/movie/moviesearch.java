@@ -43,8 +43,8 @@ public class moviesearch extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String text = request.getParameter("query");
 		
-		String clientId = "2Q6cnxxfBY7eixT2c20k"; //애플리케이션 클라이언트 아이디값"
-        String clientSecret = "4d3kieNzyh"; //애플리케이션 클라이언트 시크릿값"
+		String clientId = "C42rs9pTGjajoo5tbUX7"; //애플리케이션 클라이언트 아이디값"
+        String clientSecret = "3CibZ9XUTn"; //애플리케이션 클라이언트 시크릿값"
         String display = request.getParameter("display");
         try {
         	String apiURL = "https://openapi.naver.com/v1/search/movie.json?query="+ text; // json 결과

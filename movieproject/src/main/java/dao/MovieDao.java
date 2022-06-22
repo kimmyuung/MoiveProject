@@ -136,14 +136,36 @@ public class MovieDao extends Dao {
 		}
 		return null;
 	}
-	// 상영 영화 번호를 통한 상영 영화 제목 출력
-	public String getmtitle(int rno) {
+	// 영화 정보 출력 : JSON
+	public JSONObject getmoviejson(String mtitle) {
 		try {
-			String sql = "select mtitle from runmovie where rno = ?";
+			JSONObject jo = new JSONObject();
+			String sql = "select * from movie where mtitle = ?";
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, rno);
+			ps.setString(1, mtitle);
 			rs = ps.executeQuery();
 			if(rs.next()) {
+				jo.put("mno", rs.getInt(1));
+				jo.put("mtitle", rs.getString(2));
+				jo.put("mruntime", rs.getString(3));
+				jo.put("mimg", rs.getString(4));
+				jo.put("mprice", rs.getInt(5));
+				jo.put("mcategory", rs.getInt(6));	
+			}
+			
+			return jo;
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	// 영화 번호를 통한 영화 제목 출력
+	public String getmtitle(int mno) {
+		try {
+			String sql = "select mtitle from movie where mno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, mno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				System.out.println(rs.getString(1));
 				return rs.getString(1);
 			}
 		}catch(Exception e) {e.printStackTrace();}
@@ -181,7 +203,7 @@ public class MovieDao extends Dao {
 		return false;
 	}
 
-	// 영화 호출
+	// 영화 목록 호출
 	public ArrayList<Movie> getmovielist() {
 		ArrayList<Movie> list = new ArrayList<Movie>();
 		String sql = "select * from movie";
@@ -291,12 +313,14 @@ public class MovieDao extends Dao {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				JSONObject jo = new JSONObject();
-				jo.put("tname", rs.getString(1));
+				jo.put("tno", rs.getInt(1));
 				jo.put("mtitle", rs.getString(2));
 				jo.put("starttime", rs.getString(3));
 				jo.put("rno", rs.getInt(4));
 				jo.put("mno", rs.getInt(5));
 				jo.put("mruntime", rs.getString(7));
+				jo.put("mprice", rs.getString(9));
+				jo.put("mcategory", rs.getString(10));
 				js.put(jo);
 			}
 				return js;
@@ -371,13 +395,13 @@ public class MovieDao extends Dao {
 			rs = ps.executeQuery();
 			while(rs.next()) {
 				JSONObject jo = new JSONObject();
-				jo.put("tno", rs.getString(1));
+				jo.put("tno", rs.getInt(1));
 				jo.put("mtitle", rs.getString(2));
 				jo.put("starttime", rs.getString(3));
 				jo.put("rno", rs.getInt(4));
-				jo.put("tname", false);
 				js.put(jo);
 			}
+			System.out.println(js.toString());
 			return js;
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
@@ -397,7 +421,7 @@ public class MovieDao extends Dao {
 		return null;
 	}
 	
-	// 영화 번호를 가지고 영화 정보 출력
+	// 영화 제목을 가지고 영화 정보 출력
 	public Movie getMovie(String mtitle) {
 		try {
 			String sql = "select * from movie where mtitle = ?";
@@ -407,7 +431,9 @@ public class MovieDao extends Dao {
 			if(rs.next()) {
 				Movie movie = new Movie(rs.getInt(1), rs.getString(2), 
 						rs.getString(3), null, rs.getInt(5), rs.getInt(6) );
-						return movie;
+				System.out.println(movie.toString());		
+				return movie;
+						
 			}
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
@@ -419,13 +445,12 @@ public class MovieDao extends Dao {
 			String sql = "select mtitle from runmovie where rno = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, rno);
-			System.out.println(rno);
 			rs = ps.executeQuery();
 			if(rs.next()) {
-
 				return rs.getString(1);
 			}
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
 	}
+	
 }

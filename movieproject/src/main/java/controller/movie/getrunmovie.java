@@ -7,21 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.JSONArray;
+import org.json.JSONObject;
 
 import dao.MovieDao;
+import dto.Movie;
 
 /**
- * Servlet implementation class runtheaterlist
+ * Servlet implementation class getrunmovie
  */
-@WebServlet("/movie/runtheaterlist")
-public class runtheaterlist extends HttpServlet {
+@WebServlet("/movie/getrunmovie")
+public class getrunmovie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public runtheaterlist() {
+    public getrunmovie() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,14 +31,15 @@ public class runtheaterlist extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int rno = Integer.parseInt(request.getParameter("rno"));
+		System.out.println(rno);
+		String mtitle = MovieDao.getmovieDao().getRunmovieTitle(rno);
 		
-		int mno = Integer.parseInt(request.getParameter("mno"));
-		String mtitle = MovieDao.getmovieDao().getmtitle(mno);
-		System.out.println("영화 제목 : " + mtitle + "영화 번호 : " + mno);
-		JSONArray js = MovieDao.getmovieDao().getruntheaterlist(mtitle);
+		JSONObject jo = MovieDao.getmovieDao().getmoviejson(mtitle);
+		System.out.println(jo.toString());
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
-		response.getWriter().print(js);
+		response.getWriter().print(jo);
 	}
 
 	/**

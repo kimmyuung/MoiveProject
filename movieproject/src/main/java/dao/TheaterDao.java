@@ -131,4 +131,35 @@ public class TheaterDao extends Dao{
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
 	}
+	public String gettname(int tno) {
+		try {
+			String sql = "select tname form theater where tno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, tno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	
+	public JSONObject getjsontheater(int tno) {
+		try {
+			JSONObject jo = new JSONObject();
+			String sql = "select * from theater where tno = ? ";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, tno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				jo.put("tno", rs.getInt(1));
+				jo.put("tname", rs.getString(2));
+				jo.put("tseat", rs.getString(3));
+				jo.put("tlocation", rs.getString(4));
+				return jo;
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	
 }

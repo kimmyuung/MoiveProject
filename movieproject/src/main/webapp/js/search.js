@@ -5,9 +5,9 @@ function moviesearch() {
 	
 	$.ajax({
 		method : 'get',
-		url : 'https://openapi.naver.com/v1/search/movie.json?query=',
+		url : 'moviesearch',
 		data : {"query" : "닥터"},
-		headers : {"X-Naver-Client-Id" : "C42rs9pTGjajoo5tbUX7", "X-Naver-Client-Secret" : "iOI4fqgIwj"},
+		headers : {"X-Naver-Client-Id" : "C42rs9pTGjajoo5tbUX7", "X-Naver-Client-Secret" : "3CibZ9XUTn"},
 		success : function(json) {
 			let data = new JSON.parse(json);
 			alert(data);

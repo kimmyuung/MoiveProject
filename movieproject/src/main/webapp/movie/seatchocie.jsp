@@ -11,14 +11,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <link href="/movieproject/css/seatchoice_2.css" rel="stylesheet">
 </head>
 <body>
 <%int rno = Integer.parseInt(request.getParameter("rno")) ; 
 String date = request.getParameter("date");
+int selectdate = Integer.parseInt(date);
+int month = selectdate / 100;
+int day = selectdate % 100;
 int tno = Integer.parseInt(request.getParameter("tno"));
-Movie movie = MovieDao.getmovieDao().getMovie(MovieDao.getmovieDao().getmtitle(rno));
-%>
+
+if(rno == 0 || date == null || tno == 0) { %>
+	<%@include file="../error.jsp" %>
+<% } else{ %>
+
+<input type="hidden" id="tno" value="<%=tno%>">
+<input type="hidden" id="rno" value="<%=rno%>">
+
 	<section id="section">
 		<div class="container">
 			<!-- leftCont -->
@@ -44,92 +56,6 @@ Movie movie = MovieDao.getmovieDao().getMovie(MovieDao.getmovieDao().getmtitle(r
 						</div>
 						<!-- 반목문을 통해 추출할 예정 -->
 						<div class="seatCont" id="seatCont">
-							<div class="seatRowCont1 seatRowCont">
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-							</div>
-							<div class="seatRowCont2 seatRowCont">
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-							</div>
-							<div class="seatRowCont3 seatRowCont">
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-								<div class="row">
-									<div class="seat"></div>
-									<div class="seat occupied"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-									<div class="seat"></div>
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -142,24 +68,24 @@ Movie movie = MovieDao.getmovieDao().getMovie(MovieDao.getmovieDao().getmtitle(r
 						<div class="movieInfo">
 							<div class="movieName">
 								<p>영화 제목</p>
-								<h1 id="movieName"><%=MovieDao.getmovieDao().getmtitle(rno) %></h1>
+								<h3 id="movieName"><%=MovieDao.getmovieDao().getRunmovieTitle(rno) %></h3>
 							</div>
 							<div class="moviePrice">
-								<p>MOVIE PRICE</p>
-								<h1 id="moviePrice"><%=movie.getMprice() %></h1>
+								<p>영화가격</p>
+								<h1 id="moviePrice"></h1>
 							</div>
 							<div class="dateCont">
-								<p>Date</p>
-								<p class="dateOn"><%=date %></p>
+								<p>날짜</p>
+								<p class="dateOn"><%=month %>월 <%=day %> 일</p>
 
 							</div>
 						</div>
 					</div>
 					<div class="rightBottomCont">
 						<div class="selectedSeatCont">
-							<p>SELECTED SEATS</p>
+							<p>선택한 좌석</p>
 							<div class="selectedSeatsHolder" id="selectedSeatsHolder">
-								<span class="noSelected">No Seat Selected</span>
+								<span class="noSelected">좌석을 선택해주세요</span>
 							</div>
 						</div>
 						<!-- Seat number and price -->
@@ -171,7 +97,7 @@ Movie movie = MovieDao.getmovieDao().getMovie(MovieDao.getmovieDao().getmtitle(r
 								</p>
 							</div>
 							<div class="priceCont">
-								<p id="totalPrice">$ 0</p>
+								<p id="totalPrice">0원</p>
 							</div>
 						</div>
 						<!-- button Cont -->
@@ -188,7 +114,14 @@ Movie movie = MovieDao.getmovieDao().getMovie(MovieDao.getmovieDao().getmtitle(r
 				</div>
 			</div>
 		</div>
+		
 	</section>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- jquery 최신 cdn -->
+	<script src="http://code.jquery.com/jquery-latest.min.js"
+		type="text/javascript"></script>
 	<script src="/movieproject/js/seatchocie.js" type="text/javascript"></script>
+<%} %>
 </body>
 </html>
