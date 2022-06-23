@@ -6,12 +6,11 @@ function moviesearch() {
 	$.ajax({
 		method : 'get',
 		url : 'moviesearch',
-		data : {"query" : "닥터"},
+		data : {"query" : "어벤져스"},
 		headers : {"X-Naver-Client-Id" : "C42rs9pTGjajoo5tbUX7", "X-Naver-Client-Secret" : "3CibZ9XUTn"},
 		success : function(json) {
-			let data = new JSON.parse(json);
-			alert(data);
-			console.log(data);
+			console.log(json);
+			
 		}
 	});
 }

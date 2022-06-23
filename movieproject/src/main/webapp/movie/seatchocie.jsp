@@ -17,20 +17,23 @@
 <link href="/movieproject/css/seatchoice_2.css" rel="stylesheet">
 </head>
 <body>
-<%int rno = Integer.parseInt(request.getParameter("rno")) ; 
+<%
+int rno = Integer.parseInt(request.getParameter("rno")) ; 
 String date = request.getParameter("date");
+int tno = Integer.parseInt(request.getParameter("tno"));
+if(rno == 0 || date == null || tno == 0) { %>
+<%@include file="../error.jsp" %>
+<% }else { 
 int selectdate = Integer.parseInt(date);
 int month = selectdate / 100;
 int day = selectdate % 100;
-int tno = Integer.parseInt(request.getParameter("tno"));
 
-if(rno == 0 || date == null || tno == 0) { %>
-	<%@include file="../error.jsp" %>
-<% } else{ %>
+%>
+ 
 
 <input type="hidden" id="tno" value="<%=tno%>">
 <input type="hidden" id="rno" value="<%=rno%>">
-
+<input type="hidden" id="date" value="<%=date%>">
 	<section id="section">
 		<div class="container">
 			<!-- leftCont -->

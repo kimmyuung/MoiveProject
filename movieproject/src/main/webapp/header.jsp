@@ -113,7 +113,6 @@
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <li><a class="dropdown-item" href="/movieproject/theater/theaterlist.jsp">상영관 관리</a></li>
-    <li><a class="dropdown-item" href="/movieproject/product/productlist.jsp">제품 관리</a></li>
     <li><a class="dropdown-item" href="/movieproject/member/memberlist.jsp">회원 관리</a></li>
     <li><a class="dropdown-item" href="/movieproject/chart/chart.jsp">매출 관리</a></li>
     <li></li>

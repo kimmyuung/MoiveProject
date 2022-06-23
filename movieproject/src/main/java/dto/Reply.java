@@ -7,7 +7,7 @@ public class Reply {
 	private String rcontent;
 	private String rdate;
 	private int rindex;
-	private int bno;
+	private int bno; // 게시물 번호(영화관 디테일에 부여되는 pk)
 	private int mno;
 	private String mid;
 	

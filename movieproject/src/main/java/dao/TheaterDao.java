@@ -133,7 +133,7 @@ public class TheaterDao extends Dao{
 	}
 	public String gettname(int tno) {
 		try {
-			String sql = "select tname form theater where tno = ?";
+			String sql = "select tname from theater where tno = ?";
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, tno);
 			rs = ps.executeQuery();

@@ -130,24 +130,7 @@
 			</div>
 		</div>
 		<br> <br> 
-		<div class="row" id="productbox">
-			<h3>영화관 상품</h3>
-			<div class="col-md-4">
-			영화 티켓 기프티콘
-				<img alt="" src="" width="100%">
-			</div>
-			<div class="col-md-4">
-				영화 먹거리 상품
-				<img alt="" src="" width="100%">
-			</div>
-			<div class="col-md-4">
-				영화관 제휴 안내
-				<img alt="" src="" width="100%">
-			</div>
-		</div>
-
-		<br> <br> 
-		<!-- 로고 이미지를 어떻게 넣어야하는지... -->
+		
 
 
 

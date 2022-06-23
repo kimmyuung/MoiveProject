@@ -107,10 +107,11 @@ function gettheater() {
 				const numberOfSeatEl = document.getElementById("numberOfSeat");
 				numberOfSeatEl.innerHTML = takenSeats.length;
 			}
-
+			let totalprice;
 			function updatePrice(price, seats) {
 				const totalPriceEl = document.getElementById("totalPrice");
 				let total = seats * mprice;
+				totalprice = total;
 				totalPriceEl.innerHTML = `${total} 원`;
 			}
 
@@ -129,7 +130,9 @@ function gettheater() {
 
 			proceedBtnEl.addEventListener("click", (e) => {
 				if (takenSeats.length) {
-					location.href = '';
+					location.href = "/movieproject/movie/orderpay.jsp?rno="+ $("#rno").val() + 
+										"&date=" + $("#date").val() + "&tno=" + $("#tno").val() +
+										"&seats=" + takenSeats + "&totalprice=" + totalprice;
 				} else {
 					alert("좌석을 선택해주세요");
 				}

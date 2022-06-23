@@ -330,7 +330,7 @@ public class MovieDao extends Dao {
 		return null;
 	}
 	// 티켓에 쓰일 상영 영화 정보 출력(영화 테이블에서 조인하여 상세 정보 획득)
-	public JSONObject getrunmovie() {
+	public JSONObject getTicket() {
 		try {
 			String sql = "SELECT * FROM runmovie"
 					+ "left outer join movie on mtitle = movie.mtitle;";
@@ -452,5 +452,16 @@ public class MovieDao extends Dao {
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
 	}
-	
+	public String getStarttime(int rno) {
+		try {
+			String sql = "select starttime from runmovie where rno = ?";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, rno);
+			rs = ps.executeQuery();
+			if(rs.next()) {
+				return rs.getString(1);
+			}
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
 }
