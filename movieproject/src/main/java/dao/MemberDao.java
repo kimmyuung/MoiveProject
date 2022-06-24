@@ -2,6 +2,8 @@ package dao;
 
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+
 import dto.Member;
 
 public class MemberDao extends Dao{
@@ -208,6 +210,25 @@ public class MemberDao extends Dao{
 					return rs.getString(1);
 				}
 			}catch(Exception e) {System.out.println("회원아이디 출력 오류" + e);}
+			return null;
+		}
+		public JSONObject getmemberjson(String mid) {
+			JSONObject jo = new JSONObject();
+			try {
+				String sql = "select * from member where mid = ?";
+				ps = con.prepareStatement(sql);
+				ps.setString(1, mid);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					jo.put("mno", rs.getInt(1));
+					jo.put("mid", rs.getString(2));
+					jo.put("mname", rs.getString(4));
+					jo.put("mphone", rs.getString(5));
+					jo.put("memail", rs.getString(6));
+					
+					return jo;
+				}
+			}catch(Exception e) {e.printStackTrace();}
 			return null;
 		}
 }

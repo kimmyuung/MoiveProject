@@ -70,7 +70,8 @@ public class moviesearch extends HttpServlet {
             	sb.append(inputLine);
             }
             JSONArray js = new JSONArray();
-            JSONObject jo = new JSONObject(sb);
+            JSONObject jo = new JSONObject();
+            	jo.put("result", sb);
             js.put(jo);
             br.close();
             

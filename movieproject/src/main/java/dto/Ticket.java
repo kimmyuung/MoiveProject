@@ -1,79 +1,65 @@
 package dto;
 
 public class Ticket {
-private int tnum; // 티켓번호
-private String ttile; // 영화 제목
-private String starttime;
-private String ttname;// 영화관 이름
-private int tprice;
-private String tseat;
-private int mno; // 구매한 회원 
 
-
-public Ticket() {}
-
-public Ticket(int tnum, String ttile, String starttime, String ttname, int tpeople, int tprice, String tseat, int mno) {
-	super();
-	this.tnum = tnum;
-	this.ttile = ttile;
-	this.starttime = starttime;
-	this.ttname = ttname;
-	this.tprice = tprice;
-	this.tseat = tseat;
-	this.mno = mno;
-}
-
-
-@Override
-public String toString() {
-	return "Ticket [tnum=" + tnum + ", ttile=" + ttile + ", starttime=" + starttime + ", ttname=" + ttname + ", tprice="
-			+ tprice + ", tseat=" + tseat + ", mno=" + mno + "]";
-}
-
-
-public int getTnum() {
-	return tnum;
-}
-public void setTnum(int tnum) {
-	this.tnum = tnum;
-}
-public String getTtile() {
-	return ttile;
-}
-public void setTtile(String ttile) {
-	this.ttile = ttile;
-}
-public String getStarttime() {
-	return starttime;
-}
-public void setStarttime(String starttime) {
-	this.starttime = starttime;
-}
-public String getTtname() {
-	return ttname;
-}
-public void setTtname(String ttname) {
-	this.ttname = ttname;
-}
-public int getTprice() {
-	return tprice;
-}
-public void setTprice(int tprice) {
-	this.tprice = tprice;
-}
-public String getTseat() {
-	return tseat;
-}
-public void setTseat(String tseat) {
-	this.tseat = tseat;
-}
-
-public int getMno() {
-	return mno;
-}
-
-public void setMno(int mno) {
-	this.mno = mno;
-}
-
+	
+	private int tnum; // 티켓 번호
+	private int tno; // 상영관 번호
+	private int rno; // 상영영화 번호
+	private String date; // 날짜
+	private String seat; // 좌석
+	private String mid; // 예약한 아이디
+	
+	public Ticket(int tnum, int tno, int rno, String date, String seat, String mid) {
+		super();
+		this.tnum = tnum;
+		this.tno = tno;
+		this.rno = rno;
+		this.date = date;
+		this.seat = seat;
+		this.mid = mid;
+	}
+	@Override
+	public String toString() {
+		return "Ticket [tnum=" + tnum + ", tno=" + tno + ", rno=" + rno + ", date=" + date + ", seat=" + seat + ", mid="
+				+ mid + "]";
+	}
+	public int getTnum() {
+		return tnum;
+	}
+	public void setTnum(int tnum) {
+		this.tnum = tnum;
+	}
+	public int getTno() {
+		return tno;
+	}
+	public void setTno(int tno) {
+		this.tno = tno;
+	}
+	public int getRno() {
+		return rno;
+	}
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getSeat() {
+		return seat;
+	}
+	public void setSeat(String seat) {
+		this.seat = seat;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+			
+	
 }

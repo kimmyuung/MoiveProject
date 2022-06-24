@@ -1,4 +1,4 @@
-package controller.member;
+package controller.movie;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,9 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class getmember
- */
+import org.json.JSONObject;
+
+import dao.MemberDao;
+import dto.Member;
+
+
 @WebServlet("/movie/getmember")
 public class getmember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,7 +30,11 @@ public class getmember extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String mid = (String)request.getSession().getAttribute("login");
+		JSONObject jo = MemberDao.getMemberDao().getmemberjson(mid);
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json");
+		response.getWriter().print(jo);
 	}
 
 	/**

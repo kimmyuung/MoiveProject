@@ -9,6 +9,7 @@ import dto.Category;
 import dto.Movie;
 import dto.Runmovie;
 import dto.Theater;
+import dto.Ticket;
 
 public class MovieDao extends Dao {
 
@@ -463,5 +464,19 @@ public class MovieDao extends Dao {
 			}
 		}catch(Exception e) {e.printStackTrace();}
 		return null;
+	}
+	public boolean saveticket(Ticket ticket) {
+		try {
+			String sql = "insert into ticket(tno, rno, date, seat, mid) values(?,?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, ticket.getTno());
+			ps.setInt(2, ticket.getRno());
+			ps.setString(3, ticket.getDate());
+			ps.setString(4, ticket.getSeat());
+			ps.setString(5, ticket.getMid());
+			ps.executeUpdate();
+			return true;
+		}catch(Exception e) {e.printStackTrace();}
+		return false;
 	}
 }

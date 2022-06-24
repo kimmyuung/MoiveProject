@@ -10,7 +10,6 @@ function moviesearch() {
 		headers : {"X-Naver-Client-Id" : "C42rs9pTGjajoo5tbUX7", "X-Naver-Client-Secret" : "3CibZ9XUTn"},
 		success : function(json) {
 			console.log(json);
-			
 		}
 	});
 }
