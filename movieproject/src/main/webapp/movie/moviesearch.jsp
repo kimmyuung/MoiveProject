@@ -37,7 +37,7 @@
 
 
 <section class="results">
-  <div class="movie-grid"></div>
+  <table class="movie-grid" id="searchresult"></table>
 </section>
 
 

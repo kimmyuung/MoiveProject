@@ -37,58 +37,84 @@ public class moviesearch extends HttpServlet {
       
     }
 
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		String text = request.getParameter("query");
+		String query = request.getParameter("query");
 		
 		String clientId = "C42rs9pTGjajoo5tbUX7"; //애플리케이션 클라이언트 아이디값"
         String clientSecret = "3CibZ9XUTn"; //애플리케이션 클라이언트 시크릿값"
-        String display = request.getParameter("display");
+       
         try {
+        	String text = URLEncoder.encode(query, "UTF-8");
         	String apiURL = "https://openapi.naver.com/v1/search/movie.json?query="+ text; // json 결과
- 
-        	URL url = new URL(apiURL);
-            HttpURLConnection con = (HttpURLConnection)url.openConnection();
-            con.setRequestMethod("GET");
-            con.setRequestProperty("X-Naver-Client-Id", clientId);
-            con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
-        	
-            int responseCode = con.getResponseCode();
-            BufferedReader br;
-            if(responseCode == 200) {
-            	br = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            }
-            else {
-            	br = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-            }
-        	
-            String inputLine;
-            StringBuffer sb = new StringBuffer();
-            while ((inputLine = br.readLine()) != null) {//br.readLine()가 널이 아닐때만 inputLine에 br.readLine()값 집어넣고 while문 실행                   sb.append(inputLine);               }
-            	sb.append(inputLine);
-            }
-            JSONArray js = new JSONArray();
-            JSONObject jo = new JSONObject();
-            	jo.put("result", sb);
-            js.put(jo);
-            br.close();
-            
-        	response.setCharacterEncoding("UTF-8");
-        	response.setContentType("application/json");
-        	response.getWriter().print(js);
-        	
-        }catch(Exception e) {e.printStackTrace();}
-        
+        	  Map<String, String> requestHeaders = new HashMap<>();       	  
+        	  requestHeaders.put("X-Naver-Client-Id", clientId);
+              requestHeaders.put("X-Naver-Client-Secret", clientSecret);
+              String responseBody = get(apiURL,requestHeaders);
+
+
+              
+              JSONObject jo = new JSONObject(responseBody);
+              response.setCharacterEncoding("UTF-8");
+              response.setContentType("application/json");
+              response.getWriter().print(jo);
+        	}catch(Exception e) {e.printStackTrace();}
+          }
+
+
+          private static String get(String apiUrl, Map<String, String> requestHeaders){
+              HttpURLConnection con = connect(apiUrl);
+              try {
+                  con.setRequestMethod("GET");
+                  for(Map.Entry<String, String> header :requestHeaders.entrySet()) {
+                      con.setRequestProperty(header.getKey(), header.getValue());
+                  }
+
+
+                  int responseCode = con.getResponseCode();
+                  if (responseCode == HttpURLConnection.HTTP_OK) { // 정상 호출
+                      return readBody(con.getInputStream());
+                  } else { // 에러 발생
+                      return readBody(con.getErrorStream());
+                  }
+              } catch (IOException e) {
+                  throw new RuntimeException("API 요청과 응답 실패", e);
+              } finally {
+                  con.disconnect();
+              }
+          }
+
+
+          private static HttpURLConnection connect(String apiUrl){
+              try {
+                  URL url = new URL(apiUrl);
+                  return (HttpURLConnection)url.openConnection();
+              } catch (MalformedURLException e) {
+                  throw new RuntimeException("API URL이 잘못되었습니다. : " + apiUrl, e);
+              } catch (IOException e) {
+                  throw new RuntimeException("연결이 실패했습니다. : " + apiUrl, e);
+              }
+          }
+
+
+          private static String readBody(InputStream body){
+              InputStreamReader streamReader = new InputStreamReader(body);
+
+
+              try (BufferedReader lineReader = new BufferedReader(streamReader)) {
+                  StringBuilder responseBody = new StringBuilder();
+
+
+                  String line;
+                  while ((line = lineReader.readLine()) != null) {
+                      responseBody.append(line);
+                  }
+
+
+                  return responseBody.toString();
+              } catch (IOException e) {
+                  throw new RuntimeException("API 응답을 읽는데 실패했습니다.", e);
+              }
+          }
 	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
-
-	}
-

@@ -2,38 +2,6 @@
 let list = [];
 $(document).ready(function() {
 
-	$('#addFilm').click(function() {
-
-		var name = $('#moviebox').val();
-		var duration = parseInt($('#runtimebox').val()) * (5 / 3); /*must be in mins*/
-		var dur = $('#runtimebox').val();
-		var startTime = $('#timetableStart').val();
-
-		
-		/*get the hour*/
-		var hour = parseInt($('#timetableStart').val()) * 100;
-		/*get the minutes*/
-		var min = $('#timetableStart').val();
-		var res = min.split(":");
-		var minute = parseInt(res[1]) / 60 * 100;
-		var t = hour + parseInt(minute);
-		var screen = parseInt($('#theaterbox').val()) * 10;
-		console.log(screen);
-		$('#layout').append("<span class='film' style='top:" + screen + "vh;left:calc(10vw + " + t + "px); width:" + duration + "px' data-start='" + startTime + "'>" + name + " -" + dur + "mins</span>");
-
-
-
-		$('.layoutdesign').on("click", ".film", function() {
-			$(this).toggleClass("activeFilm");
-			$('#deleteFilm').show();
-		});
-		$('#deleteFilm').click(function() {
-			$('.activeFilm').remove();
-			$(this).hide();
-		});
-		
-	})
-
 	$("#moviebox").change(function() {
 		let mtitle = $("#moviebox").val();
 		$.ajax({
@@ -48,8 +16,8 @@ $(document).ready(function() {
 
 	});
 	$('#quit').click(function() {
-			location.href = '/movieproject/main.jsp';
-		});
+		location.href = '/movieproject/main.jsp';
+	});
 	getmovielist();
 	gettheaterlist();
 
@@ -92,9 +60,43 @@ function getrunmovielist() {
 
 				let html = "";
 				for (let i = 0; i < json.length; i++) {
-					html += "<span class='activeFilm' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["mruntime"] + "px); width:" + json[i]["mruntime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] + " -" + json[i]["mruntime"] + "mins</span>"
+					html += "<span class='film' style='top:" + json[i]["tname"] + "vh;left:calc(10vw + " + json[i]["mruntime"] + "px); width:" + json[i]["mruntime"] + "px' data-start='" + json[i]["starttime"] + "'>" + json[i]["mtitle"] + " -" + json[i]["mruntime"] + "mins</span>"
 				}
 				$('.timetable .layoutdesign').append(html);
+				$('#addFilm').click(function() {
+
+					var name = $('#moviebox').val();
+					var duration = parseInt($('#runtimebox').val()) * (5 / 3); /*must be in mins*/
+					var dur = $('#runtimebox').val();
+					var startTime = $('#timetableStart').val();
+
+
+					/*get the hour*/
+					var hour = parseInt($('#timetableStart').val()) * 100;
+					/*get the minutes*/
+					var min = $('#timetableStart').val();
+					var res = min.split(":");
+					var minute = parseInt(res[1]) / 60 * 100;
+					var t = hour + parseInt(minute);
+					var screen = parseInt($('#theaterbox').val()) * 10;
+					console.log(screen);
+					$('#layout').append("<span class='film' style='top:" + screen + "vh;left:calc(10vw + " + t + "px); width:" + duration + "px' data-start='" + startTime + "'>" + name + " -" + dur + "mins</span>");
+
+
+
+					$('.layoutdesign').on("click", ".film", function() {
+						$(this).toggleClass("activeFilm");
+						$('#deleteFilm').show();
+					});
+					$('#deleteFilm').click(function() {
+						$('.activeFilm').remove();
+						$(this).hide();
+					});
+
+				})
+
+
+
 			}
 			else {
 
