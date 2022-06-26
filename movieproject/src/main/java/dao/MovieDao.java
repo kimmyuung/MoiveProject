@@ -264,7 +264,7 @@ public class MovieDao extends Dao {
 		}
 		return null;
 	}
-
+	// 한 상영관에서 상영하는 상영영화들
 	public JSONArray timelist(int tno) {
 		try {
 			JSONArray list = new JSONArray();
@@ -478,5 +478,31 @@ public class MovieDao extends Dao {
 			return true;
 		}catch(Exception e) {e.printStackTrace();}
 		return false;
+	}
+	// 상영영화 리스트 출력
+	public ArrayList<Runmovie> runmovielist() {
+		ArrayList<Runmovie> rlist = new ArrayList<Runmovie>();
+		try {
+			String sql = "select * from runmovie";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Runmovie runmovie = new Runmovie(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4));
+				rlist.add(runmovie);
+			}
+			return rlist;
+		}catch(Exception e) {e.printStackTrace();}
+		return null;
+	}
+	// 상영영화 제목을 통한 영화의 러닝타임 출력
+	public int getruntime(String mtitle) {
+		try {
+			String sql = "select mruntime from movie where mtitle = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, mtitle);
+			rs = ps.executeQuery();
+			if(rs.next()) return rs.getInt(1);
+		}catch(Exception e) {e.printStackTrace();}
+		return 0;
 	}
 }

@@ -1,3 +1,8 @@
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalTime"%>
+<%@page import="javax.swing.text.DateFormatter"%>
+<%@page import="dao.MovieDao"%>
+<%@page import="dto.Runmovie"%>
 <%@page import="dao.TheaterDao"%>
 <%@page import="dto.Theater"%>
 <%@page import="java.util.ArrayList"%>
@@ -15,9 +20,12 @@
 <body>
 	<%
 	ArrayList<Theater> tlist = TheaterDao.getTheaterDao().theaterlist();
+	ArrayList<Runmovie> rlist = MovieDao.getmovieDao().runmovielist();
+	
+	if(tlist == null || rlist == null) {
 	%>
-	
-	
+	<div> 등록된 상영관이 없습니다. 상영관을 먼저 등록해주세요</div>
+	<%} %>
 	<br>
   <div class="timetable my-3">
   <br>
@@ -97,8 +105,18 @@
       <div></div>
     </div>
     <%} %>
-     <span class="film" style="top:10vh;left:calc(10vw + 225px); width:180px" data-start="02:15">Deadpool -108mins</span>
-  
+   
+  <%for(Runmovie temp : rlist) { 
+	 
+	  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+	  LocalTime localDate = LocalTime.parse(temp.getStime(), formatter);
+  %>
+  <span class="film" 
+  style="top:<%=temp.getTno()%>vh; left:calc(10vw + <%=MovieDao.getmovieDao().getruntime(temp.getMtitle())%>px); 
+  width:<%=MovieDao.getmovieDao().getruntime(temp.getMtitle())%>px" data-start="<%=localDate%>">
+   <%=temp.getMtitle() %> -<%=MovieDao.getmovieDao().getruntime(temp.getMtitle()) %>분
+  </span> 
+  <%} %>
   </div>
   <form>
     <select id="moviebox"> </select>

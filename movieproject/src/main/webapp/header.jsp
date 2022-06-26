@@ -49,12 +49,11 @@
 						&nbsp;&nbsp;
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 							<li><a class="dropdown-item" href="/movieproject/movie/movierank.jsp">영화 순위 확인</a></li>
-							<li><a class="dropdown-item" href="#">상영 시간표 보기</a></li>
-							<li><a class="dropdown-item" href="/movieproject/movie/dayselect.jsp">영화 예매 </a></li>
+						
 							<%
 							if (loginid != null && !(loginid.equals("admin"))) {
 							%>
-							<li><a class="dropdown-item" href="#"> 영화 예매 하기</a></li>
+							<li><a class="dropdown-item" href="/movieproject/movie/dayselect.jsp">영화 예매 </a></li>
 							<%
 							}
 							%>
@@ -63,6 +62,7 @@
 							%>
 							<li><a class="dropdown-item" href="/movieproject/movie/movieadd.jsp"> 영화 등록</a></li>
 							<li><a class="dropdown-item" href="/movieproject/movie/movielist.jsp"> 영화 관리</a></li>
+							<li><a class="dropdown-item" href="/movieproject/movie/.jsp"> 상영 영화 관리</a></li>
 							<%
 							}
 							%>
@@ -114,7 +114,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <li><a class="dropdown-item" href="/movieproject/theater/theaterlist.jsp">상영관 관리</a></li>
     <li><a class="dropdown-item" href="/movieproject/member/memberlist.jsp">회원 관리</a></li>
-    <li><a class="dropdown-item" href="/movieproject/chart/chart.jsp">매출 관리</a></li>
+    
     <li></li>
   </ul>
  

@@ -8,11 +8,12 @@ public class Runmovie {
 	private int rno;
 	public Runmovie() {}
 
-	public Runmovie(String stime, int tno, String mtitle, int rno) {
+	public Runmovie(int tno, String mtitle, String stime, int rno) {
 		super();
-		this.stime = stime;
+	
 		this.tno = tno;
 		this.mtitle = mtitle;
+		this.stime = stime;
 		this.rno = rno;
 	}
 

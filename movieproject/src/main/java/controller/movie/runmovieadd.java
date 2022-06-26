@@ -39,7 +39,7 @@ public class runmovieadd extends HttpServlet {
 		String Str_time = request.getParameter("starttime");	
 		
 		
-		Runmovie runmovie = new Runmovie(Str_time, tno, mtitle, 0);
+		Runmovie runmovie = new Runmovie(tno, mtitle, Str_time, 0);
 		
 		boolean result = MovieDao.getmovieDao().runmovieadd(runmovie);	
 		if(result) {response.getWriter().print(1);}	

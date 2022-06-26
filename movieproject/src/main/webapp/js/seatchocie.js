@@ -4,6 +4,7 @@ getrunmovie();
 
 function gettheater() {
 	let tno = $("#tno").val();
+	
 	$.ajax({
 		url: '../theater/gettheater',
 		data: { "tno": tno },
