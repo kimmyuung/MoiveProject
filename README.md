@@ -14,5 +14,4 @@ Customer_Controller
 
 
 
-
-주말에 할거 프론트 + 상영관 좌표 추출
+시연 영상
